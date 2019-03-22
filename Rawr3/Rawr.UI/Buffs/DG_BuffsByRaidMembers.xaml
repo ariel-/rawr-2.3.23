@@ -1,0 +1,347 @@
+<basics:ChildWindow xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation/toolkit" 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    mc:Ignorable="d"
+    x:Class="Rawr.UI.DG_BuffsByRaidMembers"
+    Title="Apply Buffs Based on Raid Members" Width="860" Height="420">
+    
+    <Grid x:Name="LayoutRoot" Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="60*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <!-- Left Side -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Margin="4,2" Text="Raid Size:" VerticalAlignment="Center" />
+                <ComboBox Height="23" Grid.Column="1" Margin="4,2" Name="CB_RaidSize" SelectionChanged="CB_RaidSize_SelectionChanged" FlowDirection="LeftToRight">
+                    <System:Int32>5</System:Int32>
+                    <System:Int32>10</System:Int32>
+                    <System:Int32>25</System:Int32>
+                    <System:Int32>40</System:Int32>
+                </ComboBox>
+            </Grid>
+            <ListBox Margin="4,2" Name="List_Classes" Grid.Row="1" />
+            <Button Name="BT_Delete" Content="Delete" Grid.Row="2" Margin="4,2,170,2" Click="BT_Delete_Click" />
+            <Button Name="BT_DeleteAll" Content="Delete All" Grid.Row="2" Margin="172,2,4,2" Click="BT_DeleteAll_Click" />
+
+
+            <!-- Right Side -->
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" Text="Select the class you would like to add:" Margin="4,2" VerticalAlignment="Center" />
+                <ComboBox Name="CB_Class2Add" Grid.Column="1" Margin="4,2" SelectionChanged="CB_Class2Add_SelectionChanged">
+                    <System:String>Death Knight</System:String>
+                    <System:String>Druid</System:String>
+                    <System:String>Hunter</System:String>
+                    <System:String>Mage</System:String>
+                    <System:String>Paladin</System:String>
+                    <System:String>Priest</System:String>
+                    <System:String>Rogue</System:String>
+                    <System:String>Shaman</System:String>
+                    <System:String>Warlock</System:String>
+                    <System:String>Warrior</System:String>
+                </ComboBox>
+                <Button x:Name="BT_Add" Content="Add" Grid.Column="2" Margin="4,2" Height="23" Width="45" Click="BT_Add_Click" />
+            </Grid>
+
+            <toolkit:WrapPanel Margin="4" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Grid.RowSpan="2">
+                <Grid x:Name="LO_Mage" Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Row 0 -->
+                    <TextBlock Text="Mages" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,2,2" Foreground="LightBlue" />
+                    <!-- Row 1 -->
+                    <TextBlock Text="How:" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" />
+                    <TextBlock Text="Mages apply buffs before the raid starts and when doing damage." Margin="4,0" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="1" />
+                    <!-- Row 2 -->
+                    <TextBlock Text="Limits:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" />
+                    <TextBlock Text="1 SpellCrit Debuff on Target" Margin="4,0" TextWrapping="Wrap" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="1" />
+                    <!-- Row 3 -->
+                    <TextBlock FontWeight="Bold" Margin="4,2" Text="All Mages:" Grid.Row="3" />
+                    <TextBlock Text="Arcane Intellect (Intellect), Amplify Magic (SpellPower)" Margin="4,0" TextWrapping="Wrap" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Grid.RowSpan="1" />
+                    <!-- Rows 4-6 -->
+                    <RadioButton x:Name="RB_Mage_Frost" Content="Frost" Grid.Row="4" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="MageSpec" FontWeight="Bold" Checked="CK_MageSpec_Changed" />
+                    <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="Enduring Winter (Mana Regen), Winter's Chill (SpellCrit Debuff)" Margin="4,2" TextWrapping="Wrap" />
+                    <RadioButton x:Name="RB_Mage_Fire" Content="Fire" Grid.Row="5" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="MageSpec" FontWeight="Bold" Checked="CK_MageSpec_Changed" />
+                    <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="4,2" Text="Improved Scorch (SpellCrit Debuff)" TextWrapping="Wrap" />
+                    <RadioButton x:Name="RB_Mage_Arcane" Content="Arcane" Grid.Row="6" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="MageSpec" FontWeight="Bold" Checked="CK_MageSpec_Changed" />
+                    <TextBlock Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="4,2" Text="Arcane Empowerment (Bonus Damage)" TextWrapping="Wrap" />
+                    <!-- Row 7 -->
+                    <TextBlock Name="LB_Mage_Focus" Text="Focus Magic:" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox Name="CB_Mage_Focus" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" SelectedIndex="1" Margin="4,2">
+                        <System:String>None</System:String>
+                        <System:String>Focus Magic</System:String>
+                    </ComboBox>
+                    <!-- Row 8 -->
+                    <TextBlock Name="LB_Mage_MA" Text="Magic Attunement:" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox Name="CB_Mage_MA" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" SelectedIndex="1" Margin="4,2">
+                        <System:String>None</System:String>
+                        <System:String>Magic Attunement</System:String>
+                    </ComboBox>
+                    <!-- Row 9 -->
+                    <!--<TextBlock Name="LB_Mage_Thunderclap" Text="Debuff:" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox x:Name="CB_Mage_Thunderclap" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" SelectedIndex="1" Margin="4,2">
+                        <System:String>None</System:String>
+                        <System:String>Thunderclap</System:String>
+                    </ComboBox>
+                    <CheckBox x:Name="CK_Mage_Thunderclap" Content="Improved" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" HorizontalAlignment="Left" VerticalAlignment="Center" /> -->
+                    <!-- Row 10 -->
+                    <!--<TextBlock Name="LB_Mage_Sunder" Text="Debuff:" Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox x:Name="CB_Mage_Sunder" Grid.Row="10" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" SelectedIndex="1">
+                        <System:String>None</System:String>
+                        <System:String>Sunder Armor</System:String>
+                    </ComboBox>-->
+                </Grid>
+                <Grid x:Name="LO_Priest" Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Row 0 -->
+                    <TextBlock Text="Priest" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,2,2" Foreground="LightGray" />
+                    <!-- Row 1 -->
+                    <TextBlock Text="How:" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" />
+                    <TextBlock Text="Priest apply most buffs before the fight starts and some passively." Margin="4,0" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="1" />
+                    <!-- Row 2 -->
+                    <TextBlock Text="Limits:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" />
+                    <TextBlock Text="" Margin="4,0" TextWrapping="Wrap" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="1" />
+                    <!-- Row 3 -->
+                    <TextBlock Text="All Priests:" FontWeight="Bold" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" />
+                    <TextBlock Text="Divine Spirit (Spirit), Power Word Fortitude (Stamina), Shadow Protection (Shadow Resist)" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" TextWrapping="Wrap" />
+                    <!-- Rows 4-6 -->
+                    <RadioButton x:Name="RB_Priest_D" Content="Discipline" Grid.Row="4" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="PriestSpec" FontWeight="Bold" Checked="CK_PriestSpec_Changed" />
+                    <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Text="Renewed Hope (Damage Taken Reduc)" Margin="4,2" TextWrapping="Wrap" />
+                    <RadioButton x:Name="RB_Priest_H" Content="Holy" Grid.Row="5" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="PriestSpec" FontWeight="Bold" Checked="CK_PriestSpec_Changed" />
+                    <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="4,2" Text="Inspiration (Damage Taken Reduc), Hymn of Hope (Burst Mana Regen)" TextWrapping="Wrap" />
+                    <RadioButton x:Name="RB_Priest_S" Content="Shadow" Grid.Row="6" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="PriestSpec" FontWeight="Bold" Checked="CK_PriestSpec_Changed" />
+                    <TextBlock Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="4,2" Text="Vampiric Touch (Mana Regen), Misery (Spell Hit)" TextWrapping="Wrap" />
+                </Grid>
+                <Grid x:Name="LO_Hunter" Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Row 0 -->
+                    <TextBlock Text="Hunter" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,2,2" Foreground="Green" />
+                    <!-- Row 1 -->
+                    <TextBlock Text="How:" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" />
+                    <TextBlock Text="Hunters apply most buffs before the fight starts, passively or with a Pet's ability." Margin="4,0" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="1" />
+                    <!-- Row 2 -->
+                    <TextBlock Text="Limits:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" />
+                    <TextBlock Text="1 Sting per Hunter to Target, 1 Hunter's Mark to Target, 1 Pet at a time which limits what debuffs are available" Margin="4,0" TextWrapping="Wrap" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="1" />
+                    <!-- Rows 3-5 -->
+                    <RadioButton x:Name="RB_Hunter_BM" Content="Beast Master" Grid.Row="3" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="HunterSpec" FontWeight="Bold" Checked="CK_HunterSpec_Changed" />
+                    <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="Ferocious Inspiration (Damage), Certain Pets Give Target Debuffs" Margin="4,2" TextWrapping="Wrap" />
+                    <RadioButton x:Name="RB_Hunter_MM" Content="Marksman" Grid.Row="4" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="HunterSpec" FontWeight="Bold" Checked="CK_HunterSpec_Changed" />
+                    <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="4,2" Text="Trueshot Aura (AP), Improved Hunter's Mark" TextWrapping="Wrap" />
+                    <RadioButton x:Name="RB_Hunter_SV" Content="Survival" Grid.Row="5" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="HunterSpec" FontWeight="Bold" Checked="CK_HunterSpec_Changed" />
+                    <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="4,2" Text="Hunting Party (Mana Regen)" TextWrapping="Wrap" />
+                    <!-- Row 6 -->
+                    <TextBlock Name="LB_Hunter_Pet" FontWeight="Bold" Grid.RowSpan="1" HorizontalAlignment="Left" Margin="4,2" Text="Pet:" VerticalAlignment="Center" Grid.Row="6" Grid.ColumnSpan="1" Grid.Column="0" />
+                    <ComboBox Name="CB_Hunter_Pet" Grid.Column="1" Grid.Row="6" Grid.RowSpan="1" Margin="4,2" Grid.ColumnSpan="1" SelectedIndex="3">
+                        <System:String>None</System:String>
+                        <System:String>Worm: Acid Spit (20% Target Armor Reduc)</System:String>
+                        <System:String>Wasp: Sting (5% Target Armor Reduc)</System:String>
+                        <System:String>Other</System:String>
+                    </ComboBox>
+                    <!-- Row 7 -->
+                    <TextBlock Name="LB_Hunter_Sting" Text="Sting:" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox x:Name="CB_Hunter_Sting" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" SelectedIndex="2" Margin="4,2">
+                        <System:String>None</System:String>
+                        <System:String>Scorpid Sting (Target Misses 3% More Often)</System:String>
+                        <System:String>Other</System:String>
+                    </ComboBox>
+                    <!-- Row 8 -->
+                    <TextBlock Name="LB_Hunter_Mark" Text="Hunter's Mark:" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox x:Name="CB_Hunter_Mark" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" SelectedIndex="2">
+                        <System:String>None</System:String>
+                        <System:String>Hunter's Mark (RAP)</System:String>
+                        <System:String>Hunter's Mark (Glyphed) (RAP)</System:String>
+                    </ComboBox>
+                    <CheckBox Name="CK_Hunter_Mark" Content="Improved" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" />
+                    <!-- Row 9 -->
+                    <TextBlock Name="LB_Hunter_Aspect" Text="Aspect:" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox x:Name="CB_Hunter_Aspect" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" SelectedIndex="2">
+                        <System:String>None</System:String>
+                        <System:String>Aspect of the Wild (Nature Resist)</System:String>
+                        <System:String>Other</System:String>
+                    </ComboBox>
+                </Grid>
+                <Grid x:Name="LO_Warrior" Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- Row 0 -->
+                    <TextBlock Text="Warriors" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,2,2" Foreground="BurlyWood" />
+                    <!-- Row 1 -->
+                    <TextBlock Text="How:" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" />
+                    <TextBlock Text="Warriors apply buffs via shouting or performing damage." Margin="4,0" TextWrapping="Wrap" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="1" />
+                    <!-- Row 2 -->
+                    <TextBlock Text="Limits:" FontWeight="Bold" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" />
+                    <TextBlock Text="1 Buff Shout per Warrior to players, 1 Debuff Shout to Target, Thunderclap is only usable by Arms and Prot" Margin="4,0" TextWrapping="Wrap" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Grid.RowSpan="1" />
+                    <!-- Rows 3-5 -->
+                    <RadioButton x:Name="RB_Warrior_Tank" Content="Protection" Grid.Row="3" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="WarriorSpec" FontWeight="Bold" Checked="CK_WarriorSpec_Changed" />
+                    <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="Sunder Armor (Armor Reduction), Thunderclap (Targ AtkSpd Reduc)" Margin="4,2" TextWrapping="Wrap" />
+                    <RadioButton x:Name="RB_Warrior_Arms" Content="Arms" Grid.Row="4" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="WarriorSpec" FontWeight="Bold" Checked="CK_WarriorSpec_Changed" />
+                    <TextBlock Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" Margin="4,2" Text="Trauma (Bleed Bonus), Blood Frenzy (Phys DMG Bonus)" TextWrapping="Wrap" />
+                    <RadioButton x:Name="RB_Warrior_Fury" Content="Fury" Grid.Row="5" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="4,2" GroupName="WarriorSpec" FontWeight="Bold" Checked="CK_WarriorSpec_Changed" />
+                    <TextBlock Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="2" Margin="4,2" Text="Rampage (Crit)" TextWrapping="Wrap" />
+                    <!-- Row 6 -->
+                    <TextBlock Name="LB_Warrior_BuffShout" Text="Buff Shout:" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox Name="CB_Warrior_BuffShout" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" SelectedIndex="1" Margin="4,2">
+                        <System:String>None</System:String>
+                        <System:String>Battle Shout</System:String>
+                        <System:String>Commanding Shout</System:String>
+                    </ComboBox>
+                    <CheckBox x:Name="CK_Warrior_BuffShout" Content="Improved" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" VerticalAlignment="Center" />
+                    <!-- Row 7 -->
+                    <TextBlock Name="LB_Warrior_DebuffShout" Text="Debuff Shout:" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox Name="CB_Warrior_DebuffShout" Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" SelectedIndex="1" Margin="4,2">
+                        <System:String>None</System:String>
+                        <System:String>Demoralizing Shout</System:String>
+                    </ComboBox>
+                    <CheckBox x:Name="CK_Warrior_DebuffShout" Content="Improved" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" VerticalAlignment="Center" />
+                    <!-- Row 8 -->
+                    <TextBlock Name="LB_Warrior_Thunderclap" Text="Debuff:" Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox x:Name="CB_Warrior_Thunderclap" Grid.Row="8" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" SelectedIndex="1" Margin="4,2">
+                        <System:String>None</System:String>
+                        <System:String>Thunderclap</System:String>
+                    </ComboBox>
+                    <CheckBox x:Name="CK_Warrior_Thunderclap" Content="Improved" Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                    <!-- Row 9 -->
+                    <TextBlock Name="LB_Warrior_Sunder" Text="Debuff:" Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="1" Grid.RowSpan="1" VerticalAlignment="Center" Margin="4,2" HorizontalAlignment="Left" FontWeight="Bold" />
+                    <ComboBox x:Name="CB_Warrior_Sunder" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="4,2" SelectedIndex="1">
+                        <System:String>None</System:String>
+                        <System:String>Sunder Armor</System:String>
+                    </ComboBox>
+                </Grid>
+                <StackPanel x:Name="LO_DeathKnight" Margin="4">
+                    <CheckBox x:Name="CK_DeathKnights" Content="Death Knights" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,2,4" Foreground="Maroon" />
+                    <CheckBox x:Name="CK_BloodDPSDK" Content="BloodDPSDK" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_DeathKnights, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_FrostDPSDK" Content="FrostDPSDK" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_DeathKnights, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_UnholyDPSDK" Content="UnholyDPSDK" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_DeathKnights, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_BloodTankDK" Content="BloodTankDK" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_DeathKnights, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_FrostTankDK" Content="FrostTankDK" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_DeathKnights, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_UnholyTankDK" Content="UnholyTankDK" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_DeathKnights, Path=IsChecked}" />
+                </StackPanel>
+                <StackPanel x:Name="LO_Druid" Margin="4">
+                    <CheckBox x:Name="CK_Druids" Content="Druids" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,2,4" Foreground="Orange" />
+                    <CheckBox x:Name="CK_Bear" Content="Bear" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Druids, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_Cat" Content="Cat" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Druids, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_Tree" Content="Tree" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Druids, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_Moonkin" Content="Moonkin" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Druids, Path=IsChecked}" />
+                </StackPanel>
+                <StackPanel x:Name="LO_Paladin" Margin="4">
+                    <CheckBox x:Name="CK_Paladins" Content="Paladins" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,2,4" Foreground="Pink" />
+                    <CheckBox x:Name="CK_Tankadin" Content="Tankadin" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Paladins, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_Healadin" Content="Healadin" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Paladins, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_Retadin" Content="Retadin" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Paladins, Path=IsChecked}" />
+                </StackPanel>
+                <StackPanel x:Name="LO_Rogue" Margin="4">
+                    <CheckBox x:Name="CK_Rogues" Content="Rogues" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,2,4" Foreground="Khaki" />
+                    <CheckBox x:Name="CK_MutiRogue" Content="MutiRogue" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Rogues, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_AssRogue" Content="AssRogue" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Rogues, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_CombatRogue" Content="CombatRogue" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Rogues, Path=IsChecked}" />
+                </StackPanel>
+                <StackPanel x:Name="LO_Shaman" Margin="4">
+                    <CheckBox x:Name="CK_Shamans" Content="Shamans" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,2,4" Foreground="Blue" />
+                    <CheckBox x:Name="CK_Enhance" Content="Enhance" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Shamans, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_Elemental" Content="Elemental" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Shamans, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_RestoSham" Content="RestoSham" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Shamans, Path=IsChecked}" />
+                </StackPanel>
+                <StackPanel x:Name="LO_Warlock" Margin="4">
+                    <CheckBox x:Name="CK_Warlocks" Content="Warlocks" FontWeight="Bold" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="2,2,2,4" Foreground="Purple" />
+                    <CheckBox x:Name="CK_DestroLock" Content="DestroLock" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Warlocks, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_AffLock" Content="AffLock" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Warlocks, Path=IsChecked}" />
+                    <CheckBox x:Name="CK_DemoLock" Content="DemoLock" Height="16" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,0,4,0" IsEnabled="{Binding ElementName=CK_Warlocks, Path=IsChecked}" />
+                </StackPanel>
+            </toolkit:WrapPanel>
+        </Grid>
+
+        <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" HorizontalAlignment="Right" Grid.Row="1" Grid.Column="0" d:LayoutOverrides="Height" Grid.ColumnSpan="2" Margin="4" Height="23" VerticalAlignment="Bottom" />
+        <Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click"  Margin="0,4,83,4" d:LayoutOverrides="Height" Width="75" HorizontalAlignment="Right" Grid.Row="1" Height="23" VerticalAlignment="Bottom" />
+        <TextBlock Grid.Row="1" HorizontalAlignment="Left" Name="LB_Issues" TextWrapping="Wrap" Text="This dialog is new and will most likely have some bugs, please report them to the ISSUE TRACKER on the Rawr website. NOTICE: This dialog presently does not add buffs and will not do so until each Class is fleshed out." VerticalAlignment="Center" Margin="4,2,0,2" Width="674" />
+    </Grid>
+</basics:ChildWindow>

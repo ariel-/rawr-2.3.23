@@ -1,0 +1,44 @@
+<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:controls="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:local="clr-namespace:Rawr.UI"
+	x:Class="Rawr.UI.TalentPicker"
+	d:DesignWidth="340" d:DesignHeight="580">
+
+	<Grid x:Name="LayoutRoot">
+		<controls:TabControl Margin="0,24,0,0">
+			<controls:TabItem x:Name="TreeTab1" Header="Tree1">
+				<Grid>
+					<ScrollViewer BorderThickness="0,0,0,0">
+						<local:TalentTree x:Name="Tree1" d:LayoutOverrides="Height" VerticalAlignment="Top" HorizontalAlignment="Center" Width="290" Margin="0,0,0,0"/>
+					</ScrollViewer>
+				</Grid>
+			</controls:TabItem>
+			<controls:TabItem x:Name="TreeTab2" Header="Tree2">
+				<Grid>
+					<ScrollViewer BorderThickness="0,0,0,0">
+						<local:TalentTree x:Name="Tree2" d:LayoutOverrides="Height" VerticalAlignment="Top" HorizontalAlignment="Center" Width="290"/>
+					</ScrollViewer>
+				</Grid>
+			</controls:TabItem>
+			<controls:TabItem x:Name="TreeTab3" Header="Tree3">
+				<Grid>
+					<ScrollViewer BorderThickness="0,0,0,0">
+						<local:TalentTree x:Name="Tree3" d:LayoutOverrides="Height" VerticalAlignment="Top" HorizontalAlignment="Center" Width="290"/>
+					</ScrollViewer>
+				</Grid>
+			</controls:TabItem>
+			<controls:TabItem Header="Glyphs">
+				<Grid>
+					<local:GlyphControl x:Name="Glyph" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Stretch"/>
+				</Grid>
+			</controls:TabItem>
+		</controls:TabControl>
+		<ComboBox x:Name="SavedCombo" Height="22" Margin="0,-2,67,0" VerticalAlignment="Top" SelectionChanged="SavedCombo_SelectionChanged"/>
+		<Button x:Name="SaveDeleteButton" HorizontalAlignment="Right" Margin="0,-2,0,0" VerticalAlignment="Top" Width="63" Content="Delete" Click="SaveDelete_Click"/>
+	</Grid>
+</UserControl>

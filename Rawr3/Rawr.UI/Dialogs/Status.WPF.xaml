@@ -1,0 +1,41 @@
+<basics2:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:basics="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:data="clr-namespace:Microsoft.Windows.Controls;assembly=WPFToolkit"
+	x:Class="Rawr.UI.Status"
+	Title="Status">
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+
+		<Button x:Name="DetailsButton" Content="&lt;&lt; Details" Click="DetailsButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Grid.Row="0" d:LayoutOverrides="Height" VerticalAlignment="Top" Margin="4,35,8,8" />
+		<Button x:Name="CancelButton" Content="Cancel All" Click="CancelButton_Click" Height="23"  Margin="0,8,8,0" Grid.Row="0" Width="75" d:LayoutOverrides="Height" VerticalAlignment="Top" HorizontalAlignment="Right" />
+		<ProgressBar x:Name="ProgressBar" Height="23" Margin="8,35,91,8" VerticalAlignment="Top" MinWidth="320"/>
+		<TextBlock x:Name="ProgressText" Height="23" HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top" Width="333" Text="{}{0} of {1} Tasks have completed succesfully."/>
+		<basics:TabControl x:Name="DetailsTab" HorizontalAlignment="Stretch" Margin="8,0,8,8" Grid.Row="1" Height="175" Width="Auto">
+			<basics:TabItem Header="Tasks">
+				<data:DataGrid x:Name="TasksData" AutoGenerateColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserSortColumns="False">
+					<data:DataGrid.Columns>
+						<data:DataGridTextColumn Header="Step" Binding="{Binding Key}" IsReadOnly="True" Width="180"/>
+						<data:DataGridTextColumn Header="Detail" Binding="{Binding Description}" IsReadOnly="True" Width="180"/>
+					</data:DataGrid.Columns>
+				</data:DataGrid>
+			</basics:TabItem>
+			<basics:TabItem Header="Errors">
+				<data:DataGrid x:Name="ErrorData" AutoGenerateColumns="False" CanUserSortColumns="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
+					<data:DataGrid.Columns>
+						<data:DataGridTextColumn Header="Step" Binding="{Binding Key}" IsReadOnly="True" Width="180"/>
+						<data:DataGridTextColumn Header="Detail" Binding="{Binding FriendlyMessage}" IsReadOnly="True" Width="180"/>
+					</data:DataGrid.Columns>
+				</data:DataGrid>
+			</basics:TabItem>
+		</basics:TabControl>
+	</Grid>
+</basics2:ChildWindow>

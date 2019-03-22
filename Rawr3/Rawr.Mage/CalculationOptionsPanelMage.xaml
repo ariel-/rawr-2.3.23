@@ -1,0 +1,577 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Rawr.Mage" 
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    mc:Ignorable="d" xmlns:System="clr-namespace:System;assembly=mscorlib"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    x:Class="Rawr.Mage.CalculationOptionsPanelMage" 
+	d:DesignWidth="330" d:DesignHeight="600"
+    Width="Auto" Height="Auto" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <local:CalculationOptionsMage x:Key="CalculationOptionsMageDataSource" d:IsDataSource="True"/>
+    </UserControl.Resources>
+    <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource CalculationOptionsMageDataSource}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <controls:TabControl x:Name="OptionsTab" SelectionChanged="OptionsTab_SelectionChanged">
+            <controls:TabItem Header="Character">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"/>
+                        <ColumnDefinition Width="0.4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Center" Width="Auto" Text="Player Level: " TextWrapping="Wrap" ToolTipService.ToolTip=""/>
+                    <ComboBox Margin="0,2,0,2" Grid.Column="1" Grid.Row="0" Height="Auto" SelectedItem="{Binding Mode=TwoWay, Path=PlayerLevel, UpdateSourceTrigger=Explicit}">
+                        <System:Int32>70</System:Int32>
+                        <System:Int32>71</System:Int32>
+                        <System:Int32>72</System:Int32>
+                        <System:Int32>73</System:Int32>
+                        <System:Int32>74</System:Int32>
+                        <System:Int32>75</System:Int32>
+                        <System:Int32>76</System:Int32>
+                        <System:Int32>77</System:Int32>
+                        <System:Int32>78</System:Int32>
+                        <System:Int32>79</System:Int32>
+                        <System:Int32>80</System:Int32>
+                    </ComboBox>
+                    <TextBlock Height="Auto" Grid.Row="2" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Cast Latency: *" TextWrapping="Wrap" ToolTipService.ToolTip="Effective latency in seconds. The value should include the benefit of built-in /stopcasting."/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Row="2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=LatencyCast}" TextWrapping="Wrap"/>
+                    <TextBlock Height="Auto" Grid.Row="3" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="GCD Latency: *" TextWrapping="Wrap" ToolTipService.ToolTip="Effective latency in seconds. The value should include the benefit of built-in /stopcasting."/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Row="3" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=LatencyGCD}" TextWrapping="Wrap"/>
+                    <TextBlock Height="Auto" Grid.Row="4" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Channel Latency: *" TextWrapping="Wrap" ToolTipService.ToolTip="Effective latency in seconds. The value should include the benefit of built-in /stopcasting."/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Row="4" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=LatencyChannel}" TextWrapping="Wrap"/>
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Spells &amp; Buffs">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"/>
+                        <ColumnDefinition Width="0.4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Automatic Armor: *" TextWrapping="Wrap" ToolTipService.ToolTip="Optimize between mage and molten armor. Disable to improve performance." Grid.Row="0"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Text="Heroism/Bloodlust: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable use of Heroism." Grid.Row="1" d:LayoutOverrides="GridBox"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Power Infusion: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable use of Power Infusion (one priest only)." Grid.Row="2"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Potion of Wild Magic: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable use of Potion of Wild Magic." Grid.Row="3"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Potion of Speed: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable use of Potion of Speed." Grid.Row="4"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Flame Cap: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable use of Flame Caps." Grid.Row="5"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Mirror Image: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable use of Mirror Image." Grid.Row="6"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Maintain Snare: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable to only use cycles that refresh snare debuff." Grid.Row="7"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Maintain Scorch: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable to only use cycles that refresh scorch debuff." Grid.Row="8"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Center" Width="Auto" Text="Heroism Control:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Row="9"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Innervate: *" TextWrapping="Wrap" ToolTipService.ToolTip="Number of innervates received." Grid.Row="10"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Mana Tide Totem: *" TextWrapping="Wrap" ToolTipService.ToolTip="Number of Mana Tide Totems cast in your group (a resto shaman can cast one every 5 minutes)." Grid.Row="11"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Average Cooldowns: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable to make cooldown maximum usage gradually increases with fight duration (i.e. max 1.66 Arcane Power activations on a 5 minute fight)." Grid.Row="12"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Disable Cooldowns: *" TextWrapping="Wrap" ToolTipService.ToolTip="Disables other activatable cooldowns (talents and trinkets)." Grid.Row="13"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Evocation: *" TextWrapping="Wrap" ToolTipService.ToolTip="You can uncheck this to disable use of Evocation." Grid.Row="14"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="2T10 Evocation: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable this to use Evocation with 2T10 buff, only has effect if you actually have 2T10 equipped." Grid.Row="15"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Mana Potion: *" TextWrapping="Wrap" ToolTipService.ToolTip="You can uncheck this to disable use of Mana Potions." Grid.Row="16"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Mana Gem: *" TextWrapping="Wrap" ToolTipService.ToolTip="You can uncheck this to disable use of Mana Gems." Grid.Row="17"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Center" Width="Auto" Text="Custom Spell Mix: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable and configure a special custom mix of spells." Grid.Row="18"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Custom Mix Only: *" TextWrapping="Wrap" ToolTipService.ToolTip="Disable all spell cycles except custom mix." Grid.Row="19"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Snared Time (0-1): *" TextWrapping="Wrap" ToolTipService.ToolTip="Percentage of time that the target is snared by someone else, cycles that provide snare override this to 1." Grid.Row="20"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Frostbite Utilization (0-1): *" TextWrapping="Wrap" ToolTipService.ToolTip="Utilization of 1 corresponds to no diminishing returns, only applies to Blizzard." Grid.Row="21"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Focus Magic Rate: *" TextWrapping="Wrap" ToolTipService.ToolTip="Normalized Crit rate of Focus Magic target, compute as [1 - (1 - crit chance) ^ (1 / cast time)] (example 50% crit change, 3 sec cast time =&gt; 0.206)" Grid.Row="22"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Warlock Spell Power: *" TextWrapping="Wrap" ToolTipService.ToolTip="Spell Power used for Demonic Pact buff value." Grid.Row="23"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="0" IsChecked="{Binding Mode=TwoWay, Path=AutomaticArmor}"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="1" IsChecked="{Binding Mode=TwoWay, Path=HeroismAvailable}" d:LayoutOverrides="Height, VerticalMargin"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="2" IsChecked="{Binding Mode=TwoWay, Path=PowerInfusionAvailable}" d:LayoutOverrides="Height, VerticalMargin"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="3" IsChecked="{Binding Mode=TwoWay, Path=PotionOfWildMagic}" d:LayoutOverrides="Height, VerticalMargin"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="4" IsChecked="{Binding Mode=TwoWay, Path=PotionOfSpeed}" d:LayoutOverrides="Height, VerticalMargin"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Mode=TwoWay, Path=FlameCap}" d:LayoutOverrides="Height, VerticalMargin"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Mode=TwoWay, Path=MirrorImageEnabled}" d:LayoutOverrides="Height, VerticalMargin"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="7" IsChecked="{Binding Mode=TwoWay, Path=MaintainSnare}" d:LayoutOverrides="Height, VerticalMargin"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="8" IsChecked="{Binding Mode=TwoWay, Path=MaintainScorch}" d:LayoutOverrides="Height, VerticalMargin"/>
+                    <ComboBox Margin="0,2,0,2" Grid.Column="1" Grid.Row="9" SelectedIndex="{Binding Mode=TwoWay, Path=HeroismControl}" Height="Auto">
+                        <ListBoxItem Content="Optimal"/>
+                        <ListBoxItem Content="Before 35%"/>
+                        <ListBoxItem Content="No Cooldowns"/>
+                        <ListBoxItem Content="After 35%"/>
+                    </ComboBox>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=Innervate}" TextWrapping="Wrap" Grid.Row="10"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=ManaTide}" TextWrapping="Wrap" Grid.Row="11"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="12" IsChecked="{Binding Mode=TwoWay, Path=AverageCooldowns}"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="13" IsChecked="{Binding Mode=TwoWay, Path=DisableCooldowns}"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="14" IsChecked="{Binding Mode=TwoWay, Path=EvocationEnabled}"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="15" IsChecked="{Binding Mode=TwoWay, Path=Enable2T10Evocation}"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="16" IsChecked="{Binding Mode=TwoWay, Path=ManaPotionEnabled}"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="17" IsChecked="{Binding Mode=TwoWay, Path=ManaGemEnabled}"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="19" IsChecked="{Binding Mode=TwoWay, Path=CustomSpellMixOnly}"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="18" IsChecked="{Binding Mode=TwoWay, Path=CustomSpellMixEnabled}" Width="20" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                    <Button Margin="0,2,0,2" Content="..." Grid.Column="1" Grid.Row="18" Width="96" HorizontalAlignment="Right" VerticalAlignment="Stretch" Click="CustomSpellMix_Click" />
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=SnaredTime}" TextWrapping="Wrap" Grid.Row="20"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=FrostbiteUtilization}" TextWrapping="Wrap" Grid.Row="21"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=FocusMagicTargetCritRate}" TextWrapping="Wrap" Grid.Row="22"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=WarlockSpellPower}" TextWrapping="Wrap" Grid.Row="23"/>
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Fight">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*" />
+                        <ColumnDefinition Width="0.4*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Center" Width="Auto" Text="Target Level: " TextWrapping="Wrap" ToolTipService.ToolTip="" />
+                    <TextBlock Grid.Column="0" Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Fight Duration (sec):" TextWrapping="Wrap" ToolTipService.ToolTip="" />
+                    <TextBlock Grid.Column="0" Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Tps Limit: *" TextWrapping="Wrap" ToolTipService.ToolTip="Threat per second limit. Set to 0 to disable threat constraint." />
+                    <TextBlock Grid.Column="0" Grid.Row="3" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Dps time (0-1): *" TextWrapping="Wrap" ToolTipService.ToolTip="Time spent casting (default value is 1 = 100%). This value is analogous to Dps time in WWS reports, use it to indicate how much time is lost on movement and waiting." />
+                    <TextBlock Grid.Column="0" Grid.Row="4" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Fragmentation (0-1): *" TextWrapping="Wrap" ToolTipService.ToolTip="Indicates how fragmented the dps time is and translates to how much out of five second rule time you get when not dpsing (higher value means more time inside five second rule)." />
+                    <TextBlock Grid.Column="0" Grid.Row="5" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Interrupt Frequency: *" TextWrapping="Wrap" ToolTipService.ToolTip="Frequency of pushbacks expressed as number of interrupts per second. An example value for Teron Gorefiend would be between 0.05 and 0.1." />
+                    <TextBlock Grid.Column="0" Grid.Row="6" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Molten Fury (0-1): *" TextWrapping="Wrap" ToolTipService.ToolTip="Percentage of time spent in molen fury range (i.e. &lt; 35% boss health). Default value of 0.3 indicates that 30% of time is spent in molten fury range due to raid dps stacking in execute range." />
+                    <TextBlock Grid.Column="0" Grid.Row="7" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Movement Frequency: *" TextWrapping="Wrap" ToolTipService.ToolTip="Frequency of movement events (expressed as average time between movement events, only includes movement that prevents you from attacking such as being out of range)." />
+                    <TextBlock Grid.Column="0" Grid.Row="8" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Movement Duration: *" TextWrapping="Wrap" ToolTipService.ToolTip="Duration of movement events (expressed as time in seconds you would have to move without any movement increasing effects, only includes movement that prevents you from attacking such as being out of range)." />
+                    <TextBlock Grid.Column="0" Grid.Row="9" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Center" Width="Auto" Text="Aoe Target Level: *" TextWrapping="Wrap" ToolTipService.ToolTip="Level of aoe targets." />
+                    <TextBlock Grid.Column="0" Grid.Row="10" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Aoe Targets: *" TextWrapping="Wrap" ToolTipService.ToolTip="Number of simultaneous aoe targets." />
+                    <TextBlock Grid.Column="0" Grid.Row="11" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Aoe Duration (0-1): *" TextWrapping="Wrap" ToolTipService.ToolTip="Time spent aoeing. Value of 0.1 for example would mean 10% of time is spent aoeing." />
+                    <TextBlock Grid.Column="0" Grid.Row="12" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Arcane Resist: *" TextWrapping="Wrap" ToolTipService.ToolTip="Actual resistance of target, -1 for immunity." />
+                    <TextBlock Grid.Column="0" Grid.Row="13" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Fire Resist: *" TextWrapping="Wrap" ToolTipService.ToolTip="Actual resistance of target, -1 for immunity." />
+                    <TextBlock Grid.Column="0" Grid.Row="14" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Frost Resist: *" TextWrapping="Wrap" ToolTipService.ToolTip="Actual resistance of target, -1 for immunity." />
+                    <TextBlock Grid.Column="0" Grid.Row="15" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Nature Resist: *" TextWrapping="Wrap" ToolTipService.ToolTip="Actual resistance of target, -1 for immunity." />
+                    <TextBlock Grid.Column="0" Grid.Row="16" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Shadow Resist: *" TextWrapping="Wrap" ToolTipService.ToolTip="Actual resistance of target, -1 for immunity." />
+                    <TextBlock Grid.Column="0" Grid.Row="17" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Holy Resist: *" TextWrapping="Wrap" ToolTipService.ToolTip="Actual resistance of target, -1 for immunity." />
+                    <TextBlock Grid.Column="0" Grid.Row="18" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Drinking Time: *" TextWrapping="Wrap" ToolTipService.ToolTip="Setting this to a low value simulates having a limited time to regen mana on chain pulls (value is in seconds, optimizer has the option to continue drinking into the pull if it increases overall damage done, but that time counts toward total time)." />
+                    <TextBlock Grid.Column="0" Grid.Row="19" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Target Damage: *" TextWrapping="Wrap" ToolTipService.ToolTip="Instead of maximizing damage done this minimizes time it takes to deal the specified damage if value is greater than 0 (for best results enable Average Cooldowns)." />
+                    <TextBlock Grid.Column="0" Grid.Row="20" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Farming Mode: *" TextWrapping="Wrap" ToolTipService.ToolTip="Includes time it takes to regen mana/health after encounter, use in combination with target damage." />
+                    <TextBlock Grid.Column="0" Grid.Row="21" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Unlimited Mana: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable to completely ignore mana in evaluations." />
+                    <TextBlock Grid.Column="0" Grid.Row="22" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="PVP: *" TextWrapping="Wrap" ToolTipService.ToolTip="When enabled follows PVP rules." />
+                    <ComboBox Grid.Column="1" Grid.Row="0" Margin="0,2,0,2" Height="Auto" SelectedItem="{Binding Mode=TwoWay, Path=TargetLevel, UpdateSourceTrigger=Explicit}">
+                        <System:Int32>70</System:Int32>
+                        <System:Int32>71</System:Int32>
+                        <System:Int32>72</System:Int32>
+                        <System:Int32>73</System:Int32>
+                        <System:Int32>74</System:Int32>
+                        <System:Int32>75</System:Int32>
+                        <System:Int32>76</System:Int32>
+                        <System:Int32>77</System:Int32>
+                        <System:Int32>78</System:Int32>
+                        <System:Int32>79</System:Int32>
+                        <System:Int32>80</System:Int32>
+                        <System:Int32>81</System:Int32>
+                        <System:Int32>82</System:Int32>
+                        <System:Int32>83</System:Int32>
+                    </ComboBox>
+                    <ComboBox Grid.Column="1" Grid.Row="9" Margin="0,2,0,2" Height="Auto" SelectedItem="{Binding Mode=TwoWay, Path=AoeTargetLevel, UpdateSourceTrigger=Explicit}">
+                        <System:Int32>70</System:Int32>
+                        <System:Int32>71</System:Int32>
+                        <System:Int32>72</System:Int32>
+                        <System:Int32>73</System:Int32>
+                        <System:Int32>74</System:Int32>
+                        <System:Int32>75</System:Int32>
+                        <System:Int32>76</System:Int32>
+                        <System:Int32>77</System:Int32>
+                        <System:Int32>78</System:Int32>
+                        <System:Int32>79</System:Int32>
+                        <System:Int32>80</System:Int32>
+                        <System:Int32>81</System:Int32>
+                        <System:Int32>82</System:Int32>
+                        <System:Int32>83</System:Int32>
+                    </ComboBox>
+                    <TextBox Grid.Column="1" Grid.Row="1" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=FightDuration, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="2" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=TpsLimit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="3" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=DpsTime, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="4" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=Fragmentation, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="5" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=InterruptFrequency, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="6" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=MoltenFuryPercentage, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="7" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=MovementFrequency, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="8" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=MovementDuration, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="10" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=AoeTargets, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="11" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=AoeDuration, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="12" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=ArcaneResist, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="13" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=FireResist, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="14" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=FrostResist, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="15" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=NatureResist, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="16" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=ShadowResist, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="17" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=HolyResist, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="18" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=DrinkingTime, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <TextBox Grid.Column="1" Grid.Row="19" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=TargetDamage, UpdateSourceTrigger=Default}" TextWrapping="Wrap" />
+                    <CheckBox Grid.Column="1" Grid.Row="20" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=FarmingMode, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height" />
+                    <CheckBox Grid.Column="1" Grid.Row="21" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=UnlimitedMana, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height" />
+                    <CheckBox Grid.Column="1" Grid.Row="22" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=PVP, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height" />
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Effects">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"/>
+                        <ColumnDefinition Width="0.4*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Spirit Multiplier: *" TextWrapping="Wrap" ToolTipService.ToolTip="Total spirit will be multiplied by this value."/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Damage Multiplier: *" TextWrapping="Wrap" ToolTipService.ToolTip="Damage dealt will be multiplied by this value." Grid.Row="1"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Haste Multiplier: *" TextWrapping="Wrap" ToolTipService.ToolTip="Haste will be multiplied by this value." Grid.Row="2"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Regen Multiplier: *" TextWrapping="Wrap" ToolTipService.ToolTip="Regen from spirit will be multiplied by this value." Grid.Row="3"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Cost Multiplier: *" TextWrapping="Wrap" ToolTipService.ToolTip="Spell cost will be multiplied by this value." Grid.Row="4"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Bonus Crit Rate (0-1): *" TextWrapping="Wrap" ToolTipService.ToolTip="Increase in crit rate." Grid.Row="5"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Bonus Crit Damage: *" TextWrapping="Wrap" ToolTipService.ToolTip="Increase in crit damage multiplier (same as Spell Power or Burnout)." Grid.Row="6"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Silence Frequency: *" TextWrapping="Wrap" ToolTipService.ToolTip="Frequency of shadow based silences (number/second)." Grid.Row="7"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Silence Duration: *" TextWrapping="Wrap" ToolTipService.ToolTip="Duration of shadow based silences in seconds." Grid.Row="8"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Mana Drain: *" TextWrapping="Wrap" ToolTipService.ToolTip="Amount of shadow based mana drained." Grid.Row="9"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Drain Frequency: *" TextWrapping="Wrap" ToolTipService.ToolTip="Frequency of shadow based mana drains (number/second)." Grid.Row="10"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Other Binary Effects: *" TextWrapping="Wrap" ToolTipService.ToolTip="Frequency of binary effects (number/second)." Grid.Row="11"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Arcane:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Row="12"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Fire:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Row="13"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Frost:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Row="14"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Holy:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Row="15"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Nature:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Row="16"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Shadow:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Row="17"/>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Disable Mana Sources: *" TextWrapping="Wrap" ToolTipService.ToolTip="Disables all mana sources except initial mana pool." Grid.Row="18"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectRegenMultiplier, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="3"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectCostMultiplier, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="4"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectCritBonus, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="5"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectCritDamageBonus, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="6"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectShadowSilenceFrequency, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="7"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectShadowManaDrain, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="9"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectShadowManaDrainFrequency, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="10"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectArcaneOtherBinary, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="12"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectFireOtherBinary, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="13"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectFrostOtherBinary, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="14"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectHolyOtherBinary, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="15"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectNatureOtherBinary, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="16"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectShadowOtherBinary, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="17"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="18" IsChecked="{Binding Mode=TwoWay, Path=EffectDisableManaSources, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectSpiritMultiplier, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="0"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectDamageMultiplier, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="1"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectHasteMultiplier, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="2"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=EffectShadowSilenceDuration, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="8"/>
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Survivability">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.6*"/>
+                            <ColumnDefinition Width="0.4*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" Text="Survivability Rating: *" TextWrapping="Wrap" ToolTipService.ToolTip="Determines the weight of health in the overall rating (express in terms of dps value per health)."/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=SurvivabilityRating, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="0"/>
+                    </Grid>
+                    <Grid Grid.Row="1" Margin="0,10,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                            <ColumnDefinition Width="0.2*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,0,0,0" VerticalAlignment="Top" Width="Auto" Text="Dps: *" TextWrapping="Wrap" ToolTipService.ToolTip="Raw direct damage per second (before crit and mitigation)." Grid.ColumnSpan="3" Grid.Column="1"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,0,0,0" VerticalAlignment="Top" Width="Auto" Text="Crit: *" TextWrapping="Wrap" ToolTipService.ToolTip="Crit rate of direct damage." Grid.Column="2" Grid.ColumnSpan="3"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,0,0,0" VerticalAlignment="Top" Width="Auto" Text="Dot: *" TextWrapping="Wrap" ToolTipService.ToolTip="Dot damage per second." Grid.Column="3" Grid.ColumnSpan="3"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,0,0,0" VerticalAlignment="Top" Width="Auto" Text="Freq: *" TextWrapping="Wrap" ToolTipService.ToolTip="Frequency of damage events (number/second)." Grid.Column="4" Grid.ColumnSpan="3"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Melee:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Physical:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Arcane:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="3"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Fire:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="4"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Frost:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="5"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Holy:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="6"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Nature:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="7"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Shadow:" TextWrapping="Wrap" ToolTipService.ToolTip="" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="8"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=MeleeDps, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="1"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="2" Text="{Binding Mode=TwoWay, Path=MeleeCrit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="1"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="3" Text="{Binding Mode=TwoWay, Path=MeleeDot, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="1"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=PhysicalDps, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="2"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="2" Text="{Binding Mode=TwoWay, Path=PhysicalCrit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="2"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="3" Text="{Binding Mode=TwoWay, Path=PhysicalDot, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="2"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=ArcaneDps, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="3"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="2" Text="{Binding Mode=TwoWay, Path=ArcaneCrit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="3"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="3" Text="{Binding Mode=TwoWay, Path=ArcaneDot, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="3"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="4" Text="{Binding Mode=TwoWay, Path=EffectArcaneOther, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="3"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=FireDps, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="4"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="2" Text="{Binding Mode=TwoWay, Path=FireCrit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="4"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="3" Text="{Binding Mode=TwoWay, Path=FireDot, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="4"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="4" Text="{Binding Mode=TwoWay, Path=EffectFireOther, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="4"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=FrostDps, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="5"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="2" Text="{Binding Mode=TwoWay, Path=FrostCrit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="5"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="3" Text="{Binding Mode=TwoWay, Path=FrostDot, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="5"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="4" Text="{Binding Mode=TwoWay, Path=EffectFrostOther, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="5"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=HolyDps, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="6"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="2" Text="{Binding Mode=TwoWay, Path=HolyCrit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="6"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="3" Text="{Binding Mode=TwoWay, Path=HolyDot, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="6"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="4" Text="{Binding Mode=TwoWay, Path=EffectHolyOther, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="6"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=NatureDps, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="7"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="2" Text="{Binding Mode=TwoWay, Path=NatureCrit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="7"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="3" Text="{Binding Mode=TwoWay, Path=NatureDot, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="7"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="4" Text="{Binding Mode=TwoWay, Path=EffectNatureOther, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="7"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=ShadowDps, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="8"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="2" Text="{Binding Mode=TwoWay, Path=ShadowCrit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="8"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="3" Text="{Binding Mode=TwoWay, Path=ShadowDot, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="8"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="4" Text="{Binding Mode=TwoWay, Path=EffectShadowOther, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="8"/>
+                    </Grid>
+                    <Grid Grid.Row="2" Margin="0,10,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.6*"/>
+                            <ColumnDefinition Width="0.4*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" Text="Absorption per second: *" TextWrapping="Wrap" ToolTipService.ToolTip="Maximum available amount of absorption per second on average."/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=AbsorptionPerSecond, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="0"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" Text="Healing Response: *" TextWrapping="Wrap" ToolTipService.ToolTip="Average time in seconds needed for healing to respond to the burst damage defined above." Grid.Row="1"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=BurstWindow, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="1"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" Text="Damage Granularity: *" TextWrapping="Wrap" ToolTipService.ToolTip="Defines the number of impacts that the above damage profile consists of, higher values result in lower crit variance." Grid.Row="2"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=BurstImpacts, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="2"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" Text="Survivability Score: *" TextWrapping="Wrap" ToolTipService.ToolTip="Survivability rating that results from maximum chance to live." Grid.Row="3"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=ChanceToLiveScore, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="3"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" Text="Survivability Attenuation: *" TextWrapping="Wrap" ToolTipService.ToolTip="Final Survivability value is calculated as Survivability Score * Chance To Live ^ Survivability Attenuation." Grid.Row="4"/>
+                        <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Text="{Binding Mode=TwoWay, Path=ChanceToLiveAttenuation, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.Row="4"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" Text="Use Fire Ward: *" TextWrapping="Wrap" ToolTipService.ToolTip="Allows use of Fire Ward every 30 seconds." Grid.Row="5"/>
+                        <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Mode=TwoWay, Path=UseFireWard, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height"/>
+                        <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" Text="Use Frost Ward: *" TextWrapping="Wrap" ToolTipService.ToolTip="Allows use of Frost Ward every 30 seconds." Grid.Row="6"/>
+                        <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Mode=TwoWay, Path=UseFrostWard, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height"/>
+                    </Grid>
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Advanced">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*" />
+                        <ColumnDefinition Width="0.2*" />
+                        <ColumnDefinition Width="0.2*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Grid.Row="0" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Global Optimizations: *" TextWrapping="Wrap" ToolTipService.ToolTip="Disables uncommon cooldown and spell combination based on current talent spec to increase performance. In case of uncommon fight conditions this might have to be disabled to achieve accurate results." />
+                    <TextBlock Grid.Column="0" Grid.Row="1" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Incremental Optimizations: *" TextWrapping="Wrap" ToolTipService.ToolTip="Heavily restricts cooldown stacking and spell combinations when computing solutions of incremental changes." />
+                    <TextBlock Grid.Column="0" Grid.Row="2" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Force Incremental Optimizations: *" TextWrapping="Wrap" ToolTipService.ToolTip="Forces incremental optimizations even when they would have to be disabled for overall accuracy." />
+                    <TextBlock Grid.Column="0" Grid.Row="3" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Text="Reconstruct Sequence: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable to calculate the timing of different abilities that best match the solution. Only enable when needed as it is computationally expensive." d:LayoutOverrides="GridBox" />
+                    <TextBlock Grid.Column="0" Grid.Row="4" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Enable Hasted Evocation: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enables use of evocation on last tick of Icy Veins or Heroism, should not be used without advanced constraints." />
+                    <TextBlock Grid.Column="0" Grid.Row="5" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Max Use Assumption: *" TextWrapping="Wrap" ToolTipService.ToolTip="Add stacking constraints based under assumption that each effect must be used maximum possible amount. You should only disable this when using maximum settings for advanced constraints." />
+                    <TextBlock Grid.Column="0" Grid.Row="6" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Cycle Level Haste Procs: *" TextWrapping="Wrap" ToolTipService.ToolTip="Evaluates cycle level haste proc interactions, but at a significant performance cost." />
+                    <TextBlock Grid.Column="0" Grid.Row="7" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Patch 3.3.3: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enables 3.3.3 calculations." />
+                    <TextBlock Grid.Column="0" Grid.Row="8" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="SMP Computation Limit: *" TextWrapping="Wrap" ToolTipService.ToolTip="Limits the number of iterations taken by SMP algorithm." />
+                    <TextBlock Grid.Column="0" Grid.Row="9" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="SMP Search Method: *" TextWrapping="Wrap" ToolTipService.ToolTip="If Best Bound method does not provide solution at the specified computation limit then using Depth First search will provide at least a feasible solution, although not optimal." />
+                    <TextBlock Grid.Column="0" Grid.Row="10" Height="Auto" HorizontalAlignment="Right" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Comparison / Display: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enable options for comparisons or for display only." Grid.ColumnSpan="3" />
+                    <TextBlock Grid.Column="0" Grid.Row="11" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Integral Mana Consumables: *" TextWrapping="Wrap" ToolTipService.ToolTip="Do not allow partial uses of mana consumables." />
+                    <TextBlock Grid.Column="0" Grid.Row="12" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Center" Width="Auto" Text="Segment Cooldowns: *" TextWrapping="Wrap" ToolTipService.ToolTip="Segment cooldowns into 30 second intervals." />
+                    <TextBlock Grid.Column="0" Grid.Row="13" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Center" Width="Auto" Text="Segment Mana: *" TextWrapping="Wrap" ToolTipService.ToolTip="Segment each time segment based on Evocation usage." />
+                    <TextBlock Grid.Column="0" Grid.Row="14" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Advanced Constraints: *" TextWrapping="Wrap" ToolTipService.ToolTip="Enables advanced constraints that are too expensive for comparisons, but are needed for sequence reconstruction." />
+                    <TextBlock Grid.Column="0" Grid.Row="15" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Segment Duration: *" TextWrapping="Wrap" ToolTipService.ToolTip="Duration of segments when variable segment duration is not used." />
+                    <TextBlock Grid.Column="0" Grid.Row="16" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Variable Segment Duration: *" TextWrapping="Wrap" ToolTipService.ToolTip="Determine segment durations based on cooldown durations." />
+                    <TextBlock Grid.Column="0" Grid.Row="17" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Additional Segment Splits: *" TextWrapping="Wrap" ToolTipService.ToolTip="A comma-separated list of segment splits in seconds, useful in combination with debug segmentation." />
+                    <TextBlock Grid.Column="0" Grid.Row="18" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Lower Bound Hint: *" TextWrapping="Wrap" ToolTipService.ToolTip="A lower bound supplied to guide depth-first and hybrid search, if you use this make sure it is an actual lower bound." />
+                    <CheckBox Grid.Column="2" Grid.Row="1" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=IncrementalOptimizations, UpdateSourceTrigger=Default}" />
+                    <CheckBox Grid.Column="2" Grid.Row="2" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=ForceIncrementalOptimizations, UpdateSourceTrigger=Default}" />
+                    <CheckBox Grid.Column="2" Grid.Row="3" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=ReconstructSequence, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height, VerticalMargin" />
+                    <CheckBox Grid.Column="2" Grid.Row="4" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=EnableHastedEvocation, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height, VerticalMargin" />
+                    <CheckBox Grid.Column="2" Grid.Row="5" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=MaxUseAssumption, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height, VerticalMargin" />
+                    <CheckBox Grid.Column="2" Grid.Row="6" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=AdvancedHasteProcs, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height, VerticalMargin" />
+                    <CheckBox Grid.Column="2" Grid.Row="7" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=Mode333, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height, VerticalMargin" />
+                    <CheckBox Grid.Column="1" Grid.Row="11" Margin="0,2,8,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=ComparisonIntegralMana, UpdateSourceTrigger=Default}" d:LayoutOverrides="Height" HorizontalAlignment="Right" />
+                    <ComboBox Grid.Column="1" Grid.Row="9" Margin="0,2,0,2" Height="Auto" Grid.ColumnSpan="2" SelectedItem="{Binding Mode=TwoWay, Path=MIPMethod}">
+                        <local:MIPMethod>BestBound</local:MIPMethod>
+                        <local:MIPMethod>DepthFirst</local:MIPMethod>
+                        <local:MIPMethod>HybridGuided</local:MIPMethod>
+                        <local:MIPMethod>HybridUnguided</local:MIPMethod>
+                    </ComboBox>
+                    <TextBox Grid.Column="1" Grid.Row="17" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=AdditionalSegmentSplits, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.ColumnSpan="2" />
+                    <TextBox Grid.Column="1" Grid.Row="18" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=LowerBoundHint, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.ColumnSpan="2" />
+                    <CheckBox Grid.Column="2" Grid.Row="0" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=SmartOptimization, UpdateSourceTrigger=Default}" />
+                    <TextBox Grid.Column="1" Grid.Row="8" Height="20" Margin="0,2,0,2" Text="{Binding Mode=TwoWay, Path=MaxHeapLimit, UpdateSourceTrigger=Default}" TextWrapping="Wrap" Grid.ColumnSpan="2" />
+                    <CheckBox Grid.Column="2" Grid.Row="11" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=DisplayIntegralMana, UpdateSourceTrigger=Default}" />
+                    <CheckBox Grid.Column="1" Grid.Row="13" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=ComparisonSegmentMana, UpdateSourceTrigger=Default}" HorizontalAlignment="Right" />
+                    <CheckBox Grid.Column="2" Grid.Row="13" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=DisplaySegmentMana, UpdateSourceTrigger=Default}" />
+                    <CheckBox Grid.Column="1" Grid.Row="12" Margin="0,2,8,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=ComparisonSegmentCooldowns, UpdateSourceTrigger=Default}" HorizontalAlignment="Right" />
+                    <CheckBox Grid.Column="2" Grid.Row="12" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=DisplaySegmentCooldowns, UpdateSourceTrigger=Default}" />
+                    <CheckBox Grid.Column="2" Grid.Row="16" Margin="0,2,0,2" Content="" IsChecked="{Binding Mode=TwoWay, Path=VariableSegmentDuration, UpdateSourceTrigger=Default}" />
+                    <ComboBox Grid.Column="1" Grid.Row="15" Margin="0,2,0,2" Height="Auto" Grid.ColumnSpan="2" SelectedItem="{Binding Mode=TwoWay, Path=FixedSegmentDuration}">
+                        <System:Int32>10</System:Int32>
+                        <System:Int32>15</System:Int32>
+                        <System:Int32>20</System:Int32>
+                        <System:Int32>30</System:Int32>
+                    </ComboBox>
+                    <inputToolkit:NumericUpDown Grid.Column="1" Grid.Row="14" Height="20" Margin="0,2,8,2" HorizontalAlignment="Right" Maximum="5" Value="{Binding Mode=TwoWay, Path=ComparisonAdvancedConstraintsLevel}" />
+                    <inputToolkit:NumericUpDown Grid.Column="2" Grid.Row="14" Height="20" HorizontalAlignment="Left" Margin="0,2,8,2" Value="{Binding Mode=TwoWay, Path=DisplayAdvancedConstraintsLevel}" Maximum="5" />
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Tools">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="30" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" MinWidth="250"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Text="Cycle Analysis:" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" TextWrapping="Wrap"/>
+                    <Button Grid.Row="1" Content="Cycle Analyzer" Margin="2,2,2,2" Click="CycleAnalyzer_Click" />
+                    <Button Grid.Row="2" Content="Hot Streak Utilization" Margin="2,2,2,2" Click="HotStreakUtilization_Click" />
+                    <TextBlock Grid.Row="4" Text="Editors:" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" TextWrapping="Wrap"/>
+                    <Button Grid.Row="5" Content="Cooldown Editor" Margin="2,2,2,2" Click="CooldownEditor_Click" IsEnabled="False" />
+                    <TextBlock Grid.Row="8" Text="Performance:" Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,0" VerticalAlignment="Top" Width="Auto" TextWrapping="Wrap"/>
+                    <Button Grid.Row="10" Content="Calculation Timing" Margin="2,2,2,2" Click="CalculationTiming_Click" />
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Solver Log">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBox VerticalAlignment="Stretch" IsReadOnly="True" Margin="2,2,2,2" TextWrapping="Wrap" x:Name="AdvancedSolverLog" Grid.Row="0" VerticalScrollBarVisibility="Auto"/>
+                    <Button x:Name="AdvancedSolverCancel" Content="Cancel Calculations" Click="AdvancedSolverCancel_Click" Grid.Row="1" HorizontalAlignment="Right" Margin="2,2,2,2" />
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</UserControl>

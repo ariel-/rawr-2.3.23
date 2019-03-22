@@ -1,0 +1,8 @@
+<UserControl x:Class="Rawr.ShadowPriest.CalculationOptionsPanelShadowPriest"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    >
+	<Grid x:Name="LayoutRoot" Background="White">
+    <TextBlock Text="ShadowPriest Options Go Here"/>
+	</Grid>
+</UserControl>

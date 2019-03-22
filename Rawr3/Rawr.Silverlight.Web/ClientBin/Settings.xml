@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Settings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Cache>
+    <RelativeItemImageCache>Data/images</RelativeItemImageCache>
+    <RelativeTalentImageCache>Data/talent_images</RelativeTalentImageCache>
+  </Cache>
+  <General>
+    <CountGemmingsShown>3</CountGemmingsShown>
+    <UseMultithreading>true</UseMultithreading>
+    <Locale>en</Locale>
+    <DisplayBuffSource>false</DisplayBuffSource>
+    <DisplayGemNames>false</DisplayGemNames>
+    <ProcEffectMode>3</ProcEffectMode>
+    <DisplayItemIds>false</DisplayItemIds>
+    <CombinationEffectMode>1</CombinationEffectMode>
+  </General>
+  <Network>
+    <ProxyServer />
+    <ProxyPort>0</ProxyPort>
+    <UseDefaultProxySettings>true</UseDefaultProxySettings>
+    <ProxyUserName />
+    <ProxyPassword />
+    <WoWItemIconURI>http://www.wowarmory.com/wow-icons/_images/64x64/</WoWItemIconURI>
+    <MaxHttpRequests>5</MaxHttpRequests>
+    <ProxyType>None</ProxyType>
+    <UserAgent_IE7>Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; bgft) </UserAgent_IE7>
+    <UserAgent_IE6>Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1) </UserAgent_IE6>
+    <UserAgent_FireFox2>Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4</UserAgent_FireFox2>
+    <UserAgent>Mozilla/5.0 (Windows; U; Windows NT 6.0; en-US; rv:1.8.1.4) Gecko/20070515 Firefox/2.0.0.4</UserAgent>
+    <ClassTalentURI>http://www.worldofwarcraft.com/shared/global/talents/{0}/data.js</ClassTalentURI>
+    <CharacterTalentURI>Armory.php?{0}*character-talents.xml*r={1}&amp;cn={2}</CharacterTalentURI>
+    <CharacterSheetURI>Armory.php?{0}*character-sheet.xml*r={1}&amp;cn={2}</CharacterSheetURI>
+    <ItemToolTipSheetURI>Armory.php?item-tooltip.xml*i={0}</ItemToolTipSheetURI>
+    <ItemUpgradeURI>http://{0}.wowarmory.com/search.xml?searchType=items&amp;pr={1}&amp;pn={2}&amp;pi={3}</ItemUpgradeURI>
+    <TalentIconURI>http://www.worldofwarcraft.com/shared/global/talents/{0}/images/{1}/{2}.jpg</TalentIconURI>
+    <ItemInfoURI>Armory.php?item-info.xml*i={0}</ItemInfoURI>
+    <DownloadItemInfo>false</DownloadItemInfo>
+    <ProxyRequiresAuthentication>false</ProxyRequiresAuthentication>
+    <UseDefaultAuthenticationForProxy>false</UseDefaultAuthenticationForProxy>
+    <ProxyDomain />
+    <ItemWowheadURI>http://{0}.wowhead.com/?item={1}&amp;xml</ItemWowheadURI>
+    <ItemSearchURI>Armory.php?{0}*search.xml*searchQuery={1}&amp;searchType=items</ItemSearchURI>
+    <ItemWowheadUpgradeURI>http://{0}.wowhead.com/?items&amp;filter={1}</ItemWowheadUpgradeURI>
+    <ArmoryTalentIconURI>http://www.wowarmory.com/wow-icons/_images/_talents43x43/{0}</ArmoryTalentIconURI>
+  </Network>
+  <Optimzer>
+    <WarningsEnabled>true</WarningsEnabled>
+    <Thoroughness>150</Thoroughness>
+    <OverrideRegem>false</OverrideRegem>
+    <CalculationToOptimize />
+    <OverrideReenchant>false</OverrideReenchant>
+    <OptimizationMethod>GeneticAlgorithm</OptimizationMethod>
+    <TemplateGemsEnabled>true</TemplateGemsEnabled>
+    <GreedyOptimizationMethod>AllCombinations</GreedyOptimizationMethod>
+  </Optimzer>
+</Settings>

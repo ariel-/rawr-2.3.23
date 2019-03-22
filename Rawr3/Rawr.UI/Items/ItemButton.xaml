@@ -1,0 +1,48 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:Rawr="clr-namespace:Rawr;assembly=Rawr.Base"
+    xmlns:local="clr-namespace:Rawr.UI"
+    x:Class="Rawr.UI.ItemButton"
+    Width="90" Height="70">
+    <Grid x:Name="LayoutRoot">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
+        <!-- Popups -->
+        <Popup x:Name="ListPopup" HorizontalOffset="72" Grid.ColumnSpan="3" Grid.RowSpan="2">
+            <local:ItemListControl x:Name="ComparisonItemList"/>
+        </Popup>
+        <Popup x:Name="ListPopupGem1" HorizontalOffset="92" Grid.Row="1" Grid.Column="0">
+            <local:ItemListControl x:Name="ComparisonItemListGem1"/>
+        </Popup>
+        <Popup x:Name="ListPopupGem2" HorizontalOffset="92" Grid.Row="1" Grid.Column="1">
+            <local:ItemListControl x:Name="ComparisonItemListGem2"/>
+        </Popup>
+        <Popup x:Name="ListPopupGem3" HorizontalOffset="92" Grid.Row="1" Grid.Column="2">
+            <local:ItemListControl x:Name="ComparisonItemListGem3"/>
+        </Popup>
+        <!-- Buttons -->
+        <Button x:Name="MainButton" Click="MainButton_Click" MouseEnter="MainButton_MouseEnter" MouseLeave="AnyButton_MouseLeave" Grid.RowSpan="3" Grid.Column="0" Width="70">
+            <Image CacheMode="BitmapCache" x:Name="IconImage" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Button>
+        <Button x:Name="GemButton1" Click="GemButton1_Click" MouseEnter="GemButton1_MouseEnter" MouseLeave="AnyButton_MouseLeave" Grid.Row="0" MinHeight="20" MinWidth="20" MaxWidth="20" MaxHeight="20" Grid.Column="1" HorizontalAlignment="Stretch">
+            <Image CacheMode="BitmapCache" x:Name="IconImageGem1" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Button>
+        <Button x:Name="GemButton2" Click="GemButton2_Click" MouseEnter="GemButton2_MouseEnter" MouseLeave="AnyButton_MouseLeave" Grid.Row="1" MinHeight="20" MinWidth="20" MaxWidth="20" MaxHeight="20" Grid.Column="1" HorizontalAlignment="Stretch">
+            <Image CacheMode="BitmapCache" x:Name="IconImageGem2" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Button>
+        <Button x:Name="GemButton3" Click="GemButton3_Click" MouseEnter="GemButton3_MouseEnter" MouseLeave="AnyButton_MouseLeave" Grid.Row="2" MinHeight="20" MinWidth="20" MaxWidth="20" MaxHeight="20" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Image CacheMode="BitmapCache" x:Name="IconImageGem3" Height="Auto" Width="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Button>
+    </Grid>
+</UserControl>

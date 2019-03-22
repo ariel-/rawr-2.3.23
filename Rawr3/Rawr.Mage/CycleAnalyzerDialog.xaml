@@ -1,0 +1,64 @@
+﻿<basics2:ChildWindow x:Class="Rawr.Mage.CycleAnalyzerDialog"
+           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+           xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+           Width="536" Height="600" 
+           Title="Cycle Analyzer" Closing="ChildWindow_Closing">
+    <Grid x:Name="LayoutRoot" Margin="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="220" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0" x:Name="CycleGeneratorComboBox" SelectionChanged="CycleGeneratorComboBox_SelectionChanged">
+            <ComboBoxItem Content="Arcane (MB/2T10 duration collapsed)" />
+            <ComboBoxItem Content="Arcane (Arcane Power, MB/2T10 duration collapsed)" />
+            <ComboBoxItem Content="Arcane (ABar on cooldown only, MB/2T10 duration/ABar cooldown collapsed)" />
+            <ComboBoxItem Content="Arcane (no ABar, MB duration collapsed)" />
+            <ComboBoxItem Content="Arcane Movement (average 1 per 10 sec for 1 sec)" />
+            <ComboBoxItem Content="Frost" />
+            <ComboBoxItem Content="Frost (no latency combos)" />
+            <ComboBoxItem Content="Frost+Deep Freeze" />
+            <ComboBoxItem Content="Frost+Deep Freeze (no latency combos)" />
+            <ComboBoxItem Content="Frost+Deep Freeze (2T10 duration collapsed)" />
+            <ComboBoxItem Content="Frost+Deep Freeze (2T10 duration collapsed, no latency combos)" />
+            <ComboBoxItem Content="Frost+Deep Freeze (FOF instants on last charge only, 2T10 duration collapsed)" />
+            <ComboBoxItem Content="Frost+Deep Freeze (FOF instants on last charge only, 2T10 duration collapsed, no latency combos)" />
+            <ComboBoxItem Content="Frost+Deep Freeze (FOF instants on last charge only, 2T10 duration collapsed, 10 sec Deep Freeze cooldown)" />
+            <ComboBoxItem Content="Frost+Deep Freeze (FOF instants on last charge only, 2T10 duration collapsed, 10 sec Deep Freeze cooldown, no latency combos)" />
+            <ComboBoxItem Content="Frost+Deep Freeze" />
+            <ComboBoxItem Content="FrostFFB+Deep Freeze (no latency combos)" />
+            <ComboBoxItem Content="FrostFFB+Deep Freeze (2T10 duration collapsed)" />
+            <ComboBoxItem Content="FrostFFB+Deep Freeze (2T10 duration collapsed, no latency combos)" />
+            <ComboBoxItem Content="FrostFFB+Deep Freeze (FOF instants on last charge only, 2T10 duration collapsed)" />
+            <ComboBoxItem Content="FrostFFB+Deep Freeze (FOF instants on last charge only, 2T10 duration collapsed, no latency combos)" />
+            <ComboBoxItem Content="FrostFFB+Deep Freeze (FOF instants on last charge only, 2T10 duration collapsed, 10 sec Deep Freeze cooldown)" />
+            <ComboBoxItem Content="FrostFFB+Deep Freeze (FOF instants on last charge only, 2T10 duration collapsed, 10 sec Deep Freeze cooldown, no latency combos)" />
+            <ComboBoxItem Content="Fire" />
+        </ComboBox>
+        <TextBox Margin="0,4,0,4" Grid.Row="1" IsReadOnly="True" BorderThickness="0" x:Name="Description" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="75"/>
+                <ColumnDefinition Width="75"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Margin="4,4,4,4" Text="Control String: " />
+            <TextBox Grid.Column="1" Margin="4,4,4,4" x:Name="ControlString" />
+            <Button Grid.Column="2" Margin="4,4,4,4" x:Name="Calculate" Content="Calculate" Click="Calculate_Click" />
+            <Button Grid.Column="3" Margin="4,4,4,4" x:Name="Optimal" Content="Optimal" Click="Optimal_Click" />
+        </Grid>
+        <TextBox Margin="0,4,0,4" Grid.Row="3" IsReadOnly="True" BorderThickness="0" x:Name="Result" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" />
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <ProgressBar Grid.Column="0" x:Name="ProgressBar" />
+            <TextBlock Grid.Column="1" x:Name="ProgressLabel" />
+        </Grid>
+    </Grid>
+</basics2:ChildWindow>

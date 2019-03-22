@@ -1,0 +1,13 @@
+﻿<Canvas 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006">
+  <Canvas.Children>
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
+      <Image Margin="0,0,0,0" Width="Auto" Source="http://elitistjerks.com/clientscript/Rawr.Splash.2.png" Stretch="None"/>
+      <ProgressBar x:Name="ProgressBarLoadProgress" Margin="2" HorizontalAlignment="Stretch" Height="16" Minimum="0" Maximum="100" />
+      <TextBlock x:Name="TextBlockLoadProgress" Margin="2" HorizontalAlignment="Left" />
+    </StackPanel>
+  </Canvas.Children>
+</Canvas>

@@ -1,0 +1,117 @@
+<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:controls="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:local="clr-namespace:Rawr.UI"
+    xmlns:Rawr="clr-namespace:Rawr;assembly=Rawr.Base.WPF"
+    xmlns:dataInput="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.WPFToolkit"
+    x:Class="Rawr.UI.BossPicker"
+    d:DesignWidth="340" d:DesignHeight="580">
+    <UserControl.DataContext>
+        <Rawr:BossHandler/>
+    </UserControl.DataContext>
+    <Grid x:Name="LayoutRoot">
+        <ScrollViewer BorderThickness="0,0,0,0" Padding="0">
+        	<StackPanel>
+        		<TextBlock x:Name="LB_NoticeNon" FontWeight="SemiBold" Foreground="#FFDC1111" Text="NOTICE: This Tab is non-functional at this time." TextAlignment="Center" TextWrapping="Wrap"/>
+        		<TextBlock x:Name="LB_Notice" Margin="3,0" FontWeight="SemiBold" Foreground="#FFB4B524" Text="NOTICE: Many models do not yet support the Boss Handler so changes here will not have any effect on your character in those models." TextAlignment="Center" TextWrapping="Wrap"/>
+        		<local:GroupBox x:Name="GB_Preset" Height="80" Header="Select a Preset">
+        			<Grid Margin="0">
+        				<dataInput:Label x:Name="LB_where" Height="15" HorizontalAlignment="Left" Margin="3,6,0,0" VerticalAlignment="Top" Content="Where"/>
+        				<dataInput:Label x:Name="LB_Is" Height="15" HorizontalAlignment="Left" Margin="127,6,0,0" VerticalAlignment="Top" Content="is"/>
+        				<ComboBox x:Name="CB_BL_FilterType" Height="21" HorizontalAlignment="Left" Margin="44,3,0,0" VerticalAlignment="Top" Width="80">
+        					<ComboBoxItem x:Name="CBI_Content" Content="Content" IsSelected="True"/>
+        					<ComboBoxItem x:Name="CBI_Instance" Content="Instance"/>
+        					<ComboBoxItem x:Name="CBI_Version" Content="Version"/>
+        					<ComboBoxItem x:Name="CBI_Name" Content="Name"/>
+        				</ComboBox>
+        				<ComboBox x:Name="CB_BL_Filter" Height="21" Margin="139,3,3,0" VerticalAlignment="Top">
+        					<ComboBoxItem x:Name="CBI_All" Content="All" IsSelected="True"/>
+        				</ComboBox>
+        				<ComboBox x:Name="CB_BossList" Height="21" Margin="3,28,3,0" VerticalAlignment="Top">
+        					<ComboBoxItem x:Name="CBI_Custom" Content="Custom" IsSelected="True"/>
+        				</ComboBox>
+        			</Grid>
+        		</local:GroupBox>
+        		<Grid x:Name="PN_TargLvl" Height="26" Margin="0,2,0,0">
+        			<TextBlock x:Name="LB_Level" HorizontalAlignment="Left" Margin="3,6,0,6" Text="Level:" TextWrapping="Wrap"/>
+        			<ComboBox x:Name="CB_Level" Height="20" Margin="165,3,35,3">
+        				<ComboBoxItem x:Name="CBI_Level_80" Content="80"/>
+        				<ComboBoxItem x:Name="CBI_Level_81" Content="81"/>
+        				<ComboBoxItem x:Name="CBI_Level_82" Content="82"/>
+        				<ComboBoxItem x:Name="CBI_Level_83" Content="83" IsSelected="True"/>
+        			</ComboBox>
+        		</Grid>
+        		<Grid x:Name="PN_TargArmor" Height="26" Margin="0,2,0,0">
+        			<TextBlock x:Name="LB_Armor" HorizontalAlignment="Left" Margin="3,6,0,6" Text="Armor:" TextWrapping="Wrap"/>
+        			<ComboBox x:Name="CB_Armor" Height="20" Margin="165,3,35,3">
+        				<ComboBoxItem x:Name="CBI_Armor_80" Content="9729"/>
+        				<ComboBoxItem x:Name="CBI_Armor_81" Content="10034"/>
+        				<ComboBoxItem x:Name="CBI_Armor_82" Content="10338"/>
+        				<ComboBoxItem x:Name="CBI_Armor_83" Content="10643" IsSelected="True"/>
+        			</ComboBox>
+        		</Grid>
+        		<Grid x:Name="PN_Duration" Height="26" Margin="0,2,0,0">
+        			<TextBlock x:Name="LB_Duration" HorizontalAlignment="Left" Margin="3,6,0,6" Text="Duration:" TextWrapping="Wrap"/>
+        			<inputToolkit:NumericUpDown x:Name="NUD_Duration" Margin="165,3,35,3" Height="20" Maximum="1200" Minimum="30" Value="{Binding BerserkTimer, Mode=TwoWay, UpdateSourceTrigger=Default}" IsEditable="True"/>
+        			<TextBlock x:Name="LB_Duration2" Margin="0,6,3,6" Text="sec" HorizontalAlignment="Right" Width="30"/>
+        		</Grid>
+        		<Grid x:Name="PN_HP" Height="26">
+        			<dataInput:Label x:Name="LB_TargHP" Height="14" Content="Health:" TabIndex="22" HorizontalAlignment="Left" Margin="3,6,0,6"/>
+        			<inputToolkit:NumericUpDown x:Name="NUD_TargHP" Height="20" Maximum="100000000" Minimum="500000" TabIndex="23" Margin="165,3,35,3" Value="{Binding Health, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+        		</Grid>
+        		<Grid x:Name="PN_Under35Perc" Height="26">
+        			<dataInput:Label x:Name="LB_Under35Perc" ToolTipService.ToolTip="Time where Execute Spamming Rotation occurs, only effective if Execute Spamming is active" HorizontalAlignment="Left" TabIndex="11" Margin="3,6,0,6" Content="% Time Spent Sub 35% HP:" d:LayoutOverrides="HorizontalAlignment"/>
+        			<inputToolkit:NumericUpDown x:Name="NUD_Under35Perc" Maximum="0.25" Minimum="0.1" DecimalPlaces="2" TabIndex="12" Height="20" Margin="165,3,35,3" VerticalAlignment="Bottom"/>
+        			<dataInput:Label x:Name="LBUnder35Perc" Content="%" TabIndex="13" Margin="0,6,3,6" HorizontalAlignment="Right" Width="30"/>
+        		</Grid>
+        		<Grid x:Name="PN_Under20Perc" Height="26">
+        			<dataInput:Label x:Name="LB_Under20Perc" ToolTipService.ToolTip="Time where Execute Spamming Rotation occurs, only effective if Execute Spamming is active" HorizontalAlignment="Left" TabIndex="11" Margin="3,6,0,6" d:LayoutOverrides="HorizontalAlignment" Content="% Time Spent Sub 20% HP:"/>
+        			<inputToolkit:NumericUpDown x:Name="NUD_Under20Perc" Maximum="0.25" Minimum="0.15" DecimalPlaces="2" TabIndex="12" Margin="165,3,35,3" VerticalAlignment="Bottom" Height="20"/>
+        			<dataInput:Label x:Name="LBUnder20Perc2" Content="%" TabIndex="13" Margin="0,6,3,6" HorizontalAlignment="Right" Width="30"/>
+        		</Grid>
+        		<Grid x:Name="PN_InBackPerc" Height="26">
+        			<CheckBox x:Name="CK_InBack" Content="You stand behind boss *" RenderTransformOrigin="0.481,0.294" ToolTipService.ToolTip="This affects how often the Boss can Parry your attacks (no bosses in WotLK Block)" IsChecked="{Binding InBack, Mode=TwoWay, UpdateSourceTrigger=Default}" TabIndex="14" Margin="3,4,0,4" HorizontalAlignment="Left" Height="18"/>
+        			<inputToolkit:NumericUpDown x:Name="CB_InBackPerc" TabIndex="15" Margin="165,3,35,3" Height="20" Value="{Binding InBackPerc_Melee, Mode=TwoWay, UpdateSourceTrigger=Default}"/>
+        			<dataInput:Label x:Name="LB_InBehindPerc" Content="%" TabIndex="16" Margin="0,6,3,6" HorizontalAlignment="Right" Width="30"/>
+        		</Grid>
+        		<Grid x:Name="PN_MultiTargs" Height="26">
+        			<CheckBox x:Name="CK_MultiTargs" Content="Multiple Targets *" ToolTipService.ToolTip="How much of the fight is spend where more than one target is within Melee Range, allowing the use of MultiTarget abilities like Cleave and normal abilities like WhirlWind to do extra damage. Max is the highest number of targets over the fight, use to clip WhirlWind, etc. to 2 targets instead of the full 4" IsChecked="{Binding MultipleTargets, Mode=TwoWay, UpdateSourceTrigger=Default}" TabIndex="17" Margin="3,4,0,4" HorizontalAlignment="Left" d:LayoutOverrides="HorizontalAlignment" Height="18"/>
+        			<inputToolkit:NumericUpDown x:Name="CB_MultiTargsMax" Maximum="8" Minimum="1" TabIndex="19" HorizontalAlignment="Left" Margin="165,3,0,3" Height="20" Width="44" Value="{Binding MaxNumTargets, Mode=TwoWay, UpdateSourceTrigger=Default}"/>
+        			<inputToolkit:NumericUpDown x:Name="CB_MultiTargsPerc" TabIndex="20" Margin="213,3,35,3" Height="20" Value="{Binding MultiTargsPerc, Mode=TwoWay, UpdateSourceTrigger=Default}"/>
+        			<dataInput:Label x:Name="LB_MultiTargsPerc" Content="%" TabIndex="21" Margin="0,6,3,6" HorizontalAlignment="Right" Width="30"/>
+        			<TextBlock x:Name="LB_Max" HorizontalAlignment="Left" Margin="135,6,0,6" Text="Max:" TextAlignment="Right"/>
+        		</Grid>
+        		<Grid x:Name="PN_Stuns" Height="26">
+        			<CheckBox x:Name="CK_StunningTargs" Height="18" Content="Boss Stuns You *" ToolTipService.ToolTip="While stunned, you cannot DPS. Iron Will and other Stun Duration reducing effects can lower the duration. Abilities like Heroic Fury and Every Man for Himself (Humans) can negate Stuns after they occur if they are not on cooldown." IsChecked="{Binding StunningTargets, Mode=TwoWay, UpdateSourceTrigger=Default}" TabIndex="26" Margin="3,4,0,4" d:LayoutOverrides="Width" HorizontalAlignment="Left"/>
+        			<Button x:Name="BT_Stuns" Margin="165,3,3,3" Content="F: 120sec D: 5000ms C: 100% : B" Height="20" FontSize="7"/>
+        		</Grid>
+        		<Grid x:Name="PN_Moves" Height="26">
+        			<CheckBox x:Name="CK_MovingTargs" Height="18" Content="You have to Move *" RenderTransformOrigin="0.496,0.353" ToolTipService.ToolTip="Time spent in movement where you cannot DPS the Boss. Either the boss has moved or you are in a situation where you can't stand where you are. There are no epix in the green! Movespeed buffs can reduce this time." IsChecked="{Binding MovingTargets, Mode=TwoWay, UpdateSourceTrigger=Default}" TabIndex="29" Margin="3,4,0,4" d:LayoutOverrides="Width" HorizontalAlignment="Left"/>
+        			<Button x:Name="BT_Moves" FontSize="7" Height="20" Margin="165,3,3,3" Content="F: 120sec D: 5000ms C: 100% : B"/>
+        		</Grid>
+        		<Grid x:Name="PN_Fears" Height="26">
+        			<CheckBox x:Name="CK_FearingTargs" Content="Boss Fears You *" ToolTipService.ToolTip="While feared you cannot DPS. Fear Duration reducing effects can lower the duration. Abilities like Berserker Rage can negate Fears after they occur if they are not on cooldown." Height="18" IsChecked="{Binding FearingTargets, Mode=TwoWay, UpdateSourceTrigger=Default}" TabIndex="32" Margin="3,4,0,4" d:LayoutOverrides="Width" HorizontalAlignment="Left"/>
+        			<Button x:Name="BT_Fears" FontSize="7" Height="20" Margin="165,3,3,3" Content="F: 120sec D: 5000ms C: 100% : B"/>
+        		</Grid>
+        		<Grid x:Name="PN_Roots" Height="26">
+        			<CheckBox x:Name="CK_RootingTargs" Content="Boss Roots You *" ToolTipService.ToolTip="While Rooted you cannot DPS (assume the target moves out of melee range). Snare/Root Duration reducing effects can lower the duration. Some abilities can negate Snares after they occur if they are not on cooldown." Height="18" IsChecked="{Binding RootingTargets, Mode=TwoWay, UpdateSourceTrigger=Default}" TabIndex="35" Margin="3,4,0,4" d:LayoutOverrides="Width" HorizontalAlignment="Left"/>
+        			<Button x:Name="BT_Roots" FontSize="7" Height="20" Margin="165,3,3,3" Content="F: 120sec D: 5000ms C: 100% : B"/>
+        		</Grid>
+        		<Grid x:Name="PN_Disarms" Height="26">
+        			<CheckBox x:Name="CK_DisarmTargs" Height="18" Content="Boss Disarms You *" ToolTipService.ToolTip="This functionality is disabled as no bosses Disarm in WotLK" IsChecked="{Binding DisarmingTargets, Mode=TwoWay, UpdateSourceTrigger=Default}" IsEnabled="False" TabIndex="38" Margin="3,4,0,4" d:LayoutOverrides="Width" HorizontalAlignment="Left"/>
+        			<Button x:Name="BT_Disarms" FontSize="7" Height="20" Margin="165,3,3,3" Content="F: 120sec D: 5000ms C: 100% : B" IsEnabled="False"/>
+        		</Grid>
+        		<Grid x:Name="PN_Attacks" Height="26">
+        			<CheckBox x:Name="CK_Attacks" Content="Boss Does Damage *" ToolTipService.ToolTip="" Height="18" IsChecked="{Binding AoETargets, Mode=TwoWay, UpdateSourceTrigger=Default}" TabIndex="43" Margin="3,4,0,4" HorizontalAlignment="Left"/>
+        			<Button x:Name="BT_Attacks" FontSize="7" Height="20" Margin="165,3,3,3" Content="F: 2.5sec D: 80000 C: 100% : PH"/>
+        		</Grid>
+        		<TextBox x:Name="TB_BossInfo" TextWrapping="Wrap" IsReadOnly="True" TabIndex="46" d:LayoutOverrides="VerticalAlignment" Margin="3,2,3,3" Text="Boss Information would normally be displayed here"/>
+        	</StackPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>

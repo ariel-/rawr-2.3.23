@@ -1,0 +1,45 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:common="clr-namespace:System.Windows;assembly=System.Windows.Controls"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    x:Class="Rawr.UI.ItemFilterPopup">
+    <UserControl.Resources>	
+        <common:HierarchicalDataTemplate x:Key="FilterTemplate" ItemsSource="{Binding Filters}">
+            <CheckBox Margin="0"
+                IsTabStop="False"
+                IsThreeState="True"
+                IsChecked="{Binding Enabled, Mode=TwoWay}"
+                Content="{Binding Name}"
+                />
+        </common:HierarchicalDataTemplate>
+    </UserControl.Resources>
+
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
+        <ToggleButton x:Name="Toggle"  HorizontalAlignment="Left" Margin="4,0,4,0" Width="56" IsChecked="{Binding IsOpen, ElementName=PopupFilter, Mode=TwoWay}">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="3,0,3,0" Text="Filter"/>
+                <Path Fill="#000066" Margin="3,0,3,0" Height="4" Width="7" VerticalAlignment="Center" Data="M0,0 7,0 3.5,4 z"/>
+            </StackPanel>
+        </ToggleButton>
+        <Popup x:Name="PopupFilter" Margin="-290,4,4,4">
+            <Grid Background="#00000000" Margin="-10000,-10000,-10000,-10000" IsHitTestVisible="True" MouseLeftButtonDown="Background_MouseLeftButtonDown">
+                <Border BorderThickness="1" Width="350" Height="500" Margin="10000,10000,10000,10000" CornerRadius="0,0,4,4" BorderBrush="#CC000066" Background="#F3F3F3FF">
+                    <controls:TreeView x:Name="FilterTree" BorderThickness="0" 
+                        Background="Transparent" Margin="0" Padding="0"
+                        ItemTemplate="{StaticResource FilterTemplate}">
+                        <controls:TreeView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Vertical" Margin="-6,-8,-10,-8"/>
+                            </ItemsPanelTemplate>
+                        </controls:TreeView.ItemsPanel>
+                    </controls:TreeView>
+                </Border>
+            </Grid>
+        </Popup>
+    </StackPanel>
+</UserControl>

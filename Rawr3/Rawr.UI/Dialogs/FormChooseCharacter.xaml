@@ -1,0 +1,46 @@
+﻿<basics2:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+    xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"
+	xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	x:Class="Rawr.UI.FormChooseCharacter"
+	Title="Choose Realm and Character">
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="Auto" />
+			<ColumnDefinition Width="Auto" />
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<!-- Row 0 -->
+		<TextBlock x:Name="LB_Realm" Text="Realm:" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="0,2,2,2"/>
+		<ComboBox x:Name="CB_Realm" Margin="2" Grid.Column="1" SelectionChanged="CB_Realm_SelectedIndexChanged"/>
+		<!-- Row 1 -->
+		<TextBlock x:Name="LB_Character" Text="Character Name:" TextWrapping="Wrap" HorizontalAlignment="Left" Grid.Row="1" Margin="0,2,2,2"/>
+		<ComboBox x:Name="CB_Character" Margin="2" Grid.Row="1" Grid.Column="1" SelectionChanged="CB_Character_SelectedIndexChanged"/>
+		<!-- Row 2 -->
+		<TextBlock x:Name="LB_Selection" Text="(none selected)" TextWrapping="Wrap" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,2,2,2"/>
+		<!-- Row 3 -->
+		<StackPanel x:Name="LO_MaintBTs" Orientation="Horizontal" Margin="0" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Right">
+			<Button x:Name="BT_Cancel" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" Margin="2" />
+			<Button x:Name="BT_OK" Content="OK" Click="OKButton_Click" Width="75" Height="23" Margin="2" />
+		</StackPanel>
+		<StackPanel x:Name="LO_Fail" Orientation="Vertical" HorizontalAlignment="Left" Margin="0" Grid.Row="4" Grid.ColumnSpan="3">
+			<TextBlock x:Name="LB_Fail" Text="The Characters below failed to import:" TextWrapping="Wrap"/>
+			<data:DataGrid x:Name="dataGridFailedImport" Height="100"/>
+			<TextBlock x:Name="LB_Fail2" Text="If you are showing characters that failed to import, please try to re-export them from CharacterProfiler." TextWrapping="Wrap"/>
+			<TextBlock x:Name="LB_Fail3" Text="If you are still having trouble, please report the error to us with a copy of your CharacterProfiler.lua file." TextWrapping="Wrap"/>
+		</StackPanel>
+	</Grid>
+</basics2:ChildWindow>

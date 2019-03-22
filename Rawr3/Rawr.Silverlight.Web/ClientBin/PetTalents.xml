@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSavedPetTalentSpec xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SavedPetTalentSpec>
+    <Name>Untalented</Name>
+    <Class>None</Class>
+    <Spec>00000000000000000000000000000000000000</Spec>
+    <Tree>0</Tree>
+  </SavedPetTalentSpec>
+  <SavedPetTalentSpec>
+    <Name>Untalented</Name>
+    <Class>Ferocity</Class>
+    <Spec>00000000000000000000000000000000000000</Spec>
+    <Tree>0</Tree>
+  </SavedPetTalentSpec>
+  <SavedPetTalentSpec>
+    <Name>Untalented</Name>
+    <Class>Tenacity</Class>
+    <Spec>00000000000000000000000000000000000000</Spec>
+    <Tree>0</Tree>
+  </SavedPetTalentSpec>
+  <SavedPetTalentSpec>
+    <Name>Untalented</Name>
+    <Class>Cunning</Class>
+    <Spec>00000000000000000000000000000000000000</Spec>
+    <Tree>0</Tree>
+  </SavedPetTalentSpec>
+</ArrayOfSavedPetTalentSpec>

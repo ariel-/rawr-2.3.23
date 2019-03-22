@@ -1,0 +1,17 @@
+﻿<configuration>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_IRawrService" maxBufferSize="2147483647"
+                    maxReceivedMessageSize="2147483647">
+                    <security mode="None" />
+                </binding>
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://localhost:4906/RawrService.svc" binding="basicHttpBinding"
+                bindingConfiguration="BasicHttpBinding_IRawrService" contract="Rawr.Silverlight.ServiceReference.IRawrService"
+                name="BasicHttpBinding_IRawrService" />
+        </client>
+    </system.serviceModel>
+</configuration>

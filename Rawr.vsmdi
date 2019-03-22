@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TestLists xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestList name="Rogue" id="5502ee01-3a99-450c-b54c-8e29997f05d9" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <TestLinks>
+      <TestLink id="bccfaf09-95fc-c115-8040-897e6a62e15b" name="BaseEnergyRegen" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="e5a52b47-77cb-aa66-9ee1-c48d56cd380f" name="MediumRupture" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="f00caa2d-6822-899d-382e-d53f82a5d336" name="DictionaryTiming" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="2dee2fff-9b55-b24e-3ee0-c31dffde7d6a" name="RegenWithVitality" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="f8831e4f-19b0-5cf3-fd08-c00b8eb462b8" name="RegenWithAdrenalineRush" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="323ec9e5-b129-edff-8e95-94073184da0b" name="RegenWithBladeFlurryGlyph" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="9fa224e0-a000-55bc-e714-0ef62053aa7d" name="RegenWithAdrenalineRushGlyph" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="71e779c9-d732-bcf2-2baa-d0987547a656" name="ReallyLongRupture" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="b136cb9a-a1bc-154a-9b29-0d881308236f" name="RegenWithBladeFlurry" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="aae0bd05-f0fe-d8f3-0820-e8baba262f50" name="LongRupture" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="b0ed82b4-117d-4aeb-2038-cff170690099" name="ShortRupture" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="7958d074-188b-4753-e03c-37bc3db06d02" name="TimingsForStats" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="e570ddcd-4138-a44b-33aa-15b3d0246472" name="ListTiming" storage="rawr.unittests\bin\debug\rawr.unittests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel,   PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+  <TestList name="Lists of Tests" id="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <RunConfiguration id="7232259c-4f98-45ac-a099-98d20ed0f8ba" name="Local Test Run" storage="localtestrun.testrunconfig" type="Microsoft.VisualStudio.TestTools.Common.TestRunConfiguration, Microsoft.VisualStudio.QualityTools.Common,   PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestList>
+</TestLists>

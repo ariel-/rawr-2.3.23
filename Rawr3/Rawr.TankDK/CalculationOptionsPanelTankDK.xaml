@@ -1,0 +1,160 @@
+﻿<UserControl
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+xmlns:layoutToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit"
+xmlns:System="clr-namespace:System;assembly=mscorlib" 
+mc:Ignorable="d" 
+d:DesignWidth="330" d:DesignHeight="600" 
+xmlns:local="clr-namespace:Rawr.TankDK" 
+x:Class="Rawr.TankDK.CalculationOptionsPanelTankDK" 
+>
+
+<UserControl.Resources>
+    <local:CalculationOptionsTankDK x:Key="CalculationOptionsTankDKDataSource" d:IsDataSource="True"/>
+    <local:GraphTypeConverter x:Key="GraphTypeConverter"/>
+</UserControl.Resources>
+
+<layoutToolkit:Accordion x:Name="LayoutRoot" 
+                         HorizontalAlignment="Stretch" 
+                         SelectionMode="ZeroOrMore" 
+                         DataContext="{Binding Source={StaticResource CalculationOptionsTankDKDataSource}}">
+    <layoutToolkit:AccordionItem HorizontalContentAlignment="Stretch">
+        <layoutToolkit:AccordionItem.Header>
+            <TextBlock Margin="2">Rotation Details</TextBlock>
+        </layoutToolkit:AccordionItem.Header>
+        <Grid Margin="2,2,2,8">
+            <Grid.RowDefinitions>
+                <RowDefinition x:Name="Misc" Height="auto"/>
+                <RowDefinition x:Name="SingleTarget_SingleRune" Height="auto"/>
+                <RowDefinition x:Name="SingleTarget_SingleRune1" Height="auto"/>
+                <RowDefinition x:Name="SingleTarget_SingleRune2" Height="auto"/>
+                <RowDefinition x:Name="SingleTarget_SingleRune3" Height="auto"/>
+                <RowDefinition x:Name="SingleTarget_MultiRune" Height="auto"/>
+                <RowDefinition x:Name="SingleTarget_MultiRune1" Height="auto"/>
+                <RowDefinition x:Name="SingleTarget_MultiRune2" Height="auto"/>
+                <RowDefinition x:Name="MultiTarget" Height="auto"/>
+                <RowDefinition x:Name="MultiTarget1" Height="auto"/>
+                <RowDefinition x:Name="MultiTarget2" Height="auto"/>
+                <RowDefinition x:Name="MultiTarget3" Height="auto"/>
+                <RowDefinition x:Name="RunicPower" Height="auto"/>
+                <RowDefinition x:Name="RunicPower1" Height="auto"/>
+                <RowDefinition x:Name="RunicPower2" Height="auto"/>
+                <RowDefinition x:Name="RunicPower3" Height="auto"/>
+                <RowDefinition x:Name="Other" Height="auto"/>
+                <RowDefinition x:Name="Apply" Height="auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <!-- Misc -->
+            <TextBlock Text="Rotation Duration:" Margin="2" VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="2" Text="{Binding Path=CurRotationDuration, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+            <!-- Single Rune / Single Target -->
+            <TextBlock Text="Icy Touch (F):" Grid.Row="1" Margin="2" VerticalAlignment="Center" />
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="2" Text="{Binding Path=IcyTouch, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+
+            <TextBlock Text="Plague Strike (U):" Grid.Row="2" Margin="2" VerticalAlignment="Center" />
+            <TextBox Grid.Row="2" Grid.Column="1" Margin="2" Text="{Binding Path=PlagueStrike, Mode=TwoWay, UpdateSourceTrigger=Default}"/>
+
+            <TextBlock Text="Blood Strike (B):" Grid.Row="3" Margin="2" VerticalAlignment="Center" />
+            <TextBox Grid.Row="3" Grid.Column="1" Margin="2" Text="{Binding Path=BloodStrike, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+
+            <TextBlock Text="Heart Strike (B):" Grid.Row="4" Margin="2" VerticalAlignment="Center" />
+            <TextBox Grid.Row="4"  Grid.Column="1" Margin="2" Text="{Binding Path=HeartStrike, Mode=TwoWay, UpdateSourceTrigger=Default}"/>
+            <!-- Multi Rune / Single Target -->
+            <TextBlock Text="Death Strike (FU):" Grid.Row="5" Margin="2" VerticalAlignment="Center" />
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=DeathStrike, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="5"/>
+            
+            <TextBlock  Text="Obliterate (FU):" Grid.Row="6" Margin="2" VerticalAlignment="Center"/>
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Obliterate, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="6"/>
+
+            <TextBlock Text="Scourge Strike (FU):" Margin="2" Grid.Row="7" VerticalAlignment="Center" />
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=ScourgeStrike, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="7" />
+            
+            <!-- MultiTarget -->
+            <TextBlock Text="Pestilence (B*):" Grid.Row="8" VerticalAlignment="Center" Margin="2" />
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=Pestilence, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="8" />
+            
+            <TextBlock Text="Howling Blast (FU*):" Grid.Row="9" VerticalAlignment="Center" Margin="2" />
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=HowlingBlast, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="9" />
+
+            <TextBlock Text="Death N Decay (BFU*):" Grid.Row="10" VerticalAlignment="Center" Margin="2" />
+            <TextBox Margin="2"  Grid.Column="1" Text="{Binding Path=DeathNDecay, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="10"/>
+
+            <TextBlock Text="Blood Boil (B*):" Grid.Row="11" VerticalAlignment="Center" Margin="2" />
+            <TextBox Margin="2"  Grid.Column="1" Text="{Binding Path=BloodBoil, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="11"/>
+
+            <!-- Runic Power -->
+            <TextBlock Text="Rune Strike (Rp):" VerticalAlignment="Center" Margin="2" Grid.Row="12"/>
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=RuneStrike, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="12" />
+            
+            <TextBlock Text="Death Coil (Rp):" VerticalAlignment="Center" Margin="2" Grid.Row="13"/>
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=DeathCoil, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="13" />
+            
+            <TextBlock Text="Frost Strike (Rp):" VerticalAlignment="Center" Margin="2" Grid.Row="14"/>
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=FrostStrike, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="14"/>
+
+            <!-- Other GCDs-->
+            <TextBlock Text="Horn of Winter ():" Grid.Row="15" VerticalAlignment="Center" Margin="2" />
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=HornOfWinter, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="15"/>
+
+            <Button Click="ButtonClickHandler" Content="Apply" Grid.Row="16" HorizontalAlignment="Right" Margin="2" Grid.Column="1" />
+        </Grid>
+    </layoutToolkit:AccordionItem>
+    <layoutToolkit:AccordionItem HorizontalContentAlignment="Stretch" >
+        <layoutToolkit:AccordionItem.Header>
+            <TextBlock Margin="2">Fight Options</TextBlock>
+        </layoutToolkit:AccordionItem.Header>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" x:Name="TargetLevel"/>
+                <RowDefinition Height="auto" x:Name="FightDuration"/>
+                <RowDefinition Height="auto" x:Name="GraphType"/>
+                <RowDefinition Height="auto" x:Name="ThreatWeight"/>
+                <RowDefinition Height="auto" x:Name="MitigationWeight"/>
+                <RowDefinition Height="auto" x:Name="SurvivalWeight"/>
+                <RowDefinition Height="auto" x:Name="NumTargets"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Target Level:" VerticalAlignment="Center" Grid.Row="0" Margin="2"/>
+            <ComboBox Margin="2" Grid.Column="1" SelectedItem="{Binding Path=TargetLevel, Mode=TwoWay}" Grid.Row="0">
+                <!-- Target Level -->
+                <System:Int32>80</System:Int32>
+                <System:Int32>81</System:Int32>
+                <System:Int32>82</System:Int32>
+                <System:Int32>83</System:Int32>
+            </ComboBox>
+            
+            <TextBlock Text="Fight Duration:" VerticalAlignment="Center" Grid.Row="1" ToolTipService.ToolTip="In Minutes" Margin="2"/>
+            <TextBox Margin="2" Grid.Column="1" Text="{Binding Path=FightLength, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Row="1"/>
+
+            <TextBlock Text="Graph Type:" Grid.Row="2" VerticalAlignment="Center" Margin="2"/>
+            <ComboBox Margin="2" Grid.Column="1" SelectedItem="{Binding Path=cType, Converter={StaticResource GraphTypeConverter}, Mode=TwoWay}" Grid.Row="2">
+                <System:String>Default</System:String>
+                <System:String>Burst Time</System:String>
+            </ComboBox>
+
+            <TextBlock Text="Threat Weight:" Grid.Row="3" VerticalAlignment="Center" Margin="2"/>
+            <TextBox Text="{Binding Path=ThreatWeight, Mode=TwoWay, UpdateSourceTrigger=Default}" Margin="2" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="3" />
+
+            <TextBlock Text="Mitigation Weight:" Grid.Row="4" VerticalAlignment="Center" Margin="2"/>
+            <TextBox Text="{Binding Path=MitigationWeight, Mode=TwoWay, UpdateSourceTrigger=Default}" Margin="2" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="4"/>
+
+            <TextBlock Text="Survival Weight:" Grid.Row="5" Margin="2" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Path=SurvivalWeight, Mode=TwoWay, UpdateSourceTrigger=Default}" Margin="2" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="5"/>
+            
+            <TextBlock Text="# of Targets:" Grid.Row="6" Margin="2" VerticalAlignment="Center" />
+            <TextBox Text="{Binding Path=uNumberTargets, Mode=TwoWay, UpdateSourceTrigger=Default}" Margin="2" VerticalAlignment="Bottom" Grid.Column="1" Grid.Row="6"/>
+        </Grid>
+    </layoutToolkit:AccordionItem>
+</layoutToolkit:Accordion>
+</UserControl>

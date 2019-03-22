@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{842B74C7-EE94-44D9-A02F-4074166EF506}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rawr</RootNamespace>
+    <AssemblyName>Rawr.Base</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\bin\Debug\Data\</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\bin\Release\Data\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\bin\Debug\Data\</OutputPath>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Algorithms\ArrayPool.cs" />
+    <Compile Include="Algorithms\CalculationCache.cs" />
+    <Compile Include="Algorithms\LU.cs" />
+    <Compile Include="Algorithms\StateSpace.cs" />
+    <Compile Include="Armory.cs" />
+    <Compile Include="ArrayUtils.cs" />
+    <Compile Include="AvailableItemGenerator.cs" />
+    <Compile Include="BatchCharacter.cs" />
+    <Compile Include="BatchOptimizer.cs" />
+    <Compile Include="BatchTools.cs" />
+    <Compile Include="Bosses\BossesT10.cs" />
+    <Compile Include="Bosses\BossesT7.cs" />
+    <Compile Include="Bosses\BossesT8.cs" />
+    <Compile Include="Bosses\BossesT9.cs" />
+    <Compile Include="Bosses\BossHandler.cs" />
+    <Compile Include="Bosses\DG_BossAttacks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bosses\DG_BossAttacks.Designer.cs">
+      <DependentUpon>DG_BossAttacks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bosses\DG_BossSitChanges.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bosses\DG_BossSitChanges.Designer.cs">
+      <DependentUpon>DG_BossSitChanges.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buff.cs" />
+    <Compile Include="Calculations.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Character.cs" />
+    <Compile Include="CharacterProfilerData.cs" />
+    <Compile Include="BaseStats.cs" />
+    <Compile Include="Bosses\BossList.cs" />
+    <Compile Include="ClassGlyphs.cs" />
+    <Compile Include="ClassTalents.cs" />
+    <Compile Include="CustomControls\ErrorBox.cs" />
+    <Compile Include="CustomControls\ExtendedToolTipCheckBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ExtendedToolTipCheckBox.Designer.cs">
+      <DependentUpon>ExtendedToolTipCheckBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomControls\ExtendedToolTipLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomControls\ExtendedToolTipLabel.designer.cs">
+      <DependentUpon>ExtendedToolTipLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enchant.cs" />
+    <Compile Include="EnumHelper.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Exports.cs" />
+    <Compile Include="Graph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graph.designer.cs">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GemmingTemplate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ICharacterCalculationOptions.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemCache.cs" />
+    <Compile Include="ItemFilter.cs" />
+    <Compile Include="ItemLocation.cs" />
+    <Compile Include="ItemUpdater.cs" />
+    <Compile Include="JsonParser.cs" />
+    <Compile Include="Log.cs" />
+    <Compile Include="Algorithms\MarkovProcess.cs" />
+    <Compile Include="Optimizer.cs" />
+    <Compile Include="OptimizerBase.cs" />
+    <Compile Include="OptimizerResults.cs" />
+    <Compile Include="Profs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\CacheSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>CacheSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\GeneralSettings.Designer.cs">
+      <DependentUpon>GeneralSettings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Properties\NetworkSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>NetworkSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="SavedBuffSet.cs" />
+    <Compile Include="SavedTalentSpec.cs" />
+    <Compile Include="SavedVariablesParser.cs" />
+    <Compile Include="SerializableDictionary.cs" />
+    <Compile Include="SpecialDamageProcs.cs" />
+    <Compile Include="SpecialEffect.cs" />
+    <Compile Include="SpecialEffectCombination.cs" />
+    <Compile Include="SpecialEffectInterpolator.cs" />
+    <Compile Include="SpecialEffects.cs" />
+    <Compile Include="SpecialFunction.cs" />
+    <Compile Include="StatConversion.cs" />
+    <Compile Include="StatGraphRenderer.cs" />
+    <Compile Include="Stats.cs" />
+    <Compile Include="StatusMessaging.cs" />
+    <Compile Include="Utilities.cs" />
+    <Compile Include="WebRequests.cs" />
+    <Compile Include="Wowhead.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\CacheSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>CacheSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\GeneralSettings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>GeneralSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Properties\NetworkSettings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>NetworkSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Bosses\DG_BossAttacks.resx">
+      <DependentUpon>DG_BossAttacks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bosses\DG_BossSitChanges.resx">
+      <DependentUpon>DG_BossSitChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graph.resx">
+      <DependentUpon>Graph.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>..\..\..\sgen2.exe $(TargetFileName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>

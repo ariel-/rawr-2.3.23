@@ -1,0 +1,53 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    mc:Ignorable="d" CacheMode="BitmapCache"
+    x:Class="Rawr.UI.ComparisonGraphItem" SizeChanged="ChangedSize" d:DesignHeight="40" d:DesignWidth="360">
+    <Grid x:Name="GraphItemGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="NameGridCol" Width="150"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid x:Name="NameGrid" Grid.Column="0" Margin="2,2,6,2" Background="#FFFFFFFF" Width="142" MouseLeftButtonDown="NameGrid_MouseLeftButtonUp">
+            <input:ContextMenuService.ContextMenu>
+                <input:ContextMenu x:Name="ContextMenuItem" Opened="ContextMenuItem_Opened">
+                    <input:MenuItem x:Name="ContextItemName" IsEnabled="False" Header="Super Cool Item"/>
+                    <input:Separator/>
+                    <input:MenuItem x:Name="ContextEdit" Header="Edit..." Click="EditItem"/>
+                    <input:MenuItem x:Name="ContextOpenWowhead" Header="Open in Wowhead" Click="OpenInWowhead"/>
+                    <input:MenuItem x:Name="ContextRefreshArmory" Header="Refresh Item from Armory" Click="RefreshItemFromArmory"/>
+                    <input:MenuItem x:Name="ContextRefreshWowhead" Header="Refresh Item from Wowhead" Click="RefreshItemFromWowhead"/>
+                    <input:MenuItem x:Name="ContextEquip" Header="Equip" Click="EquipItem"/>
+                    <input:MenuItem x:Name="ContextAddCustom" Header="Add Custom Gemming..." Click="AddCustomGemming"/>
+                    <input:MenuItem x:Name="ContextDeleteCustom" Header="Delete Custom Gemming" Click="DeleteCustomGemming"/>
+                    <input:MenuItem x:Name="ContextEvaluateUpgrade" Header="Evaluate Upgrade..." Click="EvaluateUpgrade"/>
+                </input:ContextMenu>
+            </input:ContextMenuService.ContextMenu>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Image x:Name="AvailableImage" Source="Images/DiamondOutline.png" Margin="2,2,2,2" MouseLeftButtonDown="AvailableClicked"/>
+            <Rectangle x:Name="EquippedRect" Grid.Column="1" Fill="#402AFF00" Visibility="Collapsed" />
+            <Rectangle x:Name="PartEquippedRect" Grid.Column="1" Visibility="Collapsed" Fill="#182AFF00"></Rectangle>
+            <Rectangle x:Name="HighLightedRect" Grid.Column="1" Fill="#4000EBFF" Visibility="Collapsed" />
+            <TextBlock x:Name="TextLabel" Grid.Column="1" TextWrapping="Wrap" MaxHeight="30" TextAlignment="Right" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,0,8,0" Text="test"/>
+        </Grid>
+        <StackPanel x:Name="NegativeStack" Margin="0,0,1,0" Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right"/>
+        <StackPanel x:Name="PositiveStack" Orientation="Horizontal" Grid.Column="2" HorizontalAlignment="Left">
+            <TextBlock x:Name="TotalLabel" HorizontalAlignment="Left" VerticalAlignment="Center" Text="0" Margin="4,0,-16,0"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

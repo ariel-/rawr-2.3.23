@@ -1,0 +1,134 @@
+﻿<UserControl
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+xmlns:System="clr-namespace:System;assembly=mscorlib"
+mc:Ignorable="d"
+d:DesignWidth="330" d:DesignHeight="600"
+xmlns:local="clr-namespace:Rawr.RestoSham" 
+x:Class="Rawr.RestoSham.CalculationOptionsPanelRestoSham" 
+>
+
+<UserControl.Resources>
+	<local:CalculationOptionsRestoSham x:Key="CalculationOptionsRestoShamDataSource" d:IsDataSource="True"/>
+</UserControl.Resources>
+
+<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource CalculationOptionsRestoShamDataSource}}">
+	<Grid.ColumnDefinitions>
+		<ColumnDefinition Width="*"/>
+	</Grid.ColumnDefinitions>
+
+	<controls:TabControl>
+		<controls:TabItem Header="General">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.6*"/>
+                        <ColumnDefinition Width="0.4*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Fight Length (min):" TextWrapping="Wrap" ToolTipService.ToolTip="Fight Length is Minutes. For decimals, .5 is 30 Seconds etc."/>
+                    <inputToolkit:NumericUpDown x:Name="FightLength" Height="20" Margin="0,2,0,2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="48" d:LayoutOverrides="HorizontalAlignment" Value="{Binding FightLength, Mode=TwoWay, UpdateSourceTrigger=Default}" Maximum="20" Minimum="1" Increment=".1" Grid.Column="1" Grid.Row="0" />
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Ping (ms):" TextWrapping="Wrap" ToolTipService.ToolTip="This is your latency in ms." Grid.Row="1"/>
+                    <inputToolkit:NumericUpDown x:Name="Latency" Height="20" Margin="0,2,0,2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="48" d:LayoutOverrides="HorizontalAlignment" Value="{Binding Latency, Mode=TwoWay, UpdateSourceTrigger=Default}" Maximum="1200" Minimum="50" Increment="50" Grid.Column="1" Grid.Row="1" />
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Text="Burst Style:" TextWrapping="Wrap" ToolTipService.ToolTip="This is the style you use when you need to put out as much healing as possible in the shortest time possible." Grid.Row="2" d:LayoutOverrides="GridBox"/>
+                    <ComboBox Margin="0,2,0,2" Grid.Column="1" Grid.Row="2" SelectedItem="{Binding BurstStyle, Mode=TwoWay, UpdateSourceTrigger=Default}" Height="Auto">
+                        <System:String>RT+HW</System:String>
+                        <System:String>RT+LHW</System:String>
+                        <System:String>RT+CH</System:String>
+                        <System:String>HW Spam</System:String>
+                        <System:String>LHW Spam</System:String>
+                        <System:String>CH Spam</System:String>
+                    </ComboBox>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Sustained Style:" TextWrapping="Wrap" ToolTipService.ToolTip="This is the style you use for general healing." Grid.Row="3"/>
+                    <ComboBox Margin="0,2,0,2" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding SustStyle, Mode=TwoWay, UpdateSourceTrigger=Default}" Height="Auto">
+                        <System:String>RT+HW</System:String>
+                        <System:String>RT+LHW</System:String>
+                        <System:String>RT+CH</System:String>
+                        <System:String>HW Spam</System:String>
+                        <System:String>LHW Spam</System:String>
+                        <System:String>CH Spam</System:String>
+                    </ComboBox>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Targets:" TextWrapping="Wrap" ToolTipService.ToolTip="These are the types of targets you will be casting on." Grid.Row="4"/>
+                    <ComboBox Margin="0,2,0,2" Grid.Column="1" Grid.Row="4" SelectedItem="{Binding Targets, Mode=TwoWay, UpdateSourceTrigger=Default}" Height="Auto">
+                        <System:String>Raid</System:String>
+                        <System:String>Tank</System:String>
+                        <System:String>Self</System:String>
+                        <System:String>Heavy Raid</System:String>
+                    </ComboBox>
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Earth Shield Used?" TextWrapping="Wrap" ToolTipService.ToolTip="Enable if you are earth shielding any target, including you." Grid.Row="5"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="5" IsChecked="{Binding Mode=TwoWay, Path=EarthShield}" d:LayoutOverrides="Height, VerticalMargin"/>
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Water Shield Used?" TextWrapping="Wrap" ToolTipService.ToolTip="Enable if you are using water shield.  Disable if you are earth-shielding yourself." Grid.Row="6"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="6" IsChecked="{Binding Mode=TwoWay, Path=WaterShield}" d:LayoutOverrides="Height, VerticalMargin"/>
+
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Mana Tide Used every CD?" TextWrapping="Wrap" ToolTipService.ToolTip="Enable to use mana tide on every cooldown." Grid.Row="7"/>
+                    <CheckBox Margin="0,2,0,2" Content="" Grid.Column="1" Grid.Row="7" IsChecked="{Binding Mode=TwoWay, Path=ManaTideEveryCD}" d:LayoutOverrides="Height, VerticalMargin"/>
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Innervates:" TextWrapping="Wrap" ToolTipService.ToolTip="Put how many innervates you will recieve from druids during the fight." Grid.Row="8"/>
+                    <inputToolkit:NumericUpDown x:Name="Innervates" Height="20" Margin="0,2,0,2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="48" d:LayoutOverrides="HorizontalAlignment" Value="{Binding Innervates, Mode=TwoWay, UpdateSourceTrigger=Default}" Maximum="25" Minimum="0" Increment="1" Grid.Column="1" Grid.Row="8" />
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Center" Width="Auto" Text="Heroism Control:" TextWrapping="Wrap" ToolTipService.ToolTip="This is locked currently." Grid.Row="9"/>
+                    <TextBox Height="20" Margin="0,2,0,2" Grid.Column="1" Grid.Row="9" Text="{Binding Mode=TwoWay, Path=Latency}" TextWrapping="Wrap"/>
+                    <ComboBox Margin="0,2,0,2" Grid.Column="1" Grid.Row="9" SelectedItem="{Binding HeroismControl, Mode=TwoWay, UpdateSourceTrigger=Default}" Height="Auto">
+                        <System:String>Me</System:String>
+                    </ComboBox>
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Decurses:" TextWrapping="Wrap" ToolTipService.ToolTip="Number of times you cast Cleanse Spirit in a fight." Grid.Row="10"/>
+                    <inputToolkit:NumericUpDown x:Name="Decurse" Height="20" Margin="0,2,0,2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="48" d:LayoutOverrides="HorizontalAlignment" Value="{Binding Decurse, Mode=TwoWay, UpdateSourceTrigger=Default}" Maximum="200" Minimum="0" Increment="1" Grid.Column="1" Grid.Row="10" />
+
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Orbs Popped:" TextWrapping="Wrap" ToolTipService.ToolTip="Put how many time per minute average water shield orbs are popped by damage." Grid.Row="11"/>
+                    <inputToolkit:NumericUpDown x:Name="WSPops" Height="20" Margin="0,2,0,2" VerticalAlignment="Top" HorizontalAlignment="Left" Width="48" d:LayoutOverrides="HorizontalAlignment" Value="{Binding WSPops, Mode=TwoWay, UpdateSourceTrigger=Default}" Maximum="20" Minimum="0" Increment="1" Grid.Column="1" Grid.Row="11" />
+                    
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Replenishment Uptime:" TextWrapping="Wrap" ToolTipService.ToolTip="Total percentage of time replenishment is up." Grid.Row="12"/>
+                    <Slider Margin="2" Grid.ColumnSpan="12" Grid.Row="13" Value="{Binding BurstPercentage, Mode=TwoWay}" Minimum="0" Maximum="100" />
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Survival Weight:" TextWrapping="Wrap" ToolTipService.ToolTip="This is the percentage weight you put on survival." Grid.Row="14"/>
+                    <Slider Margin="2" Grid.ColumnSpan="12" Grid.Row="15" Value="{Binding SurvivalPerc, Mode=TwoWay}" Minimum="0" Maximum="100" />
+
+                    <TextBlock Height="Auto" HorizontalAlignment="Stretch" Margin="2,2,0,2" VerticalAlignment="Top" Width="Auto" Text="Time Casting:" TextWrapping="Wrap" ToolTipService.ToolTip="This is the percentage of time spent casting." Grid.Row="16"/>
+                    <Slider Margin="2" Grid.ColumnSpan="12" Grid.Row="17" Value="{Binding ActivityPerc, Mode=TwoWay}" Minimum="0" Maximum="100" />
+
+
+                </Grid>
+		</controls:TabItem>
+	</controls:TabControl>
+</Grid>
+</UserControl>

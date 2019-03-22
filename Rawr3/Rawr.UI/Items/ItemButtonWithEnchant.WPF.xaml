@@ -1,0 +1,26 @@
+<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:Rawr="clr-namespace:Rawr;assembly=Rawr.Base.WPF"
+	xmlns:local="clr-namespace:Rawr.UI"
+	x:Class="Rawr.UI.ItemButtonWithEnchant"
+	Width="70" Height="85">
+
+	<Grid x:Name="LayoutRoot">
+		<Button x:Name="EnchantButton" Height="20" VerticalAlignment="Bottom" FontSize="10" 
+		 Click="EnchantButton_Clicked" MouseEnter="EnchantButton_MouseEnter" MouseLeave="EnchantButton_MouseLeave"/>
+		<Button x:Name="MainButton" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="70" Margin="0,0,0,15"
+			 Click="MainButton_Clicked" MouseEnter="MainButton_MouseEnter" MouseLeave="MainButton_MouseLeave">
+			<Image CacheMode="BitmapCache" x:Name="IconImage" Height="Auto" Width="Auto" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="UniformToFill"/>
+		</Button>
+		<Popup x:Name="ListPopup" HorizontalOffset="72">
+			<local:ItemListControl x:Name="ComparisonItemList"/>
+		</Popup>
+		<Popup x:Name="EnchantPopup" HorizontalOffset="72" VerticalOffset="66">
+			<local:ItemListControl x:Name="ComparisonEnchantList"/>
+		</Popup>
+	</Grid>
+</UserControl>

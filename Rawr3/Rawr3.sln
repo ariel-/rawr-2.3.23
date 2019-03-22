@@ -1,0 +1,241 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A3E1EB01-42E9-45AB-BEE8-E253A85FFE33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.UI", "Rawr.UI\Rawr.UI.csproj", "{E5177B6E-4D62-4506-BD70-E657540A9C4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Base", "Rawr.Base\Rawr.Base.csproj", "{48170BE2-2CF6-4068-B36C-189072D49093}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Retribution", "Rawr.Retribution\Rawr.Retribution.csproj", "{F515017D-CBC1-40E8-9E73-33AF171D697E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Healadin", "Rawr.Healadin\Rawr.Healadin.csproj", "{92719321-9235-4886-BDD6-010723C3EFFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Mage", "Rawr.Mage\Rawr.Mage.csproj", "{F0F978C4-0F75-4487-B29C-C9C1AE726EC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Cat", "Rawr.Cat\Rawr.Cat.csproj", "{0B8DE63B-6430-4A31-8504-40EEB7FDB81D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Bear", "Rawr.Bear\Rawr.Bear.csproj", "{81DB6449-FD88-44F8-BFF0-2FB5C196AD69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Rogue", "Rawr.Rogue\Rawr.Rogue.csproj", "{37A81CEA-4E34-4982-BE93-67D0F4BB98A9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.DPSWarr", "Rawr.DPSWarr\Rawr.DPSWarr.csproj", "{FB0E8A91-FE4B-425B-8773-792AB0232245}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.DPSDK", "Rawr.DPSDK\Rawr.DPSDK.csproj", "{513A87FD-FA64-49FD-9C34-50B8D52FBB5F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Moonkin", "Rawr.Moonkin\Rawr.Moonkin.csproj", "{7C127814-1ABF-4A8A-A644-577769226EA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Enhance", "Rawr.Enhance\Rawr.Enhance.csproj", "{3D73B646-5271-4E55-9089-CCBD3E26EECD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Tree", "Rawr.Tree\Rawr.Tree.csproj", "{0F4B5B78-ECD5-42ED-ADE8-93F24DCD6EA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.ProtWarr", "Rawr.ProtWarr\Rawr.ProtWarr.csproj", "{4F5BF0A3-A747-4DDD-9258-943752FC939C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Silverlight", "Rawr.Silverlight\Rawr.Silverlight.csproj", "{F4FE754B-7C2B-43E4-89C3-A839DA09D072}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Silverlight.Web", "Rawr.Silverlight.Web\Rawr.Silverlight.Web.csproj", "{039EB027-018A-4422-B51E-9ED81879465F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.TankDK", "Rawr.TankDK\Rawr.TankDK.csproj", "{85C9EEA7-735C-465B-A5AD-6D9C0EF88601}"
+	ProjectSection(ProjectDependencies) = postProject
+		{48170BE2-2CF6-4068-B36C-189072D49093} = {48170BE2-2CF6-4068-B36C-189072D49093}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Elemental", "Rawr.Elemental\Rawr.Elemental.csproj", "{2D00FCEA-E624-4E4F-92AE-C4B4BD1D6E46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Hunter", "Rawr.Hunter\Rawr.Hunter.csproj", "{5FEA13E2-1D46-400A-ACD8-DD2E5DBADB3E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.ProtPaladin", "Rawr.ProtPaladin\Rawr.ProtPaladin.csproj", "{CFCC8381-7A7F-4842-8F93-CC081006FB47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.RestoSham", "Rawr.RestoSham\Rawr.RestoSham.csproj", "{0BA33BAA-1BFD-4F41-8DAE-134FE9C357E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.HealPriest", "Rawr.HealPriest\Rawr.HealPriest.csproj", "{859EB628-A235-482E-A2DA-643DAB35A626}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.ShadowPriest", "Rawr.ShadowPriest\Rawr.ShadowPriest.csproj", "{6E5BC92F-AAA0-4C14-B25A-1A39196291E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Warlock", "Rawr.Warlock\Rawr.Warlock.csproj", "{EE625724-2A4E-45F7-806D-584449250C11}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 25
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs03
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Rawr.Base\\Rawr.Base.csproj
+		SccProjectName1 = Rawr.Base
+		SccLocalPath1 = Rawr.Base
+		SccProjectUniqueName2 = Rawr.Healadin\\Rawr.Healadin.csproj
+		SccProjectName2 = Rawr.Healadin
+		SccLocalPath2 = Rawr.Healadin
+		SccProjectUniqueName3 = Rawr.Retribution\\Rawr.Retribution.csproj
+		SccProjectName3 = Rawr.Retribution
+		SccLocalPath3 = Rawr.Retribution
+		SccProjectUniqueName4 = Rawr.Mage\\Rawr.Mage.csproj
+		SccProjectName4 = Rawr.Mage
+		SccLocalPath4 = Rawr.Mage
+		SccProjectUniqueName5 = Rawr.Cat\\Rawr.Cat.csproj
+		SccProjectName5 = Rawr.Cat
+		SccLocalPath5 = Rawr.Cat
+		SccProjectUniqueName6 = Rawr.Bear\\Rawr.Bear.csproj
+		SccProjectName6 = Rawr.Bear
+		SccLocalPath6 = Rawr.Bear
+		SccProjectUniqueName7 = Rawr.Rogue\\Rawr.Rogue.csproj
+		SccProjectName7 = Rawr.Rogue
+		SccLocalPath7 = Rawr.Rogue
+		SccProjectUniqueName8 = Rawr.DPSWarr\\Rawr.DPSWarr.csproj
+		SccProjectName8 = Rawr.DPSWarr
+		SccLocalPath8 = Rawr.DPSWarr
+		SccProjectUniqueName9 = Rawr.DPSDK\\Rawr.DPSDK.csproj
+		SccProjectName9 = Rawr.DPSDK
+		SccLocalPath9 = Rawr.DPSDK
+		SccProjectUniqueName10 = Rawr.Enhance\\Rawr.Enhance.csproj
+		SccProjectName10 = Rawr.Enhance
+		SccLocalPath10 = Rawr.Enhance
+		SccProjectUniqueName11 = Rawr.Moonkin\\Rawr.Moonkin.csproj
+		SccProjectName11 = Rawr.Moonkin
+		SccLocalPath11 = Rawr.Moonkin
+		SccProjectUniqueName12 = Rawr.Tree\\Rawr.Tree.csproj
+		SccProjectName12 = Rawr.Tree
+		SccLocalPath12 = Rawr.Tree
+		SccProjectUniqueName13 = Rawr.ProtWarr\\Rawr.ProtWarr.csproj
+		SccProjectName13 = Rawr.ProtWarr
+		SccLocalPath13 = Rawr.ProtWarr
+		SccProjectUniqueName14 = Rawr.UI\\Rawr.UI.csproj
+		SccProjectName14 = Rawr.UI
+		SccLocalPath14 = Rawr.UI
+		SccProjectUniqueName15 = Rawr.Silverlight\\Rawr.Silverlight.csproj
+		SccProjectName15 = Rawr.Silverlight
+		SccLocalPath15 = Rawr.Silverlight
+		SccProjectUniqueName16 = Rawr.Silverlight.Web\\Rawr.Silverlight.Web.csproj
+		SccProjectName16 = Rawr.Silverlight.Web
+		SccLocalPath16 = Rawr.Silverlight.Web
+		SccProjectUniqueName17 = Rawr.TankDK\\Rawr.TankDK.csproj
+		SccProjectName17 = Rawr.TankDK
+		SccLocalPath17 = Rawr.TankDK
+		SccProjectUniqueName18 = Rawr.Elemental\\Rawr.Elemental.csproj
+		SccProjectName18 = Rawr.Elemental
+		SccLocalPath18 = Rawr.Elemental
+		SccProjectUniqueName19 = Rawr.Hunter\\Rawr.Hunter.csproj
+		SccProjectName19 = Rawr.Hunter
+		SccLocalPath19 = Rawr.Hunter
+		SccProjectUniqueName20 = Rawr.ProtPaladin\\Rawr.ProtPaladin.csproj
+		SccProjectName20 = Rawr.ProtPaladin
+		SccLocalPath20 = Rawr.ProtPaladin
+		SccProjectUniqueName21 = Rawr.RestoSham\\Rawr.RestoSham.csproj
+		SccProjectName21 = Rawr.RestoSham
+		SccLocalPath21 = Rawr.RestoSham
+		SccProjectUniqueName22 = Rawr.HealPriest\\Rawr.HealPriest.csproj
+		SccProjectName22 = Rawr.HealPriest
+		SccLocalPath22 = Rawr.HealPriest
+		SccProjectUniqueName23 = Rawr.ShadowPriest\\Rawr.ShadowPriest.csproj
+		SccProjectName23 = Rawr.ShadowPriest
+		SccLocalPath23 = Rawr.ShadowPriest
+		SccProjectUniqueName24 = Rawr.Warlock\\Rawr.Warlock.csproj
+		SccProjectName24 = Rawr.Warlock
+		SccLocalPath24 = Rawr.Warlock
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E5177B6E-4D62-4506-BD70-E657540A9C4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5177B6E-4D62-4506-BD70-E657540A9C4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5177B6E-4D62-4506-BD70-E657540A9C4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5177B6E-4D62-4506-BD70-E657540A9C4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48170BE2-2CF6-4068-B36C-189072D49093}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48170BE2-2CF6-4068-B36C-189072D49093}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48170BE2-2CF6-4068-B36C-189072D49093}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48170BE2-2CF6-4068-B36C-189072D49093}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F515017D-CBC1-40E8-9E73-33AF171D697E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F515017D-CBC1-40E8-9E73-33AF171D697E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F515017D-CBC1-40E8-9E73-33AF171D697E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F515017D-CBC1-40E8-9E73-33AF171D697E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92719321-9235-4886-BDD6-010723C3EFFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92719321-9235-4886-BDD6-010723C3EFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92719321-9235-4886-BDD6-010723C3EFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92719321-9235-4886-BDD6-010723C3EFFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0F978C4-0F75-4487-B29C-C9C1AE726EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0F978C4-0F75-4487-B29C-C9C1AE726EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0F978C4-0F75-4487-B29C-C9C1AE726EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0F978C4-0F75-4487-B29C-C9C1AE726EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B8DE63B-6430-4A31-8504-40EEB7FDB81D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B8DE63B-6430-4A31-8504-40EEB7FDB81D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B8DE63B-6430-4A31-8504-40EEB7FDB81D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B8DE63B-6430-4A31-8504-40EEB7FDB81D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DB6449-FD88-44F8-BFF0-2FB5C196AD69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DB6449-FD88-44F8-BFF0-2FB5C196AD69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DB6449-FD88-44F8-BFF0-2FB5C196AD69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DB6449-FD88-44F8-BFF0-2FB5C196AD69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37A81CEA-4E34-4982-BE93-67D0F4BB98A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A81CEA-4E34-4982-BE93-67D0F4BB98A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A81CEA-4E34-4982-BE93-67D0F4BB98A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A81CEA-4E34-4982-BE93-67D0F4BB98A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB0E8A91-FE4B-425B-8773-792AB0232245}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB0E8A91-FE4B-425B-8773-792AB0232245}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB0E8A91-FE4B-425B-8773-792AB0232245}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB0E8A91-FE4B-425B-8773-792AB0232245}.Release|Any CPU.Build.0 = Release|Any CPU
+		{513A87FD-FA64-49FD-9C34-50B8D52FBB5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{513A87FD-FA64-49FD-9C34-50B8D52FBB5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{513A87FD-FA64-49FD-9C34-50B8D52FBB5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{513A87FD-FA64-49FD-9C34-50B8D52FBB5F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C127814-1ABF-4A8A-A644-577769226EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C127814-1ABF-4A8A-A644-577769226EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C127814-1ABF-4A8A-A644-577769226EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C127814-1ABF-4A8A-A644-577769226EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D73B646-5271-4E55-9089-CCBD3E26EECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D73B646-5271-4E55-9089-CCBD3E26EECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D73B646-5271-4E55-9089-CCBD3E26EECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D73B646-5271-4E55-9089-CCBD3E26EECD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F4B5B78-ECD5-42ED-ADE8-93F24DCD6EA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4B5B78-ECD5-42ED-ADE8-93F24DCD6EA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4B5B78-ECD5-42ED-ADE8-93F24DCD6EA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4B5B78-ECD5-42ED-ADE8-93F24DCD6EA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F5BF0A3-A747-4DDD-9258-943752FC939C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F5BF0A3-A747-4DDD-9258-943752FC939C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F5BF0A3-A747-4DDD-9258-943752FC939C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F5BF0A3-A747-4DDD-9258-943752FC939C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4FE754B-7C2B-43E4-89C3-A839DA09D072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4FE754B-7C2B-43E4-89C3-A839DA09D072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4FE754B-7C2B-43E4-89C3-A839DA09D072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4FE754B-7C2B-43E4-89C3-A839DA09D072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{039EB027-018A-4422-B51E-9ED81879465F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039EB027-018A-4422-B51E-9ED81879465F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039EB027-018A-4422-B51E-9ED81879465F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039EB027-018A-4422-B51E-9ED81879465F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{85C9EEA7-735C-465B-A5AD-6D9C0EF88601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{85C9EEA7-735C-465B-A5AD-6D9C0EF88601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{85C9EEA7-735C-465B-A5AD-6D9C0EF88601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{85C9EEA7-735C-465B-A5AD-6D9C0EF88601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D00FCEA-E624-4E4F-92AE-C4B4BD1D6E46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D00FCEA-E624-4E4F-92AE-C4B4BD1D6E46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D00FCEA-E624-4E4F-92AE-C4B4BD1D6E46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D00FCEA-E624-4E4F-92AE-C4B4BD1D6E46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FEA13E2-1D46-400A-ACD8-DD2E5DBADB3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FEA13E2-1D46-400A-ACD8-DD2E5DBADB3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FEA13E2-1D46-400A-ACD8-DD2E5DBADB3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FEA13E2-1D46-400A-ACD8-DD2E5DBADB3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFCC8381-7A7F-4842-8F93-CC081006FB47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFCC8381-7A7F-4842-8F93-CC081006FB47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFCC8381-7A7F-4842-8F93-CC081006FB47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFCC8381-7A7F-4842-8F93-CC081006FB47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BA33BAA-1BFD-4F41-8DAE-134FE9C357E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BA33BAA-1BFD-4F41-8DAE-134FE9C357E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BA33BAA-1BFD-4F41-8DAE-134FE9C357E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BA33BAA-1BFD-4F41-8DAE-134FE9C357E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{859EB628-A235-482E-A2DA-643DAB35A626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{859EB628-A235-482E-A2DA-643DAB35A626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{859EB628-A235-482E-A2DA-643DAB35A626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{859EB628-A235-482E-A2DA-643DAB35A626}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E5BC92F-AAA0-4C14-B25A-1A39196291E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E5BC92F-AAA0-4C14-B25A-1A39196291E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E5BC92F-AAA0-4C14-B25A-1A39196291E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E5BC92F-AAA0-4C14-B25A-1A39196291E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE625724-2A4E-45F7-806D-584449250C11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE625724-2A4E-45F7-806D-584449250C11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE625724-2A4E-45F7-806D-584449250C11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE625724-2A4E-45F7-806D-584449250C11}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,42 @@
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:Rawr.Silverlight.Controls;assembly=Rawr.Silverlight.Controls">
+    <Style TargetType="local:ComboBox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:ComboBox">
+                    <Grid Height="Auto" Width="Auto">
+                        <Grid.Resources>
+                            <DataTemplate x:Key="DropDownDataTemplate">
+                                <Grid Background="Transparent">
+                                    <Path x:Name="ExpandPath" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="1,1,1,1" Fill="Black" Data="M 0 0 L 4 4 L 8 0 Z"/>
+                                </Grid>
+                            </DataTemplate>
+                        </Grid.Resources>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="PopupChild">
+                            <Border BorderBrush="#FF000000" BorderThickness="1" CornerRadius="1">
+                                <Border BorderBrush="#FFFFFFFF" BorderThickness="1" CornerRadius="1">
+                                    <ScrollViewer x:Name="ScrollViewer" Padding="{TemplateBinding Padding}">
+                                        <ItemsPresenter/>
+                                    </ScrollViewer>
+                                </Border>
+                            </Border>
+                        </Grid>
+                        <Border Background="White" BorderBrush="#FF000000" BorderThickness="1" CornerRadius="1">
+                            <Border BorderBrush="#FFFFFFFF" BorderThickness="1" CornerRadius="1">
+                                <ContentControl x:Name="SelectedItemControl" Height="Auto" Width="Auto" HorizontalAlignment="Left" />
+                            </Border>
+                        </Border>
+                        <Button Height="Auto" HorizontalAlignment="Stretch" x:Name="DropDownButton" Grid.Column="1" ContentTemplate="{StaticResource DropDownDataTemplate}"/>
+                        <Popup x:Name="Popup"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

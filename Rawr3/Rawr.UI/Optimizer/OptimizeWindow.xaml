@@ -1,0 +1,117 @@
+<basics2:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	xmlns:local="clr-namespace:Rawr.UI"
+	xmlns:Rawr_Properties="clr-namespace:Rawr.Properties;assembly=Rawr.Base" xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+	x:Class="Rawr.UI.OptimizeWindow"
+	Title="Optimizer" Width="760" Closing="WindowClosing" Closed="WindowClosed">
+	<basics2:ChildWindow.Resources>
+		<Style x:Key="RequirementGridStyle" TargetType="Grid">
+			<Setter Property="VerticalAlignment" Value="Top"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+		</Style>
+		<Style x:Key="RequirementComboStyle" TargetType="ComboBox">
+			<Setter Property="Margin" Value="0,2,2,2"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+		</Style>
+		<Style x:Key="RequirementGreaterComboStyle" TargetType="ComboBox">
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="Margin" Value="2,2,2,2"/>
+		</Style>
+		<Style x:Key="RequirementNumStyle" TargetType="inputToolkit:NumericUpDown">
+			<Setter Property="Margin" Value="2,2,2,2"/>
+			<Setter Property="Maximum" Value="1000000"/>
+			<Setter Property="DecimalPlaces" Value="2"/>
+			<Setter Property="Width" Value="85"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+		</Style>
+		<Style x:Key="RequirementRemoveStyle" TargetType="Button">
+			<Setter Property="Background" Value="#FFFF0000"/>
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Content" Value="X"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="Margin" Value="2,2,0,2"/>
+		</Style>
+	</basics2:ChildWindow.Resources>
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="5.3*"/>
+			<ColumnDefinition Width="6*"/>
+		</Grid.ColumnDefinitions>
+		<Button x:Name="DoneButton" Content="Close" Click="DoneButton_Click" Grid.Row="4" HorizontalAlignment="Right" Margin="2,2,4,4" VerticalAlignment="Bottom" Width="75" Grid.Column="1" />
+		<ProgressBar x:Name="AltProgress" Height="10" HorizontalAlignment="Stretch" Margin="4,2,4,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Row="3"/>
+		<ProgressBar x:Name="MainProgress" Height="25" HorizontalAlignment="Stretch" Margin="4,11,4,2" VerticalAlignment="Stretch" Grid.ColumnSpan="2" Grid.Row="3"/>
+		<local:GroupBox Header="Optimize" Margin="4,2,2,2" Grid.Row="2" Padding="6,0,6,6">
+			<StackPanel>
+				<TextBlock Text="This action will attempt to find the best combination of gear, enchants, and gems, from what you have marked available. For example, you would use this action when you want to find the best set of gear you can make, or when you want to find the best way to gem/enchant your gear to maximize its value." TextWrapping="Wrap" FontSize="10"/>
+				<Button x:Name="OptimizeButton" Content="Optimize" HorizontalAlignment="Right" Margin="2,2,2,2" Padding="10,3,10,3" Click="OptimizeButton_Click"/>
+			</StackPanel>
+		</local:GroupBox>
+		<local:GroupBox Header="Build Upgrade List" Margin="2,2,4,2" Grid.Row="2" Padding="6,0,6,6" Grid.Column="1">
+			<StackPanel>
+				<TextBlock Text="This action creates an Upgrade List, containing all items which would increase the value (in terms of the Calculation to Optimize) of the optimal gearset, if they were available, and how much they would increase it by. For example, you would use this action after performing an Optimize, to find what items would provide the biggest upgrade to you." TextWrapping="Wrap" FontSize="10"/>
+				<Button x:Name="UpgradesButton" Content="Build Upgrade List" HorizontalAlignment="Right" Margin="2,2,2,2" Padding="10,3,10,3" Click="UpgradesButton_Click"/>
+			</StackPanel>
+		</local:GroupBox>
+		<TextBlock HorizontalAlignment="Stretch" Margin="4,4,4,2" Text="Before using the optimizer, you need to mark which items are available to the optimizer. To do so, click the diamond next to each available item, enchant, and gem in the charts on the main window. Typically, this would include items that you have equipped, or are in your bags/bank." TextWrapping="Wrap" Grid.ColumnSpan="2" FontSize="10"/>
+		<TextBlock HorizontalAlignment="Left" Margin="4,4,0,0" VerticalAlignment="Top" Grid.Row="1" Text="Calculation to Optimize:"/>
+		<ComboBox x:Name="CalculationToOptimizeCombo" Margin="141,2,2,2" VerticalAlignment="Top" Grid.Row="1"/>
+		<local:GroupBox Margin="4,26,2,2" Header="Additional Requirements" Grid.Row="1" Padding="6,0,6,6">
+			<Grid HorizontalAlignment="Stretch" VerticalAlignment="Top">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<StackPanel x:Name="RequirementsStack" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+				<Button x:Name="AddRequirementButton" Content="Add" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Grid.Row="1" Click="AddRequirement_Click" Margin="0,2,0,0"/>
+			</Grid>
+		</local:GroupBox>
+		<local:GroupBox Margin="2,2,4,2" Header="Options" Grid.Row="1" Grid.Column="1" Padding="6,0,6,6">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				<TextBlock HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="Thoroughness controls how extensively the Optimizer will search for possible upgrades. Even at maximum thoroughness, finding the best possible gearset is not guaranteed, just very likely. At minimum thoroughness, the optimizer will only search for individual direct upgrades. The higher you set Thoroughness, the longer optimization will take." TextWrapping="Wrap" Margin="2,2,2,2" FontSize="10"/>
+				<TextBlock HorizontalAlignment="Left" Margin="2,2,0,2" Grid.Row="1" Text="Thoroughness:" TextWrapping="Wrap" VerticalAlignment="Center"/>
+				<Slider x:Name="ThoroughnessSlider" HorizontalAlignment="Stretch" Margin="89,2,2,2" Grid.Row="1" Minimum="1" Maximum="400" SmallChange="1" LargeChange="10" />
+				<TextBlock HorizontalAlignment="Stretch" Margin="2,2,2,2" VerticalAlignment="Stretch" Grid.Row="2" Text="Choose whether to let the Optimizer regem or reenchant items that don't specifically allow it. (See documentation for how to specify only specific gemmings or specific enchantings of an item are available.)" TextWrapping="Wrap" FontSize="10"/>
+				<CheckBox x:Name="OverrideRegemCheck" HorizontalAlignment="Left" Margin="2,2,2,2" Content="Override Regem" Grid.Row="3" d:LayoutOverrides="Height" VerticalAlignment="Center" />
+				<CheckBox x:Name="OverrideReenchantCheck" Margin="116,2,2,2" Content="Override Reenchant" Grid.Row="3" d:LayoutOverrides="Height" HorizontalAlignment="Left" VerticalAlignment="Center" />
+				<TextBlock HorizontalAlignment="Stretch" Margin="2,2,2,2" Grid.Row="4" Text="Choose additional properties to optimize as well." TextWrapping="Wrap" d:LayoutOverrides="Height" VerticalAlignment="Center" FontSize="10"/>
+                <toolkit:WrapPanel Orientation="Horizontal" Grid.Row="5" >
+                    <CheckBox x:Name="FoodCheck" Margin="2,2,2,2" Content="Food" />
+                    <CheckBox x:Name="ElixirsFlasksCheck" Margin="2,2,2,2" Content="Elixirs/Flasks" />
+                    <CheckBox x:Name="MixologyCheck" Margin="2,2,2,2" Content="Mixology" />
+                    <CheckBox x:Name="TalentSpecsCheck" Margin="2,2,2,2" Content="Talent Specs" />
+                    <CheckBox x:Name="TalentsCheck" Margin="2,2,2,2" Content="Talents" />
+                </toolkit:WrapPanel>
+            </Grid>
+		</local:GroupBox>
+		<TextBlock x:Name="MaxScoreLabel" HorizontalAlignment="Left" Margin="4,2,2,4" VerticalAlignment="Center" Grid.Row="4" TextWrapping="Wrap"/>
+		<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Grid.Row="4" HorizontalAlignment="Right" Margin="0,2,4,4" VerticalAlignment="Bottom" Width="75" Grid.Column="1" Visibility="Collapsed" />
+	</Grid>
+</basics2:ChildWindow>

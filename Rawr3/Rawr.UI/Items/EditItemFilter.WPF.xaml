@@ -1,0 +1,110 @@
+<basics2:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:basics="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:common="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:Rawr="clr-namespace:Rawr;assembly=Rawr.Base.WPF"
+	x:Class="Rawr.UI.EditItemFilter"
+	Title="Edit Item Filters..."
+	Height="583" Width="316">
+	<basics2:ChildWindow.DataContext>
+		<Rawr:ItemFilterRegex/>
+	</basics2:ChildWindow.DataContext>
+
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.Resources>
+	    	<common:HierarchicalDataTemplate x:Key="FilterTemplate" ItemsSource="{Binding RegexList}">
+				<TextBlock Text="{Binding Name}" />
+        	</common:HierarchicalDataTemplate>
+		</Grid.Resources>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="40" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<Grid VerticalAlignment="Stretch" Grid.Row="0" Margin="2,2,2,2" Grid.ColumnSpan="2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.45*"/>
+				<ColumnDefinition Width="0.55*"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<Button Content="New Filter" Margin="2,2,2,2" Grid.ColumnSpan="1" Click="NewFilter"/>
+			<Button x:Name="SubfilterButton" Content="New Subfilter" Margin="2,2,2,2" Grid.ColumnSpan="1" Grid.Column="1" Click="NewSubfilter"/>
+			<Button x:Name="MoveUpButton" Content="+" Margin="2,2,2,2" Grid.ColumnSpan="1" Grid.Column="2" Width="25" Click="MoveUpFilter"/>
+			<Button x:Name="MoveDownButton" Content="-" Margin="2,2,2,2" Grid.ColumnSpan="1" Grid.Column="3" Width="25" Click="MoveDownFilter"/>
+			<Button x:Name="DeleteButton" Content="X" Margin="2,2,0,2" Grid.ColumnSpan="1" Grid.Column="4" Width="25" HorizontalAlignment="Left" Click="DeleteFilter"/>
+		</Grid>
+
+		<basics:TreeView x:Name="FilterTree" Margin="4,4,4,4" 
+			ItemTemplate="{StaticResource FilterTemplate}"
+			Grid.Row="1" Grid.ColumnSpan="2" SelectedItemChanged="SelectedFilterChanged"/>
+		<TextBlock HorizontalAlignment="Right" Grid.Row="2" Text="Name:" VerticalAlignment="Center" Margin="14,2,4,2"/>
+		<TextBox HorizontalAlignment="Stretch" Margin="2,2,4,2" Grid.Column="1" Grid.Row="2" TextWrapping="Wrap" Text="{Binding Name, Mode=TwoWay}"/>
+		<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Text="Pattern:" Margin="14,2,4,2"/>
+		<TextBox Height="60" HorizontalAlignment="Stretch" Margin="2,2,4,2" Grid.Column="1" Grid.Row="3" TextWrapping="Wrap" Text="{Binding Pattern, Mode=TwoWay}"/>
+		<TextBlock HorizontalAlignment="Right" Grid.Row="4" Text="Min Item Level:" VerticalAlignment="Center" Margin="14,2,4,2"/>
+		<TextBox HorizontalAlignment="Left" Margin="2,2,4,2" Width="100" Grid.Column="1" Grid.Row="4" TextWrapping="Wrap" Text="{Binding MinItemLevel, Mode=TwoWay}"/>
+		<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Text="Max Item Level:" Margin="14,2,4,2"/>
+		<TextBox HorizontalAlignment="Left" Margin="2,2,4,2" Width="100" Grid.Column="1" Grid.Row="5" TextWrapping="Wrap" Text="{Binding MaxItemLevel, Mode=TwoWay}"/>
+		<TextBlock HorizontalAlignment="Right" Grid.Row="6" Text="Min Item Quality:" VerticalAlignment="Center" Margin="14,2,4,2"/>
+		<ComboBox HorizontalAlignment="Left" Margin="2,2,4,2" Width="130" Grid.Column="1" Grid.Row="6"
+			SelectedIndex="{Binding MinItemQualityIndex, Mode=TwoWay}">
+			<ComboBoxItem Content="Temp"/>
+			<ComboBoxItem Content="Poor"/>
+			<ComboBoxItem Content="Common"/>
+			<ComboBoxItem Content="Uncommon"/>
+			<ComboBoxItem Content="Rare"/>
+			<ComboBoxItem Content="Epic"/>
+			<ComboBoxItem Content="Legendary"/>
+			<ComboBoxItem Content="Artifact"/>
+			<ComboBoxItem Content="Heirloom"/>
+		</ComboBox>
+		<TextBlock HorizontalAlignment="Right" Grid.Row="7" Text="Max Item Quality:" VerticalAlignment="Center" Margin="14,2,4,2"/>
+		<ComboBox HorizontalAlignment="Left" Margin="2,2,4,2" Width="130" Grid.Column="1" Grid.Row="7"
+			SelectedIndex="{Binding MaxItemQualityIndex, Mode=TwoWay}">
+			<ComboBoxItem Content="Temp"/>
+			<ComboBoxItem Content="Poor"/>
+			<ComboBoxItem Content="Common"/>
+			<ComboBoxItem Content="Uncommon"/>
+			<ComboBoxItem Content="Rare"/>
+			<ComboBoxItem Content="Epic"/>
+			<ComboBoxItem Content="Legendary"/>
+			<ComboBoxItem Content="Artifact"/>
+			<ComboBoxItem Content="Heirloom"/>
+		</ComboBox>
+		
+		<TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Margin="14,2,4,2" Grid.Row="8" Text="Item Bind Status:"/>
+		<CheckBox HorizontalAlignment="Left" Content="Pickup" Grid.Row="8" Margin="2,2,0,0" Grid.Column="1" IsChecked="{Binding BoP, Mode=TwoWay}" Height="17" VerticalAlignment="Top"/>
+		<CheckBox HorizontalAlignment="Left" Content="Equip" Grid.Row="8" Margin="63,3,0,0" Grid.Column="1" IsChecked="{Binding BoE, Mode=TwoWay}" Height="17" VerticalAlignment="Top"/>
+		<CheckBox HorizontalAlignment="Left" Content="Use" Grid.Row="8" Margin="125,3,0,0" Grid.Column="1" IsChecked="{Binding BoU, Mode=TwoWay}" Height="17" VerticalAlignment="Top"/>
+		<CheckBox HorizontalAlignment="Left" Content="N/A" Grid.Row="8" Margin="2,22,0,0" Grid.Column="1" IsChecked="{Binding BoN, Mode=TwoWay}" Height="17" VerticalAlignment="Top"/>
+		<CheckBox HorizontalAlignment="Left" Content="Account" Grid.Row="8" Margin="63,22,0,0" Grid.Column="1" IsChecked="{Binding BoA, Mode=TwoWay}" Height="17" VerticalAlignment="Top"/>
+		
+		<CheckBox HorizontalAlignment="Left" Content="Additive Filter" Grid.Row="9" Margin="2,2,2,2" Grid.Column="1" IsChecked="{Binding AdditiveFilter, Mode=TwoWay}"/>
+		<CheckBox HorizontalAlignment="Left" Content="Applies to Items" Grid.Row="10" Margin="2,2,2,2" Grid.Column="1" IsChecked="{Binding AppliesToItems, Mode=TwoWay}"/>
+		<CheckBox HorizontalAlignment="Left" Content="Applies to Gems" Grid.Row="11" Margin="2,2,2,2" Grid.Column="1" IsChecked="{Binding AppliesToGems, Mode=TwoWay}"/>
+
+		<Button x:Name="OKButton" Content="Done" Click="OKButton_Click" Grid.Row="12" Margin="0,8,0,0" Grid.Column="1" HorizontalAlignment="Right" Width="75" d:LayoutOverrides="GridBox" />
+	</Grid>
+</basics2:ChildWindow>

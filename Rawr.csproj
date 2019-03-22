@@ -1,0 +1,661 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A0F124AB-2A3C-488C-A8AB-38FC5444CB37}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rawr</RootNamespace>
+    <AssemblyName>Rawr</AssemblyName>
+    <ApplicationIcon>RawrIcon.ico</ApplicationIcon>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <StartupObject>Rawr.Program</StartupObject>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BuffSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BuffSelector.Designer.cs">
+      <DependentUpon>BuffSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComparisonGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComparisonGraph.Designer.cs">
+      <DependentUpon>ComparisonGraph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalculationDisplay.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CalculationDisplay.Designer.cs">
+      <DependentUpon>CalculationDisplay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComparisonSetControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ComparisonSetControl.Designer.cs">
+      <DependentUpon>ComparisonSetControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DG_BossHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DG_BossHandler.Designer.cs">
+      <DependentUpon>DG_BossHandler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEnterWowheadFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEnterWowheadFilter.Designer.cs">
+      <DependentUpon>FormEnterWowheadFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditSpecialEffect.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditSpecialEffect.Designer.cs">
+      <DependentUpon>FormEditSpecialEffect.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGemmingTemplates.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGemmingTemplates.Designer.cs">
+      <DependentUpon>FormGemmingTemplates.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBatchTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBatchTools.Designer.cs">
+      <DependentUpon>FormBatchTools.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChooseCharacter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChooseCharacter.designer.cs">
+      <DependentUpon>FormChooseCharacter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormItemComparison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormItemComparison.Designer.cs">
+      <DependentUpon>FormItemComparison.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormItemFilter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormItemFilter.Designer.cs">
+      <DependentUpon>FormItemFilter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormItemInstance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormItemInstance.Designer.cs">
+      <DependentUpon>FormItemInstance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptimizeResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimizeResult.Designer.cs">
+      <DependentUpon>FormOptimizeResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRelevantItemRefinement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRelevantItemRefinement.Designer.cs">
+      <DependentUpon>FormRelevantItemRefinement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSaveTalentSpec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSaveTalentSpec.Designer.cs">
+      <DependentUpon>FormSaveTalentSpec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormStart.Designer.cs">
+      <DependentUpon>FormStart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GemmingTemplateControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GemmingTemplateControl.Designer.cs">
+      <DependentUpon>GemmingTemplateControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemButtonWithEnchant.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemButtonWithEnchant.Designer.cs">
+      <DependentUpon>ItemButtonWithEnchant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemEnchantContextualMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="FormEnterId.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEnterId.Designer.cs">
+      <DependentUpon>FormEnterId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEnterNameRealm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEnterNameRealm.Designer.cs">
+      <DependentUpon>FormEnterNameRealm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormItemEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormItemEditor.Designer.cs">
+      <DependentUpon>FormItemEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormItemSelection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormItemSelection.Designer.cs">
+      <DependentUpon>FormItemSelection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormOptimize.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOptimize.Designer.cs">
+      <DependentUpon>FormOptimize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSplash.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSplash.Designer.cs">
+      <DependentUpon>FormSplash.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditEnchants.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditEnchants.Designer.cs">
+      <DependentUpon>EditEnchants.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditBuffs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditBuffs.Designer.cs">
+      <DependentUpon>EditBuffs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ErrorReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ErrorReport.Designer.cs">
+      <DependentUpon>ErrorReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Options.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Options.Designer.cs">
+      <DependentUpon>Options.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Status.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Status.Designer.cs">
+      <DependentUpon>Status.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUpgradeComparison.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUpgradeComparison.Designer.cs">
+      <DependentUpon>FormUpgradeComparison.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ItemComparison.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemComparison.Designer.cs">
+      <DependentUpon>ItemComparison.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemContextualMenu.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ItemFilterTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ItemIcons.cs" />
+    <Compile Include="ItemSelectorItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemSelectorItem.Designer.cs">
+      <DependentUpon>ItemSelectorItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="PaperDoll.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PaperDoll.Designer.cs">
+      <DependentUpon>PaperDoll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Optimizer.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Optimizer.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BuffSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>BuffSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ComparisonGraph.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ComparisonGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalculationDisplay.resx">
+      <DependentUpon>CalculationDisplay.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DG_BossHandler.resx">
+      <DependentUpon>DG_BossHandler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEnterWowheadFilter.resx">
+      <DependentUpon>FormEnterWowheadFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBatchTools.resx">
+      <DependentUpon>FormBatchTools.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChooseCharacter.resx">
+      <DependentUpon>FormChooseCharacter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditSpecialEffect.resx">
+      <DependentUpon>FormEditSpecialEffect.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEnterId.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEnterId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEnterNameRealm.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormEnterNameRealm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGemmingTemplates.resx">
+      <DependentUpon>FormGemmingTemplates.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormItemComparison.resx">
+      <DependentUpon>FormItemComparison.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormItemEditor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormItemEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormItemFilter.resx">
+      <DependentUpon>FormItemFilter.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormItemInstance.resx">
+      <DependentUpon>FormItemInstance.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormItemSelection.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormItemSelection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimize.resx">
+      <DependentUpon>FormOptimize.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOptimizeResult.resx">
+      <DependentUpon>FormOptimizeResult.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRelevantItemRefinement.resx">
+      <DependentUpon>FormRelevantItemRefinement.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSplash.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FormSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStart.resx">
+      <DependentUpon>FormStart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditEnchants.resx">
+      <DependentUpon>EditEnchants.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditBuffs.resx">
+      <DependentUpon>EditBuffs.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ErrorReport.resx">
+      <DependentUpon>ErrorReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Options.resx">
+      <DependentUpon>Options.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Status.resx">
+      <DependentUpon>Status.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSaveTalentSpec.resx">
+      <DependentUpon>FormSaveTalentSpec.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUpgradeComparison.resx">
+      <DependentUpon>FormUpgradeComparison.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GemmingTemplateControl.resx">
+      <DependentUpon>GemmingTemplateControl.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemButtonWithEnchant.resx">
+      <DependentUpon>ItemButtonWithEnchant.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemComparison.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ItemComparison.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemSelectorItem.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ItemSelectorItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PaperDoll.resx">
+      <DependentUpon>PaperDoll.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources1.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TalentPicker.resx">
+      <DependentUpon>TalentPicker.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TalentTree.resx">
+      <DependentUpon>TalentTree.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Options\GeneralSettings.resx">
+      <DependentUpon>GeneralSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Options\OptimizerSettings.resx">
+      <DependentUpon>OptimizerSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Options\NetworkSettings.resx">
+      <DependentUpon>NetworkSettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Options\ProxySettings.resx">
+      <DependentUpon>ProxySettings.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\ScrollableMessageBox.resx">
+      <DependentUpon>ScrollableMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Recent.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Recent.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ScrollHook.cs" />
+    <Compile Include="TalentItem.cs" />
+    <Compile Include="TalentPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TalentPicker.Designer.cs">
+      <DependentUpon>TalentPicker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TalentTree.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TalentTree.Designer.cs">
+      <DependentUpon>TalentTree.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Options\GeneralSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Options\GeneralSettings.Designer.cs">
+      <DependentUpon>GeneralSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Options\OptimizerSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Options\OptimizerSettings.Designer.cs">
+      <DependentUpon>OptimizerSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Options\IOptions.cs" />
+    <Compile Include="UserControls\Options\NetworkSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Options\NetworkSettings.Designer.cs">
+      <DependentUpon>NetworkSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Options\ProxySettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Options\ProxySettings.designer.cs">
+      <DependentUpon>ProxySettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ScrollableMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\ScrollableMessageBox.Designer.cs">
+      <DependentUpon>ScrollableMessageBox.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DefaultDataFiles\BuffSets.xml" />
+    <Content Include="DefaultDataFiles\ItemCache.xml" />
+    <Content Include="DefaultDataFiles\ItemFilter.xml" />
+    <Content Include="DefaultDataFiles\ItemSource.xml" />
+    <Content Include="DefaultDataFiles\Talents.xml" />
+    <Content Include="RawrIcon.ico" />
+    <None Include="BatchTools.datasource" />
+    <None Include="ItemFilterRegex.datasource" />
+    <None Include="ReadMe.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\across-left-green.gif" />
+    <None Include="Resources\across-left-grey.gif" />
+    <None Include="Resources\across-left-yellow.gif" />
+    <None Include="Resources\across-right-green.gif" />
+    <None Include="Resources\across-right-grey.gif" />
+    <None Include="Resources\across-right-yellow.gif" />
+    <Content Include="Resources\Diamond2.png" />
+    <Content Include="Resources\Diamond3.png" />
+    <Content Include="Resources\Diamond4.png" />
+    <Content Include="Resources\RawrStart.1.png" />
+    <Content Include="Resources\RawrStart.2.png" />
+    <Content Include="Resources\RawrStart.3.png" />
+    <None Include="Resources\RawrStart.png" />
+    <None Include="Resources\down-4-yellow.gif" />
+    <None Include="Resources\down-4-grey.gif" />
+    <None Include="Resources\down-4-green.gif" />
+    <None Include="Resources\down-3-yellow.gif" />
+    <None Include="Resources\down-3-grey.gif" />
+    <None Include="Resources\down-3-green.gif" />
+    <None Include="Resources\down-2-right-yellow.gif" />
+    <None Include="Resources\down-2-right-grey.gif" />
+    <None Include="Resources\down-2-right-green.gif" />
+    <None Include="Resources\down-2-left-yellow.gif" />
+    <None Include="Resources\down-2-left-grey.gif" />
+    <None Include="Resources\down-2-left-green.gif" />
+    <None Include="Resources\down-2-yellow.gif" />
+    <None Include="Resources\down-2-grey.gif" />
+    <None Include="Resources\down-1-yellow.gif" />
+    <None Include="Resources\down-1-grey.gif" />
+    <None Include="Resources\down-1-green.gif" />
+    <None Include="Resources\down-right-yellow.gif" />
+    <None Include="Resources\down-right-grey.gif" />
+    <None Include="Resources\down-right-green.gif" />
+    <None Include="Resources\down-left-yellow.gif" />
+    <None Include="Resources\down-left-grey.gif" />
+    <None Include="Resources\down-left-green.gif" />
+    <None Include="Resources\down-2-green.gif" />
+    <None Include="Resources\icon-over-yellow.gif" />
+    <None Include="Resources\icon-over-grey.gif" />
+    <None Include="Resources\icon-over-green.gif" />
+    <None Include="BatchCharacterList.datasource" />
+    <None Include="Properties\Optimizer.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Optimizer.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\DiamondOutline.png" />
+    <None Include="Resources\Diamond.png" />
+    <None Include="Properties\Recent.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Recent.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\Rawr.Splash.ModelBackground.png" />
+    <None Include="Resources\Rawr.Splash.png" />
+    <None Include="app.config" />
+    <None Include="Resources\RawrIcon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Rawr.Base\Rawr.Base.csproj">
+      <Project>{842B74C7-EE94-44D9-A02F-4074166EF506}</Project>
+      <Name>Rawr.Base</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

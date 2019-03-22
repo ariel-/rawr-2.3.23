@@ -1,0 +1,75 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit" 
+    x:Class="Rawr.UI.ItemTooltip"
+    d:DesignWidth="300" d:DesignHeight="150">
+    <UserControl.Resources>
+        <Style x:Key="SmallIconStyle" TargetType="Image">
+            <Setter Property="Width" Value="16"/>
+            <Setter Property="Height" Value="16"/>
+            <Setter Property="Margin" Value="1,1,1,1"/>
+        </Style>
+    </UserControl.Resources>
+    <Popup x:Name="ItemPopup">
+        <Grid CacheMode="BitmapCache" x:Name="ItemGrid" MaxWidth="350">
+            <Rectangle RadiusX="3" RadiusY="3">
+                <!--Rectangle.Effect> //Turning this effect off for performance reasons, may add it back in later
+                    <DropShadowEffect ShadowDepth="4" Opacity="0.35" BlurRadius="10"/>
+                </Rectangle.Effect-->
+                <Rectangle.Stroke>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFA3AEB9"/>
+                        <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                        <GradientStop Color="#FF718597" Offset="0.375"/>
+                        <GradientStop Color="#FF617584" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Stroke>
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFDEDEDE" Offset="1"/>
+                        <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
+
+            <StackPanel x:Name="RootLayout" Margin="4,4,4,4">
+                <TextBlock x:Name="ItemName" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" Foreground="#FF32004D" Text="Item Name" Margin="0,0,0,0"/>
+                <controls:WrapPanel x:Name="TypesPanel" HorizontalAlignment="Stretch"/>
+                <controls:WrapPanel x:Name="StatPanel" HorizontalAlignment="Stretch"/>
+                <StackPanel x:Name="GemStack" HorizontalAlignment="Stretch" Orientation="Horizontal" Margin="0,0,0,0">
+                    <Border x:Name="GemColor1" Background="#FFFF0000" BorderBrush="#FF000000" BorderThickness="0,0,0,0" Padding="2,2,2,2" Margin="0,0,0,0" Width="36" Height="36">
+                        <Image x:Name="GemImage1" Height="32" HorizontalAlignment="Left" VerticalAlignment="Center" Width="32" d:LayoutOverrides="HorizontalAlignment"/>
+                    </Border>
+                    <StackPanel x:Name="GemStat1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,4,0" MaxWidth="85"/>
+                    <Border x:Name="GemColor2" Background="#FFFF0000" BorderBrush="#FF000000" BorderThickness="0,0,0,0" Padding="2,2,2,2" Margin="4,0,0,0" Height="36" Width="36">
+                        <Image x:Name="GemImage2" Height="32" HorizontalAlignment="Left" VerticalAlignment="Center" Width="32" d:LayoutOverrides="HorizontalAlignment"/>
+                    </Border>
+                    <StackPanel x:Name="GemStat2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,4,0" MaxWidth="85"/>
+                    <Border x:Name="GemColor3" Background="#FFFF0000" BorderBrush="#FF000000" BorderThickness="0,0,0,0" Padding="2,2,2,2" Margin="4,0,0,0" Width="36" Height="36">
+                        <Image x:Name="GemImage3" Height="32" HorizontalAlignment="Left" VerticalAlignment="Center" Width="32" d:LayoutOverrides="HorizontalAlignment"/>
+                    </Border>
+                    <StackPanel x:Name="GemStat3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="4,0,4,0" MaxWidth="85"/>
+                </StackPanel>
+                <TextBlock x:Name="GemNamesLabel1" TextWrapping="Wrap"/>
+                <TextBlock x:Name="GemNamesLabel2" TextWrapping="Wrap"/>
+                <TextBlock x:Name="GemNamesLabel3" TextWrapping="Wrap"/>
+                <TextBlock x:Name="SocketBonusLabel" TextWrapping="Wrap"/>
+                <TextBlock x:Name="EnchantLabel" Foreground="#FF3A7414" Visibility="Collapsed" TextWrapping="Wrap"/>
+                <TextBlock x:Name="LocationLabel" TextWrapping="Wrap"/>
+                <Grid x:Name="ItemsGrid">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Popup>
+</UserControl>

@@ -1,0 +1,103 @@
+﻿<UserControl
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+xmlns:System="clr-namespace:System;assembly=mscorlib"
+mc:Ignorable="d"
+d:DesignWidth="330" d:DesignHeight="600"
+xmlns:local="clr-namespace:Rawr.Tree"
+x:Class="Rawr.Tree.CalculationOptionsPanelTree" 
+>
+
+<UserControl.Resources>
+	<local:CalculationOptionsTree x:Key="CalculationOptionsTreeDataSource" d:IsDataSource="True"/>
+	<local:CalculationsTree x:Key="CalculationsTreeDataSource" d:IsDataSource="True"/>
+</UserControl.Resources>
+
+<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource CalculationOptionsTreeDataSource}}">
+	<Grid.ColumnDefinitions>
+		<ColumnDefinition Width="*"/>
+	</Grid.ColumnDefinitions>
+	<Grid.RenderTransform>
+		<TransformGroup>
+			<ScaleTransform/>
+			<SkewTransform AngleX="0.19"/>
+			<RotateTransform/>
+			<TranslateTransform X="0.497"/>
+		</TransformGroup>
+	</Grid.RenderTransform>
+	<controls:TabControl Margin="4">
+		<controls:TabItem x:Name="Ratings" Header="Ratings">
+			<Grid Margin="0" OpacityMask="#FFF2F2F2">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.47*"/>
+					<ColumnDefinition Width="0.53*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Margin="4,2,2,2" Text="Burst vs Sustained" TextWrapping="Wrap" VerticalAlignment="Center"/>
+				<Slider Grid.Column="1" Maximum="100" ToolTipService.ToolTip="Percentage of combined value that comes from sustained" SmallChange="1" Value="{Binding Mode=TwoWay, Path=BSRatio}" Margin="2,2,4,2"/>
+				<TextBlock Margin="4,2,2,2" Grid.Row="1" Text="Survival Multiplier" TextWrapping="Wrap" VerticalAlignment="Center"/>
+				<Slider Grid.Column="1" Grid.Row="1" Maximum="10" SmallChange="1" Value="{Binding Mode=TwoWay, Path=SurvValuePer100}" Margin="2,2,4,2"/>
+			</Grid>
+		</controls:TabItem>
+		<controls:TabItem x:Name="Fight" RenderTransformOrigin="1.081,0.583" Header="Fight">
+			<Grid HorizontalAlignment="Stretch" Margin="0" VerticalAlignment="Stretch" RenderTransformOrigin="0.487,0.504">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="*"/>
+				</Grid.ColumnDefinitions>
+				<TextBlock Text="Duration" TextWrapping="Wrap" Margin="4,2,2,2" VerticalAlignment="Center"/>
+				<Slider Margin="2,2,4,2" Grid.Column="1" Maximum="900" SmallChange="1" Value="{Binding Mode=TwoWay, Path=FightDuration}" LargeChange="15"/>
+				<TextBlock Grid.Row="1" Text="Rotation" TextWrapping="Wrap" d:LayoutOverrides="HorizontalAlignment" Margin="4,2,2,2" VerticalAlignment="Center"/>
+				<ListBox Grid.Row="2"  SelectedIndex="{Binding Mode=TwoWay, Path=Rotation}" ItemsSource="{Binding Mode=OneWay, Path=PredefRotations, Source={StaticResource CalculationsTreeDataSource}}" Margin="4,2" Grid.RowSpan="1" HorizontalAlignment="Stretch" Grid.ColumnSpan="2"/>
+				<TextBlock RenderTransformOrigin="0.496,0.594" Grid.Row="3" Text="Swiftmends / Minute" TextWrapping="Wrap" d:LayoutOverrides="GridBox" Margin="4,2,2,2" VerticalAlignment="Center"/>
+				<Slider Margin="2,2,4,2" Grid.Column="1" Grid.Row="3" Maximum="4" SmallChange="1" Value="{Binding Mode=TwoWay, Path=SwiftmendPerMinute}" Cursor="Arrow" Height="19"/>
+				<TextBlock Grid.Row="4" Text="Wild Growths / Min" TextWrapping="Wrap" Margin="4,2,2,2" VerticalAlignment="Center"/>
+				<Slider Grid.Column="1" Grid.Row="4" Maximum="10" SmallChange="1" Value="{Binding Mode=TwoWay, Path=WildGrowthPerMinute}" Margin="2,2,4,2"/>
+			</Grid>
+		</controls:TabItem>
+		<controls:TabItem x:Name="Mana" Header="Mana">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="0.449*"/>
+					<ColumnDefinition Width="0.551*"/>
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="*"/>
+				</Grid.RowDefinitions>
+				<TextBlock Margin="4,2,2,2" Text="Mana Potion" TextWrapping="Wrap"/>
+				<TextBlock Margin="4,2,2,2" Grid.Row="2" Text="Replenishment Uptime" TextWrapping="Wrap" VerticalAlignment="Center"/>
+				<TextBlock Margin="4,2,2,2" Grid.Row="3" Text="Time in FSR" TextWrapping="Wrap" VerticalAlignment="Center"/>
+				<CheckBox Margin="4,2,2,2" Content="Own Innervates" Grid.Row="4" IsChecked="{Binding Mode=TwoWay, Path=Innervates}"/>
+				<CheckBox Margin="2,2,4,2" Content="PTR Mode" Grid.Column="1" Grid.Row="4" IsChecked="{Binding Mode=TwoWay, Path=Patch3_2}" Visibility="Collapsed"/>
+				<Slider Margin="2,2,4,2" Grid.Column="1" Grid.Row="3" Maximum="100" Value="{Binding Mode=TwoWay, Path=FSRRatio}" LargeChange="10" SmallChange="1"/>
+				<Slider Margin="2,2,4,2" Grid.Column="1" Grid.Row="2" Maximum="100" Value="{Binding Mode=TwoWay, Path=ReplenishmentUptime}" LargeChange="10" SmallChange="1"/>
+				<ListBox Margin="4" Grid.ColumnSpan="2" Grid.Row="1" ItemsSource="{Binding Mode=OneWay, Path=ManaPotionDesc}" SelectedIndex="{Binding Mode=TwoWay, Path=ManaPot}"/>
+			</Grid>
+		</controls:TabItem>
+	</controls:TabControl>
+</Grid>
+</UserControl>

@@ -1,0 +1,8 @@
+﻿<Window x:Class="Rawr.WPF.WindowChild"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:UI="clr-namespace:Rawr.UI;assembly=Rawr.UI.WPF"
+    Title="Child Window" Width="690" Height="416">
+    <Grid Name="RootVisual">
+    </Grid>
+</Window>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="70ffc315-f030-476c-ad97-e71da5c3514a" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>false</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:4906/RawrService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="RawrService3.xsd" MetadataType="Schema" ID="251905d9-68b6-47aa-a8a6-742ded6e15d6" SourceId="1" SourceUrl="http://localhost:4906/RawrService.svc?xsd=xsd2" />
+    <MetadataFile FileName="RawrService1.wsdl" MetadataType="Wsdl" ID="95e9b9fa-103e-4474-8fbd-ed3f232c3380" SourceId="1" SourceUrl="http://localhost:4906/RawrService.svc?wsdl" />
+    <MetadataFile FileName="RawrService31.xsd" MetadataType="Schema" ID="2d5fa52b-54a1-4d30-9477-eca72bd3d985" SourceId="1" SourceUrl="http://localhost:4906/RawrService.svc?xsd=xsd0" />
+    <MetadataFile FileName="RawrService32.xsd" MetadataType="Schema" ID="b56c1a73-fdcf-4344-82da-c82adc99d44d" SourceId="1" SourceUrl="http://localhost:4906/RawrService.svc?xsd=xsd1" />
+    <MetadataFile FileName="RawrService1.disco" MetadataType="Disco" ID="bec9174f-23b0-4c46-8dae-7dfaf53aa735" SourceId="1" SourceUrl="http://localhost:4906/RawrService.svc?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

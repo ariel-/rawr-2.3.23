@@ -1,0 +1,30 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Rawr.Properties" GeneratedClassName="Optimizer">
+  <Profiles />
+  <Settings>
+    <Setting Name="WarningsEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="Thoroughness" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">150</Value>
+    </Setting>
+    <Setting Name="OverrideRegem" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="CalculationToOptimize" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="OverrideReenchant" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="OptimizationMethod" Type="Rawr.OptimizationMethod" Scope="User">
+      <Value Profile="(Default)">GeneticAlgorithm</Value>
+    </Setting>
+    <Setting Name="TemplateGemsEnabled" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="GreedyOptimizationMethod" Type="Rawr.GreedyOptimizationMethod" Scope="User">
+      <Value Profile="(Default)">AllCombinations</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

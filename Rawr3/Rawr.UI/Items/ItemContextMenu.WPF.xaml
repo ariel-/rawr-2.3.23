@@ -1,0 +1,46 @@
+<!--IFSL
+<UserControl
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+mc:Ignorable="d"
+x:Class="Rawr.UI.ItemContextMenu">
+	<Popup x:Name="ContextPopup" HorizontalAlignment="Left" VerticalAlignment="Top">
+		<Grid x:Name="ContextGrid" LostFocus="Popup_LostFocus">
+			<ListBox x:Name="ContextList" SelectionChanged="ContextList_SelectionChanged">
+				<ListBoxItem x:Name="ContextItemName" IsEnabled="False" Content="Super Cool Item"/>
+                <ListBoxItem IsEnabled="False" Height="1" Background="#FFA0A0A0" Margin="4,2,4,2"/>
+				<ListBoxItem x:Name="ContextEdit" Content="Edit..."/>
+				<HyperlinkButton x:Name="ContextOpenWowhead" Content="Open in Wowhead" TargetName="_blank"/>
+				<ListBoxItem x:Name="ContextRefreshArmory" Content="Refresh Item from Armory"/>
+				<ListBoxItem x:Name="ContextRefreshWowhead" Content="Refresh Item from Wowhead"/>
+				<ListBoxItem x:Name="ContextEquip" Content="Equip"/>
+				<ListBoxItem x:Name="ContextAddCustom" Content="Add Custom Gemming..."/>
+				<ListBoxItem x:Name="ContextDeleteCustom" Content="Delete Custom Gemming"/>
+				<ListBoxItem x:Name="ContextEvaluateUpgrade" Content="Evaluate Upgrade..."/>
+			</ListBox>
+		</Grid>
+	</Popup>
+</UserControl>
+ENDIFSL-->    
+<!--IFWPF-->
+<ContextMenu
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+mc:Ignorable="d"
+x:Class="Rawr.UI.ItemContextMenu">
+    <MenuItem x:Name="ContextItemName" IsEnabled="False" Header="Super Cool Item"/>
+    <Separator/>
+    <MenuItem x:Name="ContextEdit" Header="Edit..." Click="EditItem"/>
+    <MenuItem x:Name="ContextOpenWowhead" Header="Open in Wowhead" Click="OpenInWowhead"/>
+    <MenuItem x:Name="ContextRefreshArmory" Header="Refresh Item from Armory" Click="RefreshItemFromArmory"/>
+    <MenuItem x:Name="ContextRefreshWowhead" Header="Refresh Item from Wowhead" Click="RefreshItemFromWowhead"/>
+    <MenuItem x:Name="ContextEquip" Header="Equip" Click="EquipItem"/>
+    <MenuItem x:Name="ContextAddCustom" Header="Add Custom Gemming..." Click="AddCustomGemming"/>
+    <MenuItem x:Name="ContextDeleteCustom" Header="Delete Custom Gemming" Click="DeleteCustomGemming"/>
+    <MenuItem x:Name="ContextEvaluateUpgrade" Header="Evaluate Upgrade..." Click="EvaluateUpgrade"/>
+</ContextMenu>
+<!--ENDIFWPF-->

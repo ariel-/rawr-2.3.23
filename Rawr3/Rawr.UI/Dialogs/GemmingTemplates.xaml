@@ -1,0 +1,53 @@
+﻿<basics2:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:local="clr-namespace:Rawr.UI"
+	xmlns:data="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data"
+	xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+	x:Class="Rawr.UI.GemmingTemplates"
+	Title="Edit Gemming Templates"
+	Height="450" Width="420">
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<TextBlock VerticalAlignment="Top" Text="Check the Template Groups you primarily use or check individual Templates. Click Add to add a new Custom Template and click the Boxes to fill them with the Gem Types." TextWrapping="Wrap" Margin="8,0"/>
+
+		<Button x:Name="OKButton" Content="Done" Click="OKButton_Click" Width="75" HorizontalAlignment="Right" Grid.Row="2" Margin="4,2,4,4" />
+		<StackPanel Grid.Row="1" Orientation="Horizontal" Margin="4,2,4,2" HorizontalAlignment="Center">
+			<TextBlock VerticalAlignment="Center" Text="Top Gemmings to Show:" Margin="0,0,2,0"/>
+			<inputToolkit:NumericUpDown x:Name="GemmingsShownNum" Width="50" Margin="2,0,0,0" ValueChanged="GemmingsShownChanged" Maximum="25"/>
+		</StackPanel>
+        <Popup x:Name="GemPopup">
+            <local:ItemListControl x:Name="ComparisonGemList"/>
+        </Popup>
+        <Popup x:Name="MetaPopup">
+            <local:ItemListControl x:Name="ComparisonMetaList"/>
+        </Popup>
+        <ScrollViewer Margin="4,52,4,2" VerticalScrollBarVisibility="Auto">
+        	<StackPanel>
+        		<StackPanel x:Name="GroupStack">
+        			<TextBlock x:Name="ColLabels" Text="                         Red        Yellow       Blue      Prismatic     Meta" TextWrapping="Wrap"/>
+        		</StackPanel>
+        		<toolkit:Expander IsExpanded="true">
+        			<toolkit:Expander.Header>
+        				<CheckBox x:Name="CustomCheck" Content="Custom" IsThreeState="True" Checked="groupCheckBox_Checked" Unchecked="groupCheckBox_Checked" Indeterminate="groupCheckBox_Checked"/>
+        			</toolkit:Expander.Header>
+                    <StackPanel>
+                        <StackPanel x:Name="CustomStack"/>
+                        <Button x:Name="AddButton" Margin="2,2,2,2" HorizontalAlignment="Left" Content="Add" Width="46" Click="AddTemplate"/>
+                    </StackPanel>
+                </toolkit:Expander>
+        	</StackPanel>
+        </ScrollViewer>
+    </Grid>
+</basics2:ChildWindow>

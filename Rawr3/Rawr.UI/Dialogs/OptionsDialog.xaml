@@ -1,0 +1,72 @@
+﻿<basics2:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	x:Class="Rawr.UI.OptionsDialog"
+	Title="Options">
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<Grid Margin="4,4,4,2">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="0.5*"/>
+			</Grid.ColumnDefinitions>
+			<StackPanel Grid.Column="1">
+				<CheckBox x:Name="WarningsCheck" Content="Enabled warnings in&#x0a;optimizer" Margin="4,4,4,2"/>
+				<CheckBox x:Name="TemplateGemsCheck" Content="Consider gems in enabled&#x0a;gemmings templates to&#x0a;be available" Margin="4,2,4,2"/>
+				<TextBlock Text="Optimization Method:" TextWrapping="Wrap" Margin="4,10,0,0"/>
+				<ComboBox x:Name="OptimizationMethodCombo" Margin="4,2,4,2">
+					<ComboBoxItem Content="Genetic Algorithm"/>
+					<ComboBoxItem Content="Simulated Annealing"/>
+				</ComboBox>
+				<ComboBox x:Name="GreedyMethodCombo" Margin="4,2,4,2">
+					<ComboBoxItem Content="All Combinations"/>
+					<ComboBoxItem Content="Single Gem/Enchant Changes"/>
+					<ComboBoxItem Content="Greedy Best Gem/Enchant"/>
+				</ComboBox>
+			</StackPanel>
+			<StackPanel>
+                <CheckBox x:Name="CK_MultiThreading" Content="Use multithreading" Margin="4,4,4,2"/>
+				<CheckBox x:Name="CK_BuffSource" Margin="4,2" Content="Display Buff Sources"/>
+				<CheckBox x:Name="CK_GemNames" Margin="4,2" Content="Display Gem Names in Tooltips"/>
+				<CheckBox x:Name="CK_HideEnchantsBasedOnProfs" Margin="4,2" Content="Enforce Profession Requirements"/>
+				<CheckBox x:Name="CK_EnforceGemCheck" HorizontalAlignment="Left" Content="Enforce Gem Requirements*" ToolTipService.ToolTip="If enabled, metagems will only be counted if their gem color requirements are met, and gems will only be counted if their uniqueness is met." Checked="EnforceGemCheck_CheckedChanged" Unchecked="EnforceGemCheck_CheckedChanged" Margin="4,2"/>
+				<StackPanel x:Name="LO_EnforceGemSubs" Orientation="Horizontal" Margin="20,0,10,0">
+					<CheckBox x:Name="CK_EnforceMeta" Content="Meta" Margin="4,2,0,2" HorizontalAlignment="Left" ToolTipService.ToolTip="If Checked, Meta Gems will only be counted if their Color Requirements are met." Checked="EnforceGemCheck_CheckedChanged" Unchecked="EnforceGemCheck_CheckedChanged"/>
+					<CheckBox x:Name="CK_EnforceJC" Content="JC" Margin="4,2,0,2" HorizontalAlignment="Left" ToolTipService.ToolTip="If Checked, JC Gems will only be counted if their Limit Requirement is met. For example, Dragonseye gems can only be counted if there are 3 or less gems equipped. Nightmare Tears can only be equipped once." Checked="EnforceGemCheck_CheckedChanged" Unchecked="EnforceGemCheck_CheckedChanged"/>
+					<CheckBox x:Name="CK_EnforceUnique" Content="Unique" Margin="4,2,0,2" HorizontalAlignment="Left" ToolTipService.ToolTip="If Checked, JC Gems will only be counted if their Limit Requirement is met. For example, Dragonseye gems can only be counted if there are 3 or less gems equipped. Nightmare Tears can only be equipped once." Checked="EnforceGemCheck_CheckedChanged" Unchecked="EnforceGemCheck_CheckedChanged"/>
+				</StackPanel>
+				<TextBlock x:Name="LB_ItemNameWidthSetting" Margin="4,0" Text="List Names Width:" TextWrapping="Wrap" VerticalAlignment="Top"/>
+				<ComboBox x:Name="CB_ItemNameWidthSetting" Margin="4,0" VerticalAlignment="Top">
+					<ComboBoxItem x:Name="CB_ItemNameWidthSetting0" Content="Normal"/>
+					<ComboBoxItem x:Name="CB_ItemNameWidthSetting1" Content="Wide"/>
+					<ComboBoxItem x:Name="CB_ItemNameWidthSetting2" Content="Widest"/>
+				</ComboBox>
+				<TextBlock Text="Proc Effect Calculation Mode:" Margin="4,2,4,2"/>
+				<ComboBox x:Name="ProcEffectModeCombo" Margin="4,0,4,2">
+					<ComboBoxItem Content="Simple"/>
+					<ComboBoxItem Content="Advanced - Low Precision"/>
+					<ComboBoxItem Content="Advanced - High Precision"/>
+					<ComboBoxItem Content="Advanced - Interpolation"/>
+				</ComboBox>
+				<TextBlock Margin="4,2" Text="Effect Combinations Calculation Mode:" TextWrapping="Wrap"/>
+				<ComboBox x:Name="EffectCombinationsCalculationMode" Margin="4,0,4,2">
+					<ComboBoxItem Content="Interpolation - Linear"/>
+					<ComboBoxItem Content="Interpolation - Cubic"/>
+					<ComboBoxItem Content="High Precision"/>
+				</ComboBox>
+			</StackPanel>
+		</Grid>
+
+		<Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Height="23" HorizontalAlignment="Right" Grid.Row="1" Margin="2,15,4,4" />
+		<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Width="75" Height="23" HorizontalAlignment="Right"  Margin="0,15,83,4" Grid.Row="1" />
+	</Grid>
+</basics2:ChildWindow>

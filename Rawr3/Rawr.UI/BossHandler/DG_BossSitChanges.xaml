@@ -1,0 +1,51 @@
+﻿<basics2:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+    xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"
+	xmlns:basics="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+	x:Class="Rawr.UI.DG_BossSitChanges"
+	Title="Sit Changes - Boss Handler" Width="450" Height="275">
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*" />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+        
+		<ListBox x:Name="LB_TheList" Margin="4" Grid.RowSpan="8" Grid.ColumnSpan="2"/>
+		<TextBlock x:Name="LB_Freq" Text="Frequency:" TextWrapping="Wrap" d:LayoutOverrides="Height" Grid.Column="2" Margin="4" VerticalAlignment="Center"/>
+		<inputToolkit:NumericUpDown x:Name="NUD_Freq" Grid.Column="3" Margin="4" Maximum="1200" Minimum="1" Value="60"/>
+		<TextBlock x:Name="LB_Freq2" Text="sec" TextWrapping="Wrap" d:LayoutOverrides="Height" Grid.Column="4" Margin="4" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+		<TextBlock x:Name="LB_Dur" Text="Duration:" TextWrapping="Wrap" d:LayoutOverrides="Height" Grid.Row="1" Grid.Column="2" Margin="4" VerticalAlignment="Center"/>
+		<inputToolkit:NumericUpDown x:Name="NUD_Dur" Grid.Column="3" Grid.Row="1" Margin="4" Width="75" Maximum="20000" Minimum="500" Value="5000"/>
+		<TextBlock x:Name="LB_Dur2" Text="ms" TextWrapping="Wrap" d:LayoutOverrides="Height" Grid.Column="4" Grid.Row="1" Margin="4" VerticalAlignment="Center"/>
+		<TextBlock x:Name="LB_Chance" Text="Chance:" TextWrapping="Wrap" d:LayoutOverrides="Height" Grid.Row="2" Grid.Column="2" Margin="4" VerticalAlignment="Center"/>
+		<inputToolkit:NumericUpDown x:Name="NUD_Chance" Grid.Column="3" Grid.Row="2" Margin="4" Value="100"/>
+		<TextBlock x:Name="LB_Chance2" Text="%" TextWrapping="Wrap" d:LayoutOverrides="Height" Grid.Column="4" Grid.Row="2" Margin="4" VerticalAlignment="Center"/>
+		<CheckBox x:Name="CK_Breakable" Margin="4" Content="Breakable" d:LayoutOverrides="Height" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="True"/>
+		<Button x:Name="BT_Add" Content="Add" d:LayoutOverrides="Height" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" Margin="4" Click="BT_Add_Click"/>
+		<Button x:Name="BT_Delete" Width="75" Content="Delete" d:LayoutOverrides="Height" Grid.Row="9" Margin="4" Click="BT_Delete_Click"/>
+		<StackPanel Margin="0" Grid.Row="9" Grid.Column="2" Orientation="Horizontal" Grid.ColumnSpan="3" HorizontalAlignment="Right">
+			<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click" Margin="4" RenderTransformOrigin="1.253,-0.478" Width="75" Height="22" />
+			<Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Margin="4" Height="22" Width="75" />
+		</StackPanel>
+	</Grid>
+</basics2:ChildWindow>

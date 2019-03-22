@@ -1,0 +1,8 @@
+﻿<UserControl x:Class="Rawr.Warlock.CalculationOptionsPanelWarlock"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    >
+	<Grid x:Name="LayoutRoot" Background="White">
+    <TextBlock Text="Warlock Options Go Here"/>
+	</Grid>
+</UserControl>

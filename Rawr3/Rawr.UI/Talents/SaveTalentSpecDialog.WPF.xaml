@@ -1,0 +1,29 @@
+<basics2:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:basics="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	x:Class="Rawr.UI.SaveTalentSpecDialog"
+	Title="Save Talent Spec...">
+	<Grid x:Name="LayoutRoot" Background="White">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+
+		<Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" HorizontalAlignment="Right" Grid.Row="3" Grid.Column="0" d:LayoutOverrides="Height" Grid.ColumnSpan="2" Margin="4,4,4,4" />
+		<Button x:Name="CancelButton" Content="Cancel" Click="CancelButton_Click"  Margin="4,4,83,4" Grid.Row="3" Grid.Column="0" d:LayoutOverrides="Height" Grid.ColumnSpan="2" Width="75" HorizontalAlignment="Right" />
+		<TextBlock Grid.Row="1" Text="Overwrite Talent Spec:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="4,4,4,4"/>
+		<TextBlock Text="New Talent Spec:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="4,4,4,4"/>
+		<TextBox x:Name="NewText" Grid.Column="1" TextWrapping="Wrap" Margin="4,4,4,4" Width="170" TextChanged="New_TextChanged"/>
+		<ComboBox x:Name="UpdateCombo" Grid.Column="1" Grid.Row="1" Margin="4,4,4,4" Width="170" SelectionChanged="Update_SelectionChanged"/>
+	</Grid>
+</basics2:ChildWindow>

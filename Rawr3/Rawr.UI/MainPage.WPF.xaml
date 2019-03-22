@@ -1,0 +1,306 @@
+<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:controls="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:local="clr-namespace:Rawr.UI"
+	xmlns:Rawr="clr-namespace:Rawr;assembly=Rawr.Base.WPF"
+	xmlns:toolkit="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    x:Class="Rawr.UI.MainPage" 
+    d:DesignWidth="912" d:DesignHeight="776" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+	<UserControl.DataContext>
+		<Rawr:Character/>
+	</UserControl.DataContext>
+    <Grid x:Name="LayoutRoot">
+		
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+	
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="350"/>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>        
+        <Grid.Background>
+    		<LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+    			<GradientStop Color="#FFFFFFFF" Offset="0"/>
+    			<GradientStop Color="#FFDADADA" Offset="1"/>
+    		</LinearGradientBrush>
+    	</Grid.Background>
+        <local:ItemTooltip x:Name="ItemTooltip"/>
+        <!--IFSL
+        <Rectangle VerticalAlignment="Stretch" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4" Margin="-1,-1,-1,0">
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFA3AEB9"/>
+                    <GradientStop Color="#FF8399A9" Offset="0.375"/>
+                    <GradientStop Color="#FF718597" Offset="0.375"/>
+                    <GradientStop Color="#FF617584" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFDEDEDE" Offset="1"/>
+                    <GradientStop Color="#FFFFFFFF" Offset="0"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+        </Rectangle>
+        <StackPanel Margin="0,4,0,0" VerticalAlignment="Top" Grid.ColumnSpan="4" Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+			<ComboBox x:Name="FileMenu" HorizontalAlignment="Left" SelectedIndex="0" Width="75" Margin="4,0,4,0" SelectionChanged="FileMenu_SelectionChanged">
+				<ComboBoxItem Content="File" Visibility="Collapsed"/>
+				<ComboBoxItem Content="New"/>
+				<ComboBoxItem Content="Open"/>
+				<ComboBoxItem Content="Save"/>
+                <ComboBoxItem Content="Open Saved Upgrade List"/>
+                <ComboBoxItem IsEnabled="False" Height="1" Background="#FFA0A0A0" Margin="4,4,4,4"/>
+				<ComboBoxItem Content="Load from Armory"/>
+                <ComboBoxItem Content="Load from Character Profiler"/>
+            </ComboBox>
+            <ComboBox x:Name="ToolsMenu" HorizontalAlignment="Left" SelectedIndex="0" Width="75" Margin="4,0,4,0" SelectionChanged="ToolsMenu_SelectionChanged">
+                <ComboBoxItem Content="Tools" Visibility="Collapsed"/>
+                <ComboBoxItem Content="Edit Items..."/>
+                <ComboBoxItem Content="Edit Gemming Templates..."/>
+                <ComboBoxItem Content="Refine Types of Items Listed..."/>
+                <ComboBoxItem Content="Edit Item Filters..."/>
+                <ComboBoxItem IsEnabled="False" Height="1" Background="#FFA0A0A0" Margin="4,4,4,4"/>
+                <ComboBoxItem Content="Reset Item Cost"/>
+                <ComboBoxItem Content="Load Item Cost..."/>
+                <ComboBoxItem Content="Save Item Cost..."/>
+                <ComboBoxItem Content="Load Emblem of Frost Cost"/>
+                <ComboBoxItem IsEnabled="False" Height="1" Background="#FFA0A0A0" Margin="4,4,4,4"/>
+                <ComboBoxItem Content="Optimizer..."/>
+                <ComboBoxItem Content="Batch Tools..."/>
+            </ComboBox>
+            <ComboBox x:Name="ImportMenu" HorizontalAlignment="Left" SelectedIndex="0" Width="75" Margin="4,0,4,0" SelectionChanged="ImportMenu_SelectionChanged">
+                <ComboBoxItem Content="Import" Visibility="Collapsed"/>
+                <ComboBoxItem Content="Reload Current Character from Armory"/>
+                <ComboBoxItem Content="Reload Current Character from Character Profiler"/>
+                <ComboBoxItem IsEnabled="False" Height="1" Background="#FFA0A0A0" Margin="4,4,4,4"/>
+                <ComboBoxItem Content="Load Possible Upgrades from Armory"/>
+                <ComboBoxItem Content="Load Possible Upgrades from Wowhead"/>
+                <ComboBoxItem Content="Update Item Cache from Armory"/>
+                <ComboBoxItem Content="Update Item Cache from Wowhead"/>
+                <ComboBoxItem Content="Load Items From Wowhead Filter"/>
+            </ComboBox>
+            <ComboBox x:Name="OptionsMenu" HorizontalAlignment="Left" SelectedIndex="0" Width="75" Margin="4,0,4,0" SelectionChanged="OptionsMenu_SelectionChanged">
+                <ComboBoxItem Content="Options" Visibility="Collapsed"/>
+                <ComboBoxItem Content="Edit Options..."/>
+                <ComboBoxItem IsEnabled="False" Height="1" Background="#FFA0A0A0" Margin="4,4,4,4"/>
+                <ComboBoxItem Content="Reset Item Cache"/>
+                <ComboBoxItem Content="Reset All Caches"/>
+                <ComboBoxItem Content="Manually Edit a Cache..."/>
+            </ComboBox>
+            <ComboBox x:Name="WindowsMenu" HorizontalAlignment="Left" SelectedIndex="0" Width="75" Margin="4,0,4,0" Visibility="Collapsed">
+                <ComboBoxItem Content="Windows" Visibility="Collapsed"/>
+            </ComboBox>
+            <ComboBox x:Name="HelpMenu" HorizontalAlignment="Left" SelectedIndex="0" Width="75" Margin="4,0,4,0" SelectionChanged="HelpMenu_SelectionChanged">
+                <ComboBoxItem Content="Help" Visibility="Collapsed"/>
+                <HyperlinkButton Content="Rawr Help Page" NavigateUri="http://rawr.codeplex.com/documentation" TargetName="_blank"/>
+                <HyperlinkButton Content="Tour of Rawr" NavigateUri="http://www.youtube.com/watch?v=OjRM5SUoOoQ" TargetName="_blank"/>
+                <HyperlinkButton Content="Gemmings" NavigateUri="http://rawr.codeplex.com/wikipage?title=Gemmings" TargetName="_blank"/>
+                <HyperlinkButton Content="Gear Optimization" NavigateUri="http://rawr.codeplex.com/wikipage?title=GearOptimization" TargetName="_blank"/>
+                <HyperlinkButton Content="Item Filtering" NavigateUri="http://rawr.codeplex.com/wikipage?title=ItemFiltering" TargetName="_blank"/>
+                <ComboBoxItem IsEnabled="False" Height="1" Background="#FFA0A0A0" Margin="4,4,4,4"/>
+                <HyperlinkButton Content="Rawr Website" NavigateUri="http://rawr.codeplex.com/" TargetName="_blank"/>
+                <HyperlinkButton Content="Donate" NavigateUri="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=2451163" TargetName="_blank"/>
+            </ComboBox>
+        </StackPanel>
+        ENDIFSL-->
+        <!--IFWPF-->
+        <Menu Margin="0,4,0,0" VerticalAlignment="Stretch" Grid.ColumnSpan="4" Grid.Row="0" Grid.Column="0">
+            <MenuItem x:Name="FileMenu" Header="File" HorizontalAlignment="Left" Margin="4,0,4,0">
+                <MenuItem Header="New" Click="NewCharacter"/>
+                <MenuItem Header="Open" Click="OpenCharacter"/>
+                <MenuItem Header="Save" Click="SaveCharacter"/>
+                <MenuItem Header="Open Saved Upgrade List" Click="OpenSavedUpgradeList"/>
+                <Separator/>
+                <MenuItem Header="Load from Armory" Click="LoadFromArmory"/>
+                <MenuItem Header="Load from Character Profiler" Click="LoadFromCharacterProfiler"/>
+            </MenuItem>
+            <MenuItem x:Name="ToolsMenu" Header="Tools" HorizontalAlignment="Left" Margin="4,0,4,0">
+                <MenuItem Header="Edit Items..." Click="ShowItemEditor"/>
+                <MenuItem Header="Edit Gemming Templates..." Click="ShowGemmingTemplates"/>
+                <MenuItem Header="Refine Types of Items Listed..." Click="ShowItemRefinement"/>
+                <MenuItem Header="Edit Item Filters..." Click="ShowItemFilters"/>
+                <MenuItem Header="Item Cost">
+                    <MenuItem Header="Reset" Click="ResetItemCost"/>
+                    <MenuItem Header="Load..." Click="LoadItemCost"/>
+                    <MenuItem Header="Save..." Click="SaveItemCost"/>
+                    <MenuItem Header="Load Emblem of Frost" Click="LoadEmblemOfFrostCost"/>
+                </MenuItem>
+                <Separator/>
+                <MenuItem Header="Optimizer..." Click="ShowOptimizer"/>
+                <MenuItem Header="Batch Tools..." Click="ShowBatchTools"/>
+            </MenuItem>
+            <MenuItem x:Name="ImportMenu" Header="Import" HorizontalAlignment="Left" Margin="4,0,4,0">
+                <MenuItem Header="Reload Current Character from Armory"/>
+                <MenuItem Header="Reload Current Character from Character Profiler"/>
+                <Separator/>
+                <MenuItem Header="Load Possible Upgrades from Armory"/>
+                <MenuItem Header="Load Possible Upgrades from Wowhead"/>
+                <MenuItem Header="Update Item Cache from Armory"/>
+                <MenuItem Header="Update Item Cache from Wowhead"/>
+                <MenuItem Header="Load Items From Wowhead Filter"/>
+            </MenuItem>
+            <MenuItem x:Name="OptionsMenu" Header="Options" HorizontalAlignment="Left" Margin="4,0,4,0">
+                <MenuItem Header="Edit Options..." Click="ShowOptions"/>
+                <Separator/>
+                <MenuItem Header="Reset Item Cache" Click="ResetItemCache"/>
+                <MenuItem Header="Reset All Caches" Click="ResetAllCaches"/>
+                <MenuItem Header="Manually Edit a Cache..."/>
+            </MenuItem>
+            <MenuItem x:Name="HelpMenu" Header="Help" HorizontalAlignment="Left" Margin="4,0,4,0">
+                <MenuItem Header="Rawr Help Page" Click="ShowRawrHelpPage"/>
+                <MenuItem Header="Tour of Rawr" Click="ShowTourOfRawr"/>
+                <MenuItem Header="Gemmings" Click="ShowGemmingsHelp"/>
+                <MenuItem Header="Gear Optimization" Click="ShowGearOptimizationHelp"/>
+                <MenuItem Header="Item Filtering" Click="ShowItemFilteringHelp"/>
+                <Separator/>
+                <MenuItem Header="Rawr Website" Click="ShowRawrWebsite"/>
+                <MenuItem Header="Donate" Click="ShowDonate"/>
+            </MenuItem>
+       </Menu>
+        <!--ENDIFWPF-->
+    	<toolkit:WrapPanel VerticalAlignment="Top" Margin="4,8,4,0" Grid.Row="1" Orientation="Vertical">
+    		<local:ItemButtonWithEnchant x:Name="HeadButton" d:LayoutOverrides="Height" Margin="4,0,0,4"/>
+    		<local:ItemButton x:Name="NeckButton" d:LayoutOverrides="Height" Margin="4,0,0,4"/>
+    		<local:ItemButtonWithEnchant x:Name="ShoulderButton" d:LayoutOverrides="Height" Margin="4,0,0,4"/>
+    		<local:ItemButtonWithEnchant x:Name="BackButton" d:LayoutOverrides="Height" Margin="4,0,0,4"/>
+    		<local:ItemButtonWithEnchant x:Name="ChestButton" d:LayoutOverrides="Height" VerticalAlignment="Top" Margin="4,0,0,4"/>
+    		<local:ItemButton x:Name="ShirtButton" VerticalAlignment="Top" d:LayoutOverrides="Height" Margin="4,0,0,4"/>
+    		<local:ItemButton x:Name="TabardButton" VerticalAlignment="Top" d:LayoutOverrides="Height" Margin="4,0,0,4"/>
+    		<local:ItemButtonWithEnchant x:Name="WristButton" VerticalAlignment="Top" d:LayoutOverrides="Height" Margin="4,0,0,2"/>
+    		<CheckBox x:Name="WristBSCheck" Height="Auto" VerticalAlignment="Top" Width="70" Content="BS Socket" FontSize="9" IsChecked="{Binding Mode=TwoWay, Path=WristBlacksmithingSocketEnabled}" Margin="4,0,0,4" HorizontalAlignment="Center"/>
+    	</toolkit:WrapPanel>
+    	<toolkit:WrapPanel Margin="2,8,2,0" VerticalAlignment="Top" Orientation="Vertical" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left">
+    		<local:ItemButtonWithEnchant x:Name="HandButton" d:LayoutOverrides="Width, Height" VerticalAlignment="Top" Margin="2,0,2,2"/>
+    		<CheckBox x:Name="HandBSCheck" Height="Auto" Width="70" FontSize="9" Content="BS Socket" IsChecked="{Binding Mode=TwoWay, Path=HandsBlacksmithingSocketEnabled}" VerticalAlignment="Top" Margin="2,0,2,4"/>
+    		<local:ItemButton x:Name="BeltButton" d:LayoutOverrides="Width, Height" VerticalAlignment="Top" Margin="2,0,2,2"/>
+    		<CheckBox x:Name="BeltBSSlot" Height="Auto" Width="70" FontSize="9" Content="BS Socket" IsChecked="{Binding Mode=TwoWay, Path=WaistBlacksmithingSocketEnabled, UpdateSourceTrigger=Default}" VerticalAlignment="Top" Margin="2,0,2,4"/>
+    		<local:ItemButtonWithEnchant x:Name="LegButton" d:LayoutOverrides="Width, Height" VerticalAlignment="Top" Margin="2,0,2,4"/>
+    		<local:ItemButtonWithEnchant x:Name="FeetButton" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" Margin="2,0,2,4"/>
+    		<local:ItemButtonWithEnchant x:Name="Ring1Button" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" Margin="2,0,2,4"/>
+    		<local:ItemButtonWithEnchant x:Name="Ring2Button" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" Margin="2,0,2,4"/>
+    		<local:ItemButton x:Name="Trinket1Button" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" Margin="2,0,2,4"/>
+    		<local:ItemButton x:Name="Trinket2Button" VerticalAlignment="Top" d:LayoutOverrides="Width, Height" Margin="2,0,2,4"/>
+    	</toolkit:WrapPanel>
+    	<local:GraphDisplay x:Name="ComparisonGraph" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="3" Margin="4,8,8,8" Grid.Row="1"/>
+    	<toolkit:DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True" Margin="4,8,4,8">
+    		<StackPanel toolkit:DockPanel.Dock="Bottom" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal" Margin="0,0,0,0">
+    			<local:ItemButtonWithEnchant x:Name="MainHandButton" d:LayoutOverrides="Width, Height" HorizontalAlignment="Center" Margin="8,0,8,0"/>
+    			<local:ItemButtonWithEnchant x:Name="OffHandButton" d:LayoutOverrides="Height" Width="70" HorizontalAlignment="Center" Margin="8,0,8,0"/>
+    			<local:ItemButtonWithEnchant x:Name="RangedButton" HorizontalAlignment="Center" d:LayoutOverrides="Width, Height" Margin="8,0,8,0"/>
+    		</StackPanel>
+    		<controls:TabControl toolkit:DockPanel.Dock="Top" VerticalAlignment="Stretch">
+    			<controls:TabItem x:Name="StatsTab" Header="Stats">
+    				<Grid>
+    					<TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Text="Name:" TextWrapping="Wrap"/>
+    					<TextBlock Margin="146,0,124,0" VerticalAlignment="Top" Text="Realm:" TextWrapping="Wrap" d:LayoutOverrides="Width"/>
+    					<TextBlock HorizontalAlignment="Right" VerticalAlignment="Top" Text="Region:" TextWrapping="Wrap" Margin="0,0,11,0"/>
+    					<TextBox x:Name="NameText" HorizontalAlignment="Left" Margin="0,16,0,0" VerticalAlignment="Top" TextWrapping="Wrap" Width="142" Text="{Binding Mode=TwoWay, Path=Name}"/>
+    					<TextBox x:Name="RealmText" Margin="146,16,58,0" VerticalAlignment="Top" Text="{Binding Mode=TwoWay, Path=Realm}" TextWrapping="Wrap" RenderTransformOrigin="1.13,0.417"/>
+    					<ComboBox x:Name="RegionCombo" HorizontalAlignment="Right" Margin="0,16,0,0" VerticalAlignment="Top" Width="54" Height="24" IsDropDownOpen="False" SelectedIndex="{Binding Mode=TwoWay, Path=RegionIndex}">
+    						<ComboBoxItem Content="US"/>
+    						<ComboBoxItem Content="EU"/>
+    						<ComboBoxItem Content="KR"/>
+    						<ComboBoxItem Content="TW"/>
+    						<ComboBoxItem Content="CN"/>
+    					</ComboBox>
+    					<TextBlock HorizontalAlignment="Left" Margin="0,44,0,0" VerticalAlignment="Top" Text="Race:" TextWrapping="Wrap"/>
+    					<ComboBox x:Name="RaceCombo" HorizontalAlignment="Left" Margin="0,60,0,0" VerticalAlignment="Top" Width="107" Height="24" SelectedIndex="{Binding Mode=TwoWay, Path=RaceIndex}">
+    						<ComboBoxItem Visibility="Collapsed"/>
+    						<ComboBoxItem Content="Human"/>
+    						<ComboBoxItem Content="Orc"/>
+    						<ComboBoxItem Content="Dwarf"/>
+    						<ComboBoxItem Content="Night Elf"/>
+    						<ComboBoxItem Content="Undead"/>
+    						<ComboBoxItem Content="Tauren"/>
+    						<ComboBoxItem Content="Gnome"/>
+    						<ComboBoxItem Content="Troll"/>
+    						<ComboBoxItem Visibility="Collapsed"/>
+    						<ComboBoxItem Content="Blood Elf"/>
+    						<ComboBoxItem Content="Draenei"/>
+    					</ComboBox>
+    					<TextBlock HorizontalAlignment="Left" Margin="111,44,0,0" VerticalAlignment="Top" Text="Class:" TextWrapping="Wrap"/>
+    					<ComboBox x:Name="ClassCombo" Margin="111,60,108,0" VerticalAlignment="Top" Height="24" SelectionChanged="ClassCombo_SelectionChanged">
+    						<ComboBoxItem Visibility="Collapsed"/>
+    						<ComboBoxItem Content="Warrior"/>
+    						<ComboBoxItem Content="Paladin"/>
+    						<ComboBoxItem Content="Hunter"/>
+    						<ComboBoxItem Content="Rogue"/>
+    						<ComboBoxItem Content="Priest"/>
+    						<ComboBoxItem Content="Death Knight"/>
+    						<ComboBoxItem Content="Shaman"/>
+    						<ComboBoxItem Content="Mage"/>
+    						<ComboBoxItem Content="Warlock"/>
+    						<ComboBoxItem Visibility="Collapsed"/>
+    						<ComboBoxItem Content="Druid"/>		
+    					</ComboBox>
+    					<TextBlock HorizontalAlignment="Right" Margin="0,44,61,0" VerticalAlignment="Top" Text="Model:" TextWrapping="Wrap" Width="43"/>
+    					<ComboBox x:Name="ModelCombo" SelectionChanged="ModelCombo_SelectionChanged" HorizontalAlignment="Right" Margin="0,60,0,0" VerticalAlignment="Top" Width="104" d:LayoutOverrides="HorizontalAlignment" Height="24"/>
+    					<CheckBox x:Name="EnforceGemCheck" HorizontalAlignment="Left" Margin="0,132,0,0" VerticalAlignment="Top" Content="Enforce Gem Requirements*" IsChecked="{Binding Mode=TwoWay, Path=EnforceGemRequirements}"/>
+    					<local:CalculationDisplay x:Name="CalculationDisplay" Margin="0,153,0,0"/>
+    					<TextBlock HorizontalAlignment="Left" Text="First Profession:" TextWrapping="Wrap" Margin="0,88,0,0" VerticalAlignment="Top" Width="114" d:LayoutOverrides="HorizontalAlignment"/>
+    					<ComboBox x:Name="CB_Prof1" Margin="0,108,166,0" VerticalAlignment="Top" SelectedIndex="{Binding Mode=TwoWay, Path=PriProfIndex}">
+    						<ComboBoxItem x:Name="Prof1_None" Content="None"/>
+    						<ComboBoxItem x:Name="Prof1_AL" Content="Alchemy"/>
+    						<ComboBoxItem x:Name="Prof1_BS" Content="Blacksmithing"/>
+    						<ComboBoxItem x:Name="Prof1_EC" Content="Enchanting"/>
+    						<ComboBoxItem x:Name="Prof1_EN" Content="Engineering"/>
+    						<ComboBoxItem x:Name="Prof1_HB" Content="Herbalism"/>
+    						<ComboBoxItem x:Name="Prof1_IN" Content="Inscription"/>
+    						<ComboBoxItem x:Name="Prof1_JC" Content="Jewelcrafting"/>
+    						<ComboBoxItem x:Name="Prof1_LW" Content="Leatherworking"/>
+    						<ComboBoxItem x:Name="Prof1_MN" Content="Mining"/>
+    						<ComboBoxItem x:Name="Prof1_SK" Content="Skinning"/>
+    						<ComboBoxItem x:Name="Prof1_TL" Content="Tailoring"/>
+    					</ComboBox>
+    					<ComboBox x:Name="CB_Prof2" Margin="0,108,0,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="158" SelectedIndex="{Binding Mode=TwoWay, Path=SecProfIndex}">
+    						<ComboBoxItem x:Name="Prof2_None" Content="None"/>
+    						<ComboBoxItem x:Name="Prof2_AL" Content="Alchemy"/>
+    						<ComboBoxItem x:Name="Prof2_BS" Content="Blacksmithing"/>
+    						<ComboBoxItem x:Name="Prof2_EC" Content="Enchanting"/>
+    						<ComboBoxItem x:Name="Prof2_EN" Content="Engineering"/>
+    						<ComboBoxItem x:Name="Prof2_HB" Content="Herbalism"/>
+    						<ComboBoxItem x:Name="Prof2_IN" Content="Inscription"/>
+    						<ComboBoxItem x:Name="Prof2_JC" Content="Jewelcrafting"/>
+    						<ComboBoxItem x:Name="Prof2_LW" Content="Leatherworking"/>
+    						<ComboBoxItem x:Name="Prof2_MN" Content="Mining"/>
+    						<ComboBoxItem x:Name="Prof2_SK" Content="Skinning"/>
+    						<ComboBoxItem x:Name="Prof2_TL" Content="Tailoring"/>
+    					</ComboBox>
+    					<TextBlock VerticalAlignment="Top" Text="Second Profession:" TextWrapping="Wrap" Margin="0,88,8,0" HorizontalAlignment="Right" Width="146"/>
+    				</Grid>
+    			</controls:TabItem>
+    			<controls:TabItem x:Name="TalentTreeTab" Header="Talents">
+    				<Grid>
+    					<local:TalentPicker x:Name="TalentPicker"/>
+    				</Grid>
+    			</controls:TabItem>
+    			<controls:TabItem x:Name="BuffsTab" Header="Buffs">
+    				<Grid>
+    					<local:BuffsControl x:Name="BuffControl" VerticalAlignment="Stretch" Height="Auto"/>
+    				</Grid>
+    			</controls:TabItem>
+    			<controls:TabItem x:Name="OptionsTab" Header="Options">
+    				<ScrollViewer x:Name="OptionsView" Margin="0,0,0,0" BorderThickness="0,0,0,0" Padding="0,0,0,0" VerticalScrollBarVisibility="Auto"/>
+    			</controls:TabItem>
+    			<controls:TabItem x:Name="BossTab" Header="Boss Handler">
+                    <Grid>
+                        <local:BossPicker x:Name="BossPicker" VerticalAlignment="Stretch" Height="Auto"/>
+                    </Grid>
+                </controls:TabItem>
+    		</controls:TabControl>
+    	</toolkit:DockPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="0" Grid.ColumnSpan="4">
+            <TextBlock VerticalAlignment="Center" Text="b7" Foreground="#99999999" Margin="0,4,8,4"/>
+            <Button x:Name="PerformanceTestButton" Content="Test Calculation Performance" Margin="0,4,8,4" Click="PerformanceTest"/>
+           <Button x:Name="OfflineInstallButton" Content="Install Offline" Margin="0,4,8,4" Click="InstallOffline"/>
+         </StackPanel>
+    </Grid>
+</UserControl>

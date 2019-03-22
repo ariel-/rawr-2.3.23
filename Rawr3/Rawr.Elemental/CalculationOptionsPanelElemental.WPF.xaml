@@ -1,0 +1,8 @@
+<UserControl x:Class="Rawr.Elemental.CalculationOptionsPanelElemental"
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    >
+	<Grid x:Name="LayoutRoot" Background="White">
+    <TextBlock Text="Elemental Options Go Here"/>
+	</Grid>
+</UserControl>

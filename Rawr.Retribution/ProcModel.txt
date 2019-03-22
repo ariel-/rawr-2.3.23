@@ -1,0 +1,68 @@
+﻿Melee crit procs can be triggered by:
+- Crusader Strike crits
+- Divine Storm crits on each target
+- Weapon swing crits
+- Judgement crits
+- Tiny Abomination in a Jar releasing attack crits
+
+Melee hit procs can be triggered by:
+- Crusader Strike hits
+- Divine Storm hits
+- Weapon swing hits 
+- Tiny Abomination in a Jar releasing attack hits
+- Judgement hits
+
+MeleeAttack procs can be triggered by (as per Tests by BlueDeep)
+- Seal hit (including seals from Manifest Anger itself)
+- Weapon swing hits 
+- CS hit
+- DS hit
+- J hit
+- Holy Vengeance application/refresh (100% on melee hit)
+- Righteous Vengeance application/refresh (100% on CS/DS/J crit)
+- Judgement debuff application/refresh (100% on J hit)
+
+Physical crit procs can be triggered by:
+- Crusader Strike crits
+- Divine Storm crits on each target
+- Weapon swing crits
+- Tiny Abomination in a Jar releasing attack crits
+- Hammer of Wrath crits
+- Judgement crits
+
+
+Physical hit procs can be triggered by:
+- Crusader Strike hits
+- Divine Storm hits
+- Weapon swing hits 
+- Tiny Abomination in a Jar releasing attack hits
+- Hammer of Wrath hits
+- Judgement hits
+
+
+Damage done procs can be triggered by:
+- Crusader Strike damage
+- Divine Storm damage
+- Weapon swing damage
+- Tiny Abomination in a Jar releasing attack hits
+- Judgement damage
+- Hammer of Wrath damage
+- Consecration damage ticks
+- Exorcism hits
+
+
+Damage or healing done procs can be triggered by:
+- Crusader Strike damage
+- Divine Storm damage
+- Weapon swing damage
+- Tiny Abomination in a Jar releasing attack hits
+- Judgement damage
+- Hammer of Wrath damage
+- Consecration damage ticks
+- Exorcism hits
+(Divine Storm heal effect heals only if there damaged people nearby (or you), 
+  which is very unstable and should probably be ignored,
+  or should we add an "average people with damage nearby" option?)
+
+Tiny Abomination in a Jar doesn't have a proc currently. 
+But it's modelled as it's actually triggered twice as much as its trigger describes.

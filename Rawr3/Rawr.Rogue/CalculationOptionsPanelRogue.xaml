@@ -1,0 +1,205 @@
+﻿<UserControl
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit" 
+xmlns:layoutToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit" 
+xmlns:System="clr-namespace:System;assembly=mscorlib" 
+mc:Ignorable="d" 
+d:DesignWidth="330" d:DesignHeight="600" 
+xmlns:local="clr-namespace:Rawr.Rogue"
+x:Class="Rawr.Rogue.CalculationOptionsPanelRogue"
+>
+    <UserControl.Resources>
+        <local:CalculationOptionsRogue x:Key="CalculationOptionsRogueDataSource" d:IsDataSource="True"/>
+    </UserControl.Resources>
+
+    <layoutToolkit:Accordion x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource CalculationOptionsRogueDataSource}}" HorizontalAlignment="Stretch" SelectionMode="ZeroOrMore" VerticalAlignment="Top">
+        <layoutToolkit:AccordionItem HorizontalContentAlignment="Stretch" IsSelected="True">
+            <layoutToolkit:AccordionItem.Header>
+                <TextBlock Margin="0,-2,0,2"><Run Text="Fight Parameters"/></TextBlock>
+            </layoutToolkit:AccordionItem.Header>
+            <Grid Margin="2,2,2,8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Target Level: " VerticalAlignment="Center" Margin="2" Grid.Row="0" />
+                <ComboBox Margin="2" Grid.Column="1" Grid.Row="0" SelectedItem="{Binding TargetLevel, Mode=TwoWay}">
+                    <System:Int32>80</System:Int32>
+                    <System:Int32>81</System:Int32>
+                    <System:Int32>82</System:Int32>
+                    <System:Int32>83</System:Int32>
+                </ComboBox>
+
+                <TextBlock Text="Target is poisonable: " VerticalAlignment="Center" Margin="2" Grid.Row="1" />
+                <CheckBox Grid.Column="1" Grid.Row="1" Margin="2" IsChecked="{Binding TargetPoisonable, Mode=TwoWay}" />
+
+                <TextBlock Text="Target is bleeding: " VerticalAlignment="Center" Margin="2" Grid.Row="2" />
+                <CheckBox Grid.Column="1" Grid.Row="2" Margin="2" IsChecked="{Binding BleedIsUp, Mode=TwoWay}" />
+
+                <TextBlock Text="Target Armor: " VerticalAlignment="Center" Margin="2" Grid.Row="3" />
+                <inputToolkit:NumericUpDown Margin="2" Grid.Column="1" Grid.Row="3" Value="{Binding TargetArmor, Mode=TwoWay}" Maximum="150000" Increment="100" />
+
+                <TextBlock Text="Duration (sec): " VerticalAlignment="Center" Margin="2" Grid.Row="4" />
+                <inputToolkit:NumericUpDown Margin="2" Grid.Column="1" Grid.Row="4" Value="{Binding Duration, Mode=TwoWay}" Maximum="3600" Increment="10" />
+
+                <TextBlock Text="Lag Variance (ms): " VerticalAlignment="Center" Margin="2" Grid.Row="5" />
+                <inputToolkit:NumericUpDown Margin="2" Grid.Column="1" Grid.Row="5" Value="{Binding LagVariance, Mode=TwoWay}" Maximum="10000" Increment="50" />
+            </Grid>
+        </layoutToolkit:AccordionItem>
+        <layoutToolkit:AccordionItem HorizontalContentAlignment="Stretch" IsSelected="True">
+            <layoutToolkit:AccordionItem.Header>
+                <TextBlock Margin="0,-2,0,2"><Run Text="Custom Rotation"/></TextBlock>
+            </layoutToolkit:AccordionItem.Header>
+            <Grid Margin="2,2,2,8">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Combo Point Generator: " VerticalAlignment="Center" Margin="2" Grid.Row="0" Grid.Column="0" />
+                <ComboBox Margin="2" Grid.Column="1" Grid.Row="0" SelectedIndex="{Binding CustomCPG, Mode=TwoWay}">
+                    <ComboBoxItem Content="Mutilate"/>
+                    <ComboBoxItem Content="Sinister Strike"/>
+                    <ComboBoxItem Content="Backstab"/>
+                    <ComboBoxItem Content="Hemorrhage"/>
+                </ComboBox>
+                <TextBlock Text="Slice and Dice CP: " VerticalAlignment="Center" Margin="2" Grid.Row="1" Grid.Column="0" />
+                <ComboBox Margin="2" Grid.Column="1" Grid.Row="1" SelectedItem="{Binding CustomCPSnD, Mode=TwoWay}">
+                    <System:Int32>1</System:Int32>
+                    <System:Int32>2</System:Int32>
+                    <System:Int32>3</System:Int32>
+                    <System:Int32>4</System:Int32>
+                    <System:Int32>5</System:Int32>
+                </ComboBox>
+                <TextBlock Text="Finisher: " VerticalAlignment="Center" Margin="2" Grid.Row="2" Grid.Column="0" />
+                <ComboBox Margin="2" Grid.Column="1" Grid.Row="2" SelectedIndex="{Binding CustomFinisher, Mode=TwoWay, NotifyOnValidationError=True, BindsDirectlyToSource=True}">
+                    <ComboBoxItem Content="None"/>
+                    <ComboBoxItem Content="Eviscerate"/>
+                    <ComboBoxItem Content="Envenom"/>
+                </ComboBox>
+                <TextBlock Text="Finisher CP: " VerticalAlignment="Center" Margin="2" Grid.Row="3" Grid.Column="0" />
+                <ComboBox Margin="2" Grid.Column="1" Grid.Row="3" SelectedItem="{Binding CustomCPFinisher, Mode=TwoWay}">
+                    <System:Int32>1</System:Int32>
+                    <System:Int32>2</System:Int32>
+                    <System:Int32>3</System:Int32>
+                    <System:Int32>4</System:Int32>
+                    <System:Int32>5</System:Int32>
+                </ComboBox>
+                <TextBlock Text="Mainhand Poison: " VerticalAlignment="Center" Margin="2" Grid.Row="4" Grid.Column="0" />
+                <ComboBox Margin="2" Grid.Column="1" Grid.Row="4" SelectedIndex="{Binding CustomMHPoison, Mode=TwoWay}">
+                    <ComboBoxItem Content="None / Other"/>
+                    <ComboBoxItem Content="Instant"/>
+                    <ComboBoxItem Content="Deadly"/>
+                    <ComboBoxItem Content="Wound"/>
+                    <ComboBoxItem Content="Anesthetic"/>
+                </ComboBox>
+                <TextBlock Text="Offhand Poison: " VerticalAlignment="Center" Margin="2" Grid.Row="5" Grid.Column="0" />
+                <ComboBox Margin="2" Grid.Column="1" Grid.Row="5" SelectedIndex="{Binding CustomOHPoison, Mode=TwoWay}">
+                    <ComboBoxItem Content="None / Other"/>
+                    <ComboBoxItem Content="Instant"/>
+                    <ComboBoxItem Content="Deadly"/>
+                    <ComboBoxItem Content="Wound"/>
+                    <ComboBoxItem Content="Anesthetic"/>
+                </ComboBox>
+                <TextBlock Text="Use Rupture: " VerticalAlignment="Center" Margin="2" Grid.Row="6" Grid.Column="0" />
+                <CheckBox Grid.Column="1" Grid.Row="6" Margin="2" IsChecked="{Binding CustomUseRupt, Mode=TwoWay}" />
+                <TextBlock Text="Use Tricks of the Trade: " VerticalAlignment="Center" Margin="2" Grid.Row="7" Grid.Column="0" />
+                <CheckBox Grid.Column="1" Grid.Row="7" Margin="2" IsChecked="{Binding CustomUseTotT, Mode=TwoWay}" />
+                <TextBlock Text="Use Expose Armor: " VerticalAlignment="Center" Margin="2" Grid.Row="8" Grid.Column="0" />
+                <CheckBox Grid.Column="1" Grid.Row="8" Margin="2" IsChecked="{Binding CustomUseExpose, Mode=TwoWay}" IsEnabled="False" />
+            </Grid>
+        </layoutToolkit:AccordionItem>
+        <layoutToolkit:AccordionItem HorizontalContentAlignment="Stretch" IsSelected="True">
+            <layoutToolkit:AccordionItem.Header>
+                <TextBlock Margin="0,-2,0,2"><Run Text="Rotation Optimizer"/></TextBlock>
+            </layoutToolkit:AccordionItem.Header>
+            <ScrollViewer x:Name="SV_RotOpti" VerticalScrollBarVisibility="Auto">
+                <Grid Margin="2,2,2,8" DataContext="{Binding}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="4*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Text="You can turn off abilities that you don't want to be considered by the optimizer, this will speed up optimizing considerably." VerticalAlignment="Center" Margin="2" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" TextWrapping="Wrap" />
+                    <TextBlock Text="Mutilate: " VerticalAlignment="Center" Margin="2" Grid.Row="1" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="1" Margin="2" IsChecked="{Binding EnableMuti, Mode=TwoWay}" />
+                    <TextBlock Text="Sinister Strike: " VerticalAlignment="Center" Margin="2" Grid.Row="2" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="2" Margin="2" IsChecked="{Binding EnableSS, Mode=TwoWay}" />
+                    <TextBlock Text="Backstab: " VerticalAlignment="Center" Margin="2" Grid.Row="3" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="3" Margin="2" IsChecked="{Binding EnableBS, Mode=TwoWay}" />
+                    <TextBlock Text="Hemorrhage: " VerticalAlignment="Center" Margin="2" Grid.Row="4" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="4" Margin="2" IsChecked="{Binding EnableHemo, Mode=TwoWay}" />
+                    <TextBlock Text="Instant Poison: " VerticalAlignment="Center" Margin="2" Grid.Row="5" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="5" Margin="2" IsChecked="{Binding EnableIP, Mode=TwoWay}" />
+                    <TextBlock Text="Deadly Poison: " VerticalAlignment="Center" Margin="2" Grid.Row="6" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="6" Margin="2" IsChecked="{Binding EnableDP, Mode=TwoWay}" />
+                    <TextBlock Text="Wound Poison: " VerticalAlignment="Center" Margin="2" Grid.Row="7" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="7" Margin="2" IsChecked="{Binding EnableWP, Mode=TwoWay}" />
+                    <TextBlock Text="Rupture: " VerticalAlignment="Center" Margin="2" Grid.Row="8" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="8" Margin="2" IsChecked="{Binding EnableRupt, Mode=TwoWay}" />
+                    <TextBlock Text="Eviscerate: " VerticalAlignment="Center" Margin="2" Grid.Row="9" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="9" Margin="2" IsChecked="{Binding EnableEvis, Mode=TwoWay}" />
+                    <TextBlock Text="Envenom: " VerticalAlignment="Center" Margin="2" Grid.Row="10" Grid.Column="0" />
+                    <CheckBox Grid.Column="1" Grid.Row="10" Margin="2" IsChecked="{Binding EnableEnvenom, Mode=TwoWay}" />
+                </Grid>
+            </ScrollViewer>
+        </layoutToolkit:AccordionItem>
+        <layoutToolkit:AccordionItem HorizontalContentAlignment="Stretch" IsSelected="True">
+            <layoutToolkit:AccordionItem.Header>
+                <TextBlock Margin="0,-2,0,2"><Run Text="Misc"/></TextBlock>
+            </layoutToolkit:AccordionItem.Header>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Margin="2" Text="Trinket Offset: "/>
+                <TextBlock Margin="2" Text="{Binding TrinketOffset}" Grid.Column="1"/>
+                <Slider Margin="2" Value="{Binding TrinketOffset, Mode=TwoWay}" Minimum="0" Maximum="60" d:LayoutOverrides="Height" Grid.Row="1" Grid.ColumnSpan="2" />
+                <TextBlock Margin="2" TextWrapping="Wrap" Text="This indicates that you unequip and then reequip one of your trinkets before you begin attacking, in order to desynchronize their proc timers. This is beneficial when you have two trinkets whose procs provide stats which have caps (such as Armor Penetration), so that you can gain the benefit of both a majority of the time." Grid.Row="2" Grid.ColumnSpan="2" Width="310"/>
+            </Grid>
+        </layoutToolkit:AccordionItem>
+    </layoutToolkit:Accordion>
+</UserControl>

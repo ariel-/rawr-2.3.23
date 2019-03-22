@@ -1,0 +1,19 @@
+<basics2:ChildWindow
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:basics2="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+	xmlns:basics="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	x:Class="Rawr.UI.ConfirmationWindow"
+	Title="Are you sure?" Width="300">
+	<StackPanel>
+		<TextBlock x:Name="MessageText" Text="This is a long error message" TextWrapping="Wrap" Margin="4,4,4,4"/>
+
+		<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+			<Button x:Name="YesButton" Content="Yes" Click="YesButton_Click" Width="75" Height="23" HorizontalAlignment="Center" Margin="2,2,2,4" />
+			<Button x:Name="NoButton" Content="No" Click="NoButton_Click" Width="75" Height="23" HorizontalAlignment="Center" Margin="2,2,2,4" />
+		</StackPanel>
+	</StackPanel>
+</basics2:ChildWindow>

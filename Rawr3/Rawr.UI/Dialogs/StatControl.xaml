@@ -1,0 +1,32 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:Rawr="clr-namespace:Rawr;assembly=Rawr.Base" xmlns:input="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input"
+	x:Class="Rawr.UI.StatControl"
+	d:DesignWidth="320" d:DesignHeight="480">
+	<UserControl.Resources>
+		<Style x:Key="StatsControlCloseStyle" TargetType="Button">
+			<Setter Property="Background" Value="#FFFF0000"/>
+			<Setter Property="Content" Value="X"/>
+			<Setter Property="HorizontalAlignment" Value="Stretch"/>
+			<Setter Property="VerticalAlignment" Value="Stretch"/>
+			<Setter Property="Margin" Value="2,2,2,2"/>
+		</Style>
+	</UserControl.Resources>
+
+	<StackPanel>
+		<StackPanel x:Name="StatsStack"/>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="0.5*"/>
+				<ColumnDefinition Width="30"/>
+			</Grid.ColumnDefinitions>
+			<input:AutoCompleteBox x:Name="AddStatBox" Margin="2,2,2,2" FilterMode="Contains" MinimumPrefixLength="2"/>
+			<Button x:Name="AddStatButton" HorizontalAlignment="Left" Margin="2,2,2,2" Content="Add" Grid.Column="1" Width="50" Click="AddStatButton_Click"/>
+		</Grid>
+	</StackPanel>
+</UserControl>

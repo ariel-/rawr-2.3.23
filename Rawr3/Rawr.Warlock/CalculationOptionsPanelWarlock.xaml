@@ -1,0 +1,162 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:System="clr-namespace:System;assembly=mscorlib"
+    mc:Ignorable="d"
+    d:DesignWidth="330" d:DesignHeight="600"
+    xmlns:local="clr-namespace:Rawr.Warlock"
+    x:Class="Rawr.Warlock.CalculationOptionsPanelWarlock"
+    >
+
+    <UserControl.Resources>
+        <local:CalculationOptionsWarlock x:Key="CalculationOptionsWarlockDataSource" d:IsDataSource="True"/>
+        <local:PercentConverter x:Key="PercentConverter" />
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource CalculationOptionsWarlockDataSource}}">
+        <controls:TabControl Margin="4,2" Name="tabControl1">
+            <controls:TabItem Header="Options" x:Name="Tab_01_Options">
+                <Grid x:Name="LO_01_Options">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Margin="4,2" Name="textBlock1" Text="Pet:" Grid.ColumnSpan="3" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="2" Margin="4,2" Name="textBlock8" Text="Temporary Weapon Enchant:" Grid.ColumnSpan="3" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="3" Margin="4,2" Name="textBlock9" Text="Target Level:" Grid.ColumnSpan="3" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="4" Margin="4,2" Name="textBlock10" Text="Fight Length (sec):" Grid.ColumnSpan="3" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="5" Margin="4,2" Name="textBlock11" Text="Time Between Spells (ms)" Grid.ColumnSpan="3" Padding="0,2,0,0" />
+                    <TextBlock Grid.ColumnSpan="3" Grid.Row="6" Margin="4,2" Name="textBlock12" Text="% of Fight Below 35%:" Padding="0,2,0,0" />
+                    <TextBlock Grid.ColumnSpan="3" Grid.Row="7" Margin="4,2" Name="textBlock13" Text="% of Fight Below 25%:" Padding="0,2,0,0" />
+                    <TextBlock Grid.ColumnSpan="5" Grid.Row="8" Margin="4,2" Name="textBlock14" Text="Spell Priorities" FontWeight="Bold" />
+                    <ComboBox Grid.Column="3" Grid.ColumnSpan="2" Margin="4,2" Name="comboBox1" Height="22" SelectedItem="{Binding Path=Pet, Mode=TwoWay}">
+                        <System:String>None</System:String>
+                        <System:String>Felguard</System:String>
+                        <System:String>Felhunter</System:String>
+                        <System:String>Imp</System:String>
+                        <System:String>Succubus</System:String>
+                        <System:String>Voidwalker</System:String>
+                    </ComboBox>
+                    <ComboBox Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Margin="4,2" Name="comboBox2" Height="22" SelectedItem="{Binding Path=Imbue, Mode=TwoWay}">
+                        <System:String>Grand Spellstone</System:String>
+                        <System:String>Grand Firestone</System:String>
+                    </ComboBox>
+                    <ComboBox Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="3" Margin="4,2" Name="comboBox3" Height="22" SelectedItem="{Binding Path=TargetLevel, Mode=TwoWay}">
+                        <System:Int32>80</System:Int32>
+                        <System:Int32>81</System:Int32>
+                        <System:Int32>82</System:Int32>
+                        <System:Int32>83</System:Int32>
+                    </ComboBox>
+                    <ComboBox Grid.ColumnSpan="5" Grid.Row="9" Margin="4,2" Name="rotationCombo" Height="22" SelectionChanged="rotationCombo_SelectedIndexChanged">
+                        <System:String>Destruction</System:String>
+                    </ComboBox>
+                    <inputToolkit:NumericUpDown Grid.Column="3" Grid.Row="4" Margin="4,2" Name="numericUpDown1" Grid.ColumnSpan="2" Height="22" Maximum="1200" Increment="15" Value="{Binding Path=Duration, Mode=TwoWay}" />
+                    <inputToolkit:NumericUpDown Grid.Column="3" Grid.Row="5" Margin="4,2" Name="numericUpDown2" Grid.ColumnSpan="2" Height="22" Maximum="1000" Increment="25" Value="{Binding Path=Latency, Mode=TwoWay}" />
+                    <inputToolkit:NumericUpDown Grid.Column="3" Grid.Row="6" Margin="4,2" Name="numericUpDown3" Grid.ColumnSpan="2" Height="22" Value="{Binding Path=ThirtyFive, Mode=TwoWay, Converter={StaticResource PercentConverter}}" />
+                    <inputToolkit:NumericUpDown Grid.Column="3" Grid.Row="7" Margin="4,2" Name="numericUpDown4" Grid.ColumnSpan="2" Height="22" Value="{Binding Path=TwentyFive, Mode=TwoWay, Converter={StaticResource PercentConverter}}" />
+                    <Button Content="Rename" Grid.Column="3" Grid.ColumnSpan="1" Grid.Row="10" Margin="4,2" Name="rotationRenameButton" Click="rotationRenameButton_Click" />
+                    <Button Content="Delete" Grid.Column="4" Grid.ColumnSpan="1" Grid.Row="10" Margin="4,2" Name="deleteRotationButton" Width="50" Click="deleteRotationButton_Click" />
+                    <Button Content="New" Grid.ColumnSpan="1" Grid.Row="10" Margin="4,2" Name="newRotationButton" Grid.Column="2" Width="50" Click="newRotationButton_Click" Height="22" />
+                    <Button Content="&gt;&gt;" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="11" Margin="4,2" Name="rotationAddButton" Width="50" Click="rotationAddButton_Click" Height="22" VerticalAlignment="Top" />
+                    <Button Content="&lt;&lt;" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="12" Margin="4,2" Name="rotationRemoveButton" Width="50" Click="rotationRemoveButton_Click" Height="22" VerticalAlignment="Top" />
+                    <Button Content="Up" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="13" Margin="4,2" Name="rotationUpButton" Width="50" Click="rotationUpButton_Click" Height="22" VerticalAlignment="Bottom" />
+                    <Button Content="Down" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="14" Margin="4,2" Name="rotationDownButton" Width="50" Click="rotationDownButton_Click" Height="22" VerticalAlignment="Bottom" />
+                    <Button Content="Clear" Grid.Column="2" Grid.ColumnSpan="1" Grid.Row="15" Margin="4,2" Name="rotationClearButton" Width="50" Click="rotationClearButton_Click" Height="22" VerticalAlignment="Bottom" />
+                    <ListBox Grid.ColumnSpan="2" Grid.Row="11" Grid.RowSpan="5" Margin="4,2" Name="rotationMenu" SelectionChanged="rotationMenu_SelectedIndexChanged" MaxHeight="250" />
+                    <ListBox Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="11" Grid.RowSpan="5" Margin="4,2" Name="rotationList" SelectionChanged="rotationList_SelectedIndexChanged" MaxHeight="250" />
+                    <ComboBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="16" Margin="4,2" Name="fillerCombo" Height="22" SelectionChanged="fillerCombo_SelectedIndexChanged">
+                        <System:String>Shadow Bolt</System:String>
+                        <System:String>Incinerate</System:String>
+                    </ComboBox>
+                    <ComboBox Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="17" Margin="4,2" Name="executeCombo" Height="22" SelectionChanged="executeCombo_SelectedIndexChanged">
+                        <System:String>None</System:String>
+                        <System:String>Drain Soul</System:String>
+                        <System:String>Soul Fire</System:String>
+                    </ComboBox>
+                    <TextBlock Grid.Row="16" Margin="4,2" Name="LB_Filler" Text="Filler:" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="17" Margin="4,2" Name="LB_Execute" Text="Execute:" Padding="0,2,0,0" />
+                    <TextBlock Grid.ColumnSpan="5" Grid.Row="18" Margin="4,2" Name="rotationErrorLabel" Text="Error Label" Foreground="Red" Padding="0,2,0,0" />
+                    <CheckBox Content="Also Use Infernal" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="1" Margin="4,2" Name="checkBox1" IsChecked="{Binding Path=UseInfernal, Mode=TwoWay}" />
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Raid Buff" x:Name="Tab_02_RaidBuff">
+                <Grid x:Name="LO_02_RaidBuff">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Margin="4,2,4,6" Name="raidExlpanationLabel" Text="This tab allows you to give value to raid buffs you supply.  Enter the dps-equivalent for each category below.  Note that, for example, your Fel Hunter's Int buff will not benefit the raid if you have an equal-or-better int buff selected in the buffs tab." Grid.ColumnSpan="2" TextWrapping="Wrap" />
+                    <TextBlock Grid.Row="1" Margin="4,2" Name="textBlock2" Text="Per Spell Power:" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="3" Margin="4,2" Name="textBlock3" Text="Per 13% Magic Damage:" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="4" Margin="4,2" Name="textBlock4" Text="Per 5% Spell Crit:" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="5" Margin="4,2" Name="textBlock5" Text="Per Intellect:" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="6" Margin="4,2" Name="textBlock6" Text="Per Spirit:" Padding="0,2,0,0" />
+                    <TextBlock Grid.Row="7" Margin="4,2" Name="textBlock7" Text="Per Health:" Padding="0,2,0,0" />
+                    <inputToolkit:NumericUpDown Grid.Column="1" Grid.Row="1" Margin="4,2" Name="raidSPSpinner" Height="22" DecimalPlaces="1" Increment="0.2" Value="{Binding Path=PerSP, Mode=TwoWay}" />
+                    <inputToolkit:NumericUpDown Grid.Column="1" Grid.Row="2" Margin="4,2" Name="raidTotemSpinner" Height="22" Increment="10" Maximum="10000" Value="{Binding Path=PerFlametongue, Mode=TwoWay}" />
+                    <inputToolkit:NumericUpDown Grid.Column="1" Grid.Row="3" Margin="4,2" Name="raidMagicSpinner" Height="22" Maximum="1000" Value="{Binding Path=PerMagicBuff, Mode=TwoWay}" />
+                    <inputToolkit:NumericUpDown Grid.Column="1" Grid.Row="4" Margin="4,2" Name="raidCritSpinner" Height="22" DecimalPlaces="1" Increment="1" Value="{Binding Path=PerCritBuff, Mode=TwoWay}" />
+                    <inputToolkit:NumericUpDown Grid.Column="1" Grid.Row="5" Margin="4,2" Name="raidIntSpinner" Height="22" DecimalPlaces="1" Increment="0.2" Value="{Binding Mode=TwoWay, Path=PerInt}" />
+                    <inputToolkit:NumericUpDown Grid.Column="1" Grid.Row="6" Margin="4,2" Name="raidSpiSpinner" Height="22" DecimalPlaces="1" Increment="0.2" Value="{Binding Path=PerSpi, Mode=TwoWay}" />
+                    <inputToolkit:NumericUpDown Grid.Column="1" Grid.Row="7" Margin="4,2" Name="raidHealthSpinner" Height="22" DecimalPlaces="1" Increment="0.1" Value="{Binding Path=PerHealth, Mode=TwoWay}" />
+                    <CheckBox Content="Convert Flametongue to:" Grid.Row="2" Margin="4,2" Name="raidTotemCheckbox" VerticalContentAlignment="Center" Padding="4,-4,0,0" IsChecked="{Binding Path=ConvertTotem, Mode=TwoWay}" />
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Debug" x:Name="Tab_03_Debug">
+                <Grid x:Name="LO_03_Debug">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Button Content="Time Computations" Grid.Row="1" Margin="4,2" Name="TimerButton" Width="150" HorizontalAlignment="Left" Click="TimerButton_Click" />
+                    <CheckBox Content="Disable Special Effects" Margin="4,2" Name="procCheckbox" IsChecked="{Binding Path=NoProcs, Mode=TwoWay}" />
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem Header="Info" x:Name="Tab_04_Info">
+                <Grid x:Name="LO_04_Info" Margin="4,2">
+                    <TextBlock x:Name="notesBox" Text="The Warlock model you are using is still under development. It has known problems, and some important features are not yet implemented (for example, pet dps is unverified). However, it is coming closer and closer to complete, and should be safe to use now for gear choices. Please visit http://rawr.codeplex.com/wikipage?title=Rawr.Warlock. It will be updated with known problems, warnings and info about the model. If you find a problem with a feature that is supposed to be working according to that page, first search the Issue Tracker (link at the top of that page) to make sure nobody else has already reported it. If not then create a new issue for it, and be sure to attach your character file." TextWrapping="Wrap" />
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</UserControl>

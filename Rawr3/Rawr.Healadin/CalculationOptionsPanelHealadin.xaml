@@ -1,0 +1,110 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:toolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+    xmlns:Rawr="clr-namespace:Rawr;assembly=Rawr.Base"
+    mc:Ignorable="d"
+    d:DesignWidth="330" d:DesignHeight="600"
+    xmlns:local="clr-namespace:Rawr.Healadin"
+    x:Class="Rawr.Healadin.CalculationOptionsPanelHealadin" 
+    >
+
+    <UserControl.Resources>
+        <local:CalculationOptionsHealadin x:Key="CalculationOptionsHealadinDataSource" d:IsDataSource="True"/>
+    </UserControl.Resources>
+
+    <Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource CalculationOptionsHealadinDataSource}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" Margin="2" Text="Overall Scale: *" ToolTipService.ToolTip="Fight Healing is your overall HPS.  Burst Healing is your best possible Flash of Light HPS.  This scale weighs the two appropriately when calculating your overall score." />
+                <Slider Margin="2" Grid.Row="0" Grid.Column="1" Minimum="0" Maximum="1" LargeChange="0.05" SmallChange="0.01" Value="{Binding Mode=TwoWay, Path=BurstScale}" />
+                <Button Margin="2 2 2 10" x:Name="btnResetBurstScale" Grid.Row="1" Grid.Column="0" Content="Reset" ToolTipService.ToolTip="Click to reset the overall scale to 40% Burst, 60% Fight." Click="btnResetBurstScale_Click" />
+                <TextBlock Margin="2 2 2 10" Grid.Row="1" Grid.Column="1" Text="{Binding Mode=OneWay, Path=BurstScaleText}" />
+                <TextBlock Grid.Row="2" Grid.Column="0" Margin="2" Text="Activity: *" ToolTipService.ToolTip="The percent of time you are actively casting spells." />
+                <Slider Margin="2" Grid.Row="2" Grid.Column="1" Minimum="0" Maximum="1" LargeChange="0.05" SmallChange="0.01" Value="{Binding Mode=TwoWay, Path=Activity}" />
+                <Button Margin="2 2 2 10" x:Name="btnResetActivity" Grid.Row="3" Grid.Column="0" Content="Reset" ToolTipService.ToolTip="Click to reset the activity to 85%." Click="btnResetActivity_Click" />
+                <TextBlock Margin="2 2 2 10" Grid.Row="3" Grid.Column="1" Text="{Binding Mode=OneWay, Path=Activity, StringFormat='\{0:P0\}', ConverterCulture=en-ZA}" />
+                <TextBlock Grid.Row="4" Grid.Column="0" Margin="2" Text="Holy Shock: *" ToolTipService.ToolTip="With a 6 second cooldown, you can cast Holy Shock up to 10 times per minute.  Use this slider to indicate how often you cast Holy Shock as a percentage." />
+                <Slider Margin="2" Grid.Row="4" Grid.Column="1" Minimum="0" Maximum="1" LargeChange="0.05" SmallChange="0.01" Value="{Binding Mode=TwoWay, Path=HolyShock}" />
+                <Button Margin="2 2 2 10" x:Name="btnResetHolyShock" Grid.Row="5" Grid.Column="0" Content="Reset" ToolTipService.ToolTip="Click to reset holy shock usage to 15%." Click="btnResetHolyShock_Click" />
+                <TextBlock Margin="2 2 2 10" Grid.Row="5" Grid.Column="1" Text="{Binding Mode=OneWay, Path=HolyShock, StringFormat='\{0:P0\}', ConverterCulture=en-ZA}" />
+                <CheckBox Margin="2" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Content="Model Infusion of Light *" IsChecked="{Binding Mode=TwoWay, Path=InfusionOfLight}" ToolTipService.ToolTip="If you are specced into the Infusion of Light talent, Holy Shock critical strikes will allow you to either do an instant cast Flash of Light or a Holy Light with an increased chance.  Use this checkbox to have Rawr model this talent." />
+                <TextBlock Grid.Row="7" Grid.Column="0" Margin="2" Text="IoL Scale: *" ToolTipService.ToolTip="Use this scale to determine what spell you cast after you proc an Infusion of Light." />
+                <Slider Margin="2" Grid.Row="7" Grid.Column="1" Minimum="0" Maximum="1" LargeChange="0.05" SmallChange="0.01" Value="{Binding Mode=TwoWay, Path=IoLHolyLight}" IsEnabled="{Binding Mode=TwoWay, Path=InfusionOfLight}" />
+                <Button Margin="2 2 2 10" x:Name="btnResetIoLHolyLight" Grid.Row="8" Grid.Column="0" Content="Reset" ToolTipService.ToolTip="Click to reset the IoL Holy Light Scale to 90% Holy Light, 10% Flash of Light." Click="btnResetIoLHolyLight_Click" />
+                <TextBlock Margin="2 2 2 10" Grid.Row="8" Grid.Column="1" Text="{Binding Mode=OneWay, Path=IoLHolyLightText}" />
+                <TextBlock Grid.Row="9" Grid.Column="0" Margin="2" Text="Sacred Shield: *" ToolTipService.ToolTip="The percent of time Sacred Shield will be active on your main healing target." />
+                <Slider Margin="2" Grid.Row="9" Grid.Column="1" Minimum="0" Maximum="1" LargeChange="0.05" SmallChange="0.01" Value="{Binding Mode=TwoWay, Path=SSUptime}" />
+                <Button Margin="2 2 2 10" x:Name="btnResetSSUptime" Grid.Row="10" Grid.Column="0" Content="Reset" ToolTipService.ToolTip="Click to reset sacred shield uptime to 100%." Click="btnResetSSUptime_Click" />
+                <TextBlock Margin="2 2 2 10" Grid.Row="10" Grid.Column="1" Text="{Binding Mode=OneWay, Path=SSUptime, StringFormat='\{0:P0\}', ConverterCulture=en-ZA}" />
+                <TextBlock Grid.Row="11" Grid.Column="0" Margin="2" Text="FoL on SS Target: *" ToolTipService.ToolTip="The percent of Flash of Light that is cast on a target with Sacred Shield." />
+                <Slider Margin="2" Grid.Row="11" Grid.Column="1" Minimum="0" Maximum="1" LargeChange="0.05" SmallChange="0.01" Value="{Binding Mode=TwoWay, Path=FoLOnTank}" />
+                <Button Margin="2 2 2 10" x:Name="btnResetFoLOnTank" Grid.Row="12" Grid.Column="0" Content="Reset" ToolTipService.ToolTip="Click to reset Flash of Light on Sacred Shield target to 25%." Click="btnResetFoLOnTank_Click" />
+                <TextBlock Margin="2 2 2 10" Grid.Row="12" Grid.Column="1" Text="{Binding Mode=OneWay, Path=FoLOnTank, StringFormat='\{0:P0\}', ConverterCulture=en-ZA}" />
+                <TextBlock Grid.Row="13" Grid.Column="0" Margin="2" Text="Replenishment: *" ToolTipService.ToolTip="The percent of time you expect Replenishment to be active on you." />
+                <Slider Margin="2" Grid.Row="13" Grid.Column="1" Minimum="0" Maximum="1" LargeChange="0.05" SmallChange="0.01" Value="{Binding Mode=TwoWay, Path=Replenishment}" />
+                <Button Margin="2 2 2 10" x:Name="btnResetReplenishment" Grid.Row="14" Grid.Column="0" Content="Reset" ToolTipService.ToolTip="Click to reset Replenishment Uptime to 90%." Click="btnResetReplenishment_Click" />
+                <TextBlock Margin="2 2 2 10" Grid.Row="14" Grid.Column="1" Text="{Binding Mode=OneWay, Path=Replenishment, StringFormat='\{0:P0\}', ConverterCulture=en-ZA}" />
+                <TextBlock Grid.Row="15" Grid.Column="0" Margin="2" Text="Beacon of Light: *" ToolTipService.ToolTip="The percent of time Beacon of Light to be active an a target." />
+                <Slider Margin="2" Grid.Row="15" Grid.Column="1" Minimum="0" Maximum="1" LargeChange="0.05" SmallChange="0.01" Value="{Binding Mode=TwoWay, Path=BoLUp}" />
+                <Button Margin="2 2 2 10" x:Name="btnResetBoLUp" Grid.Row="16" Grid.Column="0" Content="Reset" ToolTipService.ToolTip="Click to reset Beacon of Light Uptime to 100%." Click="btnResetBoLUp_Click" />
+                <TextBlock Margin="2 2 2 10" Grid.Row="16" Grid.Column="1" Text="{Binding Mode=OneWay, Path=BoLUp, StringFormat='\{0:P0\}', ConverterCulture=en-ZA}" />
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.6*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <CheckBox Margin="2" Grid.Row="0" Grid.Column="0" Content="Maintain JotP *" IsChecked="{Binding Mode=TwoWay, Path=JotP}" ToolTipService.ToolTip="Ensures that you will maintain the Judgements of the Pure buff by casting a Judgement at least once every minute." />
+                <CheckBox Margin="2" Grid.Row="1" Grid.Column="0" Content="Maintain Judgement *" IsChecked="{Binding Mode=TwoWay, Path=Judgement}" ToolTipService.ToolTip="Ensures that you will maintain a Judgement debuff on the boss by casting a Judgement at least once every 20 seconds." />
+                <CheckBox Margin="2" Grid.Row="2" Grid.Column="0" Content="Lay on Hands Self *" IsChecked="{Binding Mode=TwoWay, Path=LoHSelf}" ToolTipService.ToolTip="Check to use Lay on Hands on yourself to receive 1950 mana.  Use with Glyph of Divinity to return 7800 mana instead." />
+                <CheckBox Margin="2" Grid.Row="3" Grid.Column="0" Content="Ignore Spirit Items *" IsChecked="{Binding Mode=TwoWay, Path=SpiritIrrelevant}" ToolTipService.ToolTip="Check to ignore most items with Spirit in the comparison chart." />
+                <TextBlock Grid.Row="0" Grid.Column="1" Margin="2" Text="GHL Targets: *" ToolTipService.ToolTip="The average number of targets Glyph of Holy Light will affect." />
+                <inputToolkit:NumericUpDown Margin="2" Grid.Row="0" Grid.Column="2" Value="{Binding Mode=TwoWay, Path=GHL_Targets}" Maximum="5" Minimum="0" DecimalPlaces="1" Increment="0.1"/>
+                <TextBlock Grid.Row="1" Grid.Column="1" Margin="2" Text="Divine Plea: *" ToolTipService.ToolTip="The time in minutes between usage of Divine Plea." />
+                <inputToolkit:NumericUpDown Margin="2" Grid.Row="1" Grid.Column="2" Value="{Binding Mode=TwoWay, Path=DivinePlea}" Maximum="30" Minimum="1" DecimalPlaces="1" Increment="0.1"/>
+                <CheckBox Margin="2" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Content="Ignore Hit Items *" IsChecked="{Binding Mode=TwoWay, Path=HitIrrelevant}" ToolTipService.ToolTip="Check to ignore most items with Hit Rating in the comparison chart." />
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

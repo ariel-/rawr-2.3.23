@@ -1,0 +1,235 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{40DF3196-11E9-4D58-AF18-5A8E00E064AD}"
+	ProjectSection(SolutionItems) = preProject
+		WpfControls\System.Windows.Controls.dll = WpfControls\System.Windows.Controls.dll
+		WpfControls\System.Windows.Controls.Input.dll = WpfControls\System.Windows.Controls.Input.dll
+		WpfControls\System.Windows.Controls.Input.WPFToolkit.dll = WpfControls\System.Windows.Controls.Input.WPFToolkit.dll
+		WpfControls\System.Windows.Controls.Layout.Toolkit.dll = WpfControls\System.Windows.Controls.Layout.Toolkit.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.UI.WPF", "Rawr.UI\Rawr.UI.WPF.csproj", "{5FD09748-1430-4CEF-A09A-492962A7D010}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Base.WPF", "Rawr.Base\Rawr.Base.WPF.csproj", "{542537D3-F86B-4022-A161-B2FC6F0218B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Bear.WPF", "Rawr.Bear\Rawr.Bear.WPF.csproj", "{41D24B8B-EAD2-46BF-BBF2-79E814F51D69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Cat.WPF", "Rawr.Cat\Rawr.Cat.WPF.csproj", "{6B7551FD-FCAA-4D09-A217-0F35250F78D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.DPSDK.WPF", "Rawr.DPSDK\Rawr.DPSDK.WPF.csproj", "{1913F0E5-9F4A-41E2-AFD3-842CF2708173}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.DPSWarr.WPF", "Rawr.DPSWarr\Rawr.DPSWarr.WPF.csproj", "{5CB75C8B-6144-4B13-A2EA-00190C0A6D9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Enhance.WPF", "Rawr.Enhance\Rawr.Enhance.WPF.csproj", "{A4D7BC16-018B-4C0E-9C8B-6D766557D926}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Healadin.WPF", "Rawr.Healadin\Rawr.Healadin.WPF.csproj", "{E9AE8EB0-ABC4-41A4-AEDA-735A272887C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Mage.WPF", "Rawr.Mage\Rawr.Mage.WPF.csproj", "{C61A1D1A-21F8-4234-9085-5ECD33978DEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Moonkin.WPF", "Rawr.Moonkin\Rawr.Moonkin.WPF.csproj", "{9334FFDE-D900-4164-BB15-FADB5A67E73F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.ProtWarr.WPF", "Rawr.ProtWarr\Rawr.ProtWarr.WPF.csproj", "{031BCFCE-8351-4187-8D7E-62999832AC22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Retribution.WPF", "Rawr.Retribution\Rawr.Retribution.WPF.csproj", "{C302699A-E850-44B2-BF09-5E696E106735}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Rogue.WPF", "Rawr.Rogue\Rawr.Rogue.WPF.csproj", "{542D6AC9-0436-4347-B737-714F20E73EB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Tree.WPF", "Rawr.Tree\Rawr.Tree.WPF.csproj", "{23BD5E7F-6195-4819-911B-B78578D71802}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.WPF", "Rawr.WPF\Rawr.WPF.csproj", "{B1714458-28F2-47CB-BA37-6153380AB2F9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Elemental.WPF", "Rawr.Elemental\Rawr.Elemental.WPF.csproj", "{48F82E5A-5B78-4D87-8AE2-1949BAF278EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.HealPriest.WPF", "Rawr.HealPriest\Rawr.HealPriest.WPF.csproj", "{6B85524B-DB76-48EC-9999-A01A92E07CA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Hunter.WPF", "Rawr.Hunter\Rawr.Hunter.WPF.csproj", "{35B1AB81-6904-4959-90A8-BB9D89AA281D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.ProtPaladin.WPF", "Rawr.ProtPaladin\Rawr.ProtPaladin.WPF.csproj", "{C15F1991-6025-482E-81AF-17F310EE44D3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.RestoSham.WPF", "Rawr.RestoSham\Rawr.RestoSham.WPF.csproj", "{65A27658-C58D-42F0-A376-62824F5072DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.ShadowPriest.WPF", "Rawr.ShadowPriest\Rawr.ShadowPriest.WPF.csproj", "{0BC8C107-19BF-4103-B4DB-345F970C9C2F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.TankDK.WPF", "Rawr.TankDK\Rawr.TankDK.WPF.csproj", "{6A791E89-09CA-4B38-8077-B06E82BF1F04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rawr.Warlock.WPF", "Rawr.Warlock\Rawr.Warlock.WPF.csproj", "{461E01F3-6B4B-4669-B728-B06D7C71CCE3}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 24
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs03.codeplex.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Rawr.UI\\Rawr.UI.WPF.csproj
+		SccProjectName1 = Rawr.UI
+		SccLocalPath1 = Rawr.UI
+		SccProjectUniqueName2 = Rawr.Base\\Rawr.Base.WPF.csproj
+		SccProjectName2 = Rawr.Base
+		SccLocalPath2 = Rawr.Base
+		SccProjectUniqueName3 = Rawr.Bear\\Rawr.Bear.WPF.csproj
+		SccProjectName3 = Rawr.Bear
+		SccLocalPath3 = Rawr.Bear
+		SccProjectUniqueName4 = Rawr.Cat\\Rawr.Cat.WPF.csproj
+		SccProjectName4 = Rawr.Cat
+		SccLocalPath4 = Rawr.Cat
+		SccProjectUniqueName5 = Rawr.DPSDK\\Rawr.DPSDK.WPF.csproj
+		SccProjectName5 = Rawr.DPSDK
+		SccLocalPath5 = Rawr.DPSDK
+		SccProjectUniqueName6 = Rawr.DPSWarr\\Rawr.DPSWarr.WPF.csproj
+		SccProjectName6 = Rawr.DPSWarr
+		SccLocalPath6 = Rawr.DPSWarr
+		SccProjectUniqueName7 = Rawr.Enhance\\Rawr.Enhance.WPF.csproj
+		SccProjectName7 = Rawr.Enhance
+		SccLocalPath7 = Rawr.Enhance
+		SccProjectUniqueName8 = Rawr.Healadin\\Rawr.Healadin.WPF.csproj
+		SccProjectName8 = Rawr.Healadin
+		SccLocalPath8 = Rawr.Healadin
+		SccProjectUniqueName9 = Rawr.Mage\\Rawr.Mage.WPF.csproj
+		SccProjectName9 = Rawr.Mage
+		SccLocalPath9 = Rawr.Mage
+		SccProjectUniqueName10 = Rawr.Moonkin\\Rawr.Moonkin.WPF.csproj
+		SccProjectName10 = Rawr.Moonkin
+		SccLocalPath10 = Rawr.Moonkin
+		SccProjectUniqueName11 = Rawr.ProtWarr\\Rawr.ProtWarr.WPF.csproj
+		SccProjectName11 = Rawr.ProtWarr
+		SccLocalPath11 = Rawr.ProtWarr
+		SccProjectUniqueName12 = Rawr.Retribution\\Rawr.Retribution.WPF.csproj
+		SccProjectName12 = Rawr.Retribution
+		SccLocalPath12 = Rawr.Retribution
+		SccProjectUniqueName13 = Rawr.Rogue\\Rawr.Rogue.WPF.csproj
+		SccProjectName13 = Rawr.Rogue
+		SccLocalPath13 = Rawr.Rogue
+		SccProjectUniqueName14 = Rawr.Tree\\Rawr.Tree.WPF.csproj
+		SccProjectName14 = Rawr.Tree
+		SccLocalPath14 = Rawr.Tree
+		SccProjectUniqueName15 = Rawr.WPF\\Rawr.WPF.csproj
+		SccProjectName15 = Rawr.WPF
+		SccLocalPath15 = Rawr.WPF
+		SccProjectUniqueName16 = Rawr.Elemental\\Rawr.Elemental.WPF.csproj
+		SccProjectName16 = Rawr.Elemental
+		SccLocalPath16 = Rawr.Elemental
+		SccProjectUniqueName17 = Rawr.HealPriest\\Rawr.HealPriest.WPF.csproj
+		SccProjectName17 = Rawr.HealPriest
+		SccLocalPath17 = Rawr.HealPriest
+		SccProjectUniqueName18 = Rawr.Hunter\\Rawr.Hunter.WPF.csproj
+		SccProjectName18 = Rawr.Hunter
+		SccLocalPath18 = Rawr.Hunter
+		SccProjectUniqueName19 = Rawr.ProtPaladin\\Rawr.ProtPaladin.WPF.csproj
+		SccProjectName19 = Rawr.ProtPaladin
+		SccLocalPath19 = Rawr.ProtPaladin
+		SccProjectUniqueName20 = Rawr.RestoSham\\Rawr.RestoSham.WPF.csproj
+		SccProjectName20 = Rawr.RestoSham
+		SccLocalPath20 = Rawr.RestoSham
+		SccProjectUniqueName21 = Rawr.ShadowPriest\\Rawr.ShadowPriest.WPF.csproj
+		SccProjectName21 = Rawr.ShadowPriest
+		SccLocalPath21 = Rawr.ShadowPriest
+		SccProjectUniqueName22 = Rawr.TankDK\\Rawr.TankDK.WPF.csproj
+		SccProjectName22 = Rawr.TankDK
+		SccLocalPath22 = Rawr.TankDK
+		SccProjectUniqueName23 = Rawr.Warlock\\Rawr.Warlock.WPF.csproj
+		SccProjectName23 = Rawr.Warlock
+		SccLocalPath23 = Rawr.Warlock
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5FD09748-1430-4CEF-A09A-492962A7D010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FD09748-1430-4CEF-A09A-492962A7D010}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FD09748-1430-4CEF-A09A-492962A7D010}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FD09748-1430-4CEF-A09A-492962A7D010}.Release|Any CPU.Build.0 = Release|Any CPU
+		{542537D3-F86B-4022-A161-B2FC6F0218B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{542537D3-F86B-4022-A161-B2FC6F0218B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{542537D3-F86B-4022-A161-B2FC6F0218B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{542537D3-F86B-4022-A161-B2FC6F0218B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41D24B8B-EAD2-46BF-BBF2-79E814F51D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41D24B8B-EAD2-46BF-BBF2-79E814F51D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41D24B8B-EAD2-46BF-BBF2-79E814F51D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41D24B8B-EAD2-46BF-BBF2-79E814F51D69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B7551FD-FCAA-4D09-A217-0F35250F78D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B7551FD-FCAA-4D09-A217-0F35250F78D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B7551FD-FCAA-4D09-A217-0F35250F78D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B7551FD-FCAA-4D09-A217-0F35250F78D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1913F0E5-9F4A-41E2-AFD3-842CF2708173}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1913F0E5-9F4A-41E2-AFD3-842CF2708173}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1913F0E5-9F4A-41E2-AFD3-842CF2708173}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1913F0E5-9F4A-41E2-AFD3-842CF2708173}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CB75C8B-6144-4B13-A2EA-00190C0A6D9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CB75C8B-6144-4B13-A2EA-00190C0A6D9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CB75C8B-6144-4B13-A2EA-00190C0A6D9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CB75C8B-6144-4B13-A2EA-00190C0A6D9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4D7BC16-018B-4C0E-9C8B-6D766557D926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4D7BC16-018B-4C0E-9C8B-6D766557D926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4D7BC16-018B-4C0E-9C8B-6D766557D926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4D7BC16-018B-4C0E-9C8B-6D766557D926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9AE8EB0-ABC4-41A4-AEDA-735A272887C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9AE8EB0-ABC4-41A4-AEDA-735A272887C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9AE8EB0-ABC4-41A4-AEDA-735A272887C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9AE8EB0-ABC4-41A4-AEDA-735A272887C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C61A1D1A-21F8-4234-9085-5ECD33978DEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C61A1D1A-21F8-4234-9085-5ECD33978DEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C61A1D1A-21F8-4234-9085-5ECD33978DEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C61A1D1A-21F8-4234-9085-5ECD33978DEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9334FFDE-D900-4164-BB15-FADB5A67E73F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9334FFDE-D900-4164-BB15-FADB5A67E73F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9334FFDE-D900-4164-BB15-FADB5A67E73F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9334FFDE-D900-4164-BB15-FADB5A67E73F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{031BCFCE-8351-4187-8D7E-62999832AC22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{031BCFCE-8351-4187-8D7E-62999832AC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{031BCFCE-8351-4187-8D7E-62999832AC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{031BCFCE-8351-4187-8D7E-62999832AC22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C302699A-E850-44B2-BF09-5E696E106735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C302699A-E850-44B2-BF09-5E696E106735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C302699A-E850-44B2-BF09-5E696E106735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C302699A-E850-44B2-BF09-5E696E106735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{542D6AC9-0436-4347-B737-714F20E73EB7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{542D6AC9-0436-4347-B737-714F20E73EB7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{542D6AC9-0436-4347-B737-714F20E73EB7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{542D6AC9-0436-4347-B737-714F20E73EB7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23BD5E7F-6195-4819-911B-B78578D71802}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23BD5E7F-6195-4819-911B-B78578D71802}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23BD5E7F-6195-4819-911B-B78578D71802}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23BD5E7F-6195-4819-911B-B78578D71802}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1714458-28F2-47CB-BA37-6153380AB2F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1714458-28F2-47CB-BA37-6153380AB2F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1714458-28F2-47CB-BA37-6153380AB2F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1714458-28F2-47CB-BA37-6153380AB2F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48F82E5A-5B78-4D87-8AE2-1949BAF278EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48F82E5A-5B78-4D87-8AE2-1949BAF278EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F82E5A-5B78-4D87-8AE2-1949BAF278EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48F82E5A-5B78-4D87-8AE2-1949BAF278EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B85524B-DB76-48EC-9999-A01A92E07CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B85524B-DB76-48EC-9999-A01A92E07CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B85524B-DB76-48EC-9999-A01A92E07CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B85524B-DB76-48EC-9999-A01A92E07CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35B1AB81-6904-4959-90A8-BB9D89AA281D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35B1AB81-6904-4959-90A8-BB9D89AA281D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35B1AB81-6904-4959-90A8-BB9D89AA281D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35B1AB81-6904-4959-90A8-BB9D89AA281D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C15F1991-6025-482E-81AF-17F310EE44D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C15F1991-6025-482E-81AF-17F310EE44D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C15F1991-6025-482E-81AF-17F310EE44D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C15F1991-6025-482E-81AF-17F310EE44D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65A27658-C58D-42F0-A376-62824F5072DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65A27658-C58D-42F0-A376-62824F5072DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65A27658-C58D-42F0-A376-62824F5072DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65A27658-C58D-42F0-A376-62824F5072DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BC8C107-19BF-4103-B4DB-345F970C9C2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC8C107-19BF-4103-B4DB-345F970C9C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC8C107-19BF-4103-B4DB-345F970C9C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC8C107-19BF-4103-B4DB-345F970C9C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A791E89-09CA-4B38-8077-B06E82BF1F04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A791E89-09CA-4B38-8077-B06E82BF1F04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A791E89-09CA-4B38-8077-B06E82BF1F04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A791E89-09CA-4B38-8077-B06E82BF1F04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{461E01F3-6B4B-4669-B728-B06D7C71CCE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{461E01F3-6B4B-4669-B728-B06D7C71CCE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{461E01F3-6B4B-4669-B728-B06D7C71CCE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{461E01F3-6B4B-4669-B728-B06D7C71CCE3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

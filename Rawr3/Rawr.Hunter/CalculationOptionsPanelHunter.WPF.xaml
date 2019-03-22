@@ -1,0 +1,61 @@
+<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:dataInput="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:controls="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+    x:Class="Rawr.Hunter.CalculationOptionsPanelHunter"
+    mc:Ignorable="d">
+    <Grid x:Name="LayoutRoot">
+        <controls:TabControl x:Name="Tabs" TabStripPlacement="Top">
+            <controls:TabItem x:Name="Page_00_Instructions" Header="Instructions">
+                <Grid x:Name="Page_00_Layout">
+                    <controls:TabControl x:Name="Tab_Instr" Margin="0">
+                        <controls:TabItem x:Name="Tab_Welcome" Header="Basics">
+                            <Grid x:Name="Tab_Welcome_Layout">
+                                <TextBox x:Name="RTB_Welcome" Margin="3,0,3,3" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" Grid.ColumnSpan="4"/>
+                            </Grid>
+                        </controls:TabItem>
+                        <controls:TabItem x:Name="Tab_Advanced" Header="Advanced">
+                            <Grid x:Name="Tab_Advanced_Layout">
+                                <TextBox x:Name="RTB_Advanced" Margin="3" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                            </Grid>
+                        </controls:TabItem>
+                        <controls:TabItem x:Name="Tab_FAQ" Header="F.A.Q.">
+                            <Grid x:Name="Tab_FAQ_Layout">
+                                <dataInput:Label x:Name="LB_FAQ" Height="48" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Top" Width="298" RenderTransformOrigin="0.474,-14.575" Content="Got a question about Rawr.Hunter?&#xd;&#xa;The answer may be here...&#xd;&#xa;Select a Question or choose All to display All"/>
+                                <ComboBox x:Name="CB_FAQ_Questions" Height="21" Margin="3,52,3,0" VerticalAlignment="Top" SelectionChanged="CB_FAQ_Questions_SelectedIndexChanged"/>
+                                <TextBox x:Name="RTB_FAQ" Margin="3,77,3,3" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                            </Grid>
+                        </controls:TabItem>
+                        <controls:TabItem x:Name="Tab_Version" Header="Version Notes">
+                            <Grid x:Name="Tab_Version_Layout">
+                                <TextBox x:Name="RTB_Version" Margin="3,49,3,3" IsReadOnly="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                                <dataInput:Label x:Name="LB_Version" Height="20" HorizontalAlignment="Left" Margin="3,0,0,0" VerticalAlignment="Top" Width="273" RenderTransformOrigin="0.474,-14.575" Content="Select a Version or choose All to display all"/>
+                                <ComboBox x:Name="CB_Version" Height="21" Margin="3,24,3,0" VerticalAlignment="Top" SelectionChanged="CB_Version_SelectedIndexChanged"/>
+                            </Grid>
+                        </controls:TabItem>
+                    </controls:TabControl>
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem x:Name="Page_03_FightInfo" Background="#FF1F3B53" Header="Boss Selector">
+                <Grid x:Name="Page_03_Layout">
+                    <dataInput:Label x:Name="LB_Where2" Height="21" Margin="8,8,0,0" VerticalAlignment="Top" Content="Where" HorizontalAlignment="Left" Width="40" TabIndex="0"/>
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem x:Name="Page_02_Maintenance" Header="Abilities">
+                <Grid x:Name="Page_02_Layout">
+                    <dataInput:Label x:Name="LB_Where3" Height="21" Margin="8,8,0,0" VerticalAlignment="Top" Content="Where" HorizontalAlignment="Left" Width="40" TabIndex="0"/>
+                </Grid>
+            </controls:TabItem>
+            <controls:TabItem x:Name="Page_04_Misc" Header="Misc">
+                <Grid x:Name="Page_04_Layout">
+                    <dataInput:Label x:Name="LB_Where4" Height="21" Margin="8,8,0,0" VerticalAlignment="Top" Content="Where" HorizontalAlignment="Left" Width="40" TabIndex="0"/>
+                </Grid>
+            </controls:TabItem>
+        </controls:TabControl>
+    </Grid>
+</UserControl>

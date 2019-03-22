@@ -1,0 +1,18 @@
+<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+    xmlns:controls="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	x:Class="Rawr.UI.BuffsControl"
+	d:DesignWidth="340" d:DesignHeight="580">
+
+	<Grid x:Name="LayoutRoot">
+		<ComboBox x:Name="SavedCombo"  Margin="0,-2,67,0" Height="22" VerticalAlignment="Top" SelectionChanged="SavedCombo_SelectionChanged" />
+		<Button x:Name="SaveDeleteButton" Content="Delete" HorizontalAlignment="Right" Width="63" Height="21" VerticalAlignment="Top" Click="SaveDelete_Click" />
+		<ScrollViewer BorderThickness="0,0,0,0" Margin="0,23,0,0">
+			<StackPanel x:Name="BuffStack" HorizontalAlignment="Stretch" Margin="0,0,0,0" Width="Auto"/>
+		</ScrollViewer>
+	</Grid>
+</UserControl>

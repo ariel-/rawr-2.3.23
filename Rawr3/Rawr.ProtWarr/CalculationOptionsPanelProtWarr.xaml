@@ -1,0 +1,58 @@
+﻿<UserControl
+xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
+xmlns:inputToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Input.Toolkit"
+xmlns:layoutToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit"
+xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+mc:Ignorable="d"
+d:DesignWidth="330" d:DesignHeight="600"
+xmlns:local="clr-namespace:Rawr.ProtWarr"
+x:Class="Rawr.ProtWarr.CalculationOptionsPanelProtWarr" 
+>
+
+<UserControl.Resources>
+    <local:CalculationOptionsProtWarr x:Key="CalculationOptionsProtWarrDataSource" d:IsDataSource="True"/>
+</UserControl.Resources>
+
+<Grid x:Name="LayoutRoot" DataContext="{Binding Source={StaticResource CalculationOptionsProtWarrDataSource}}">
+	<Grid.ColumnDefinitions>
+		<ColumnDefinition Width="0.5*"/>
+		<ColumnDefinition Width="0.5*"/>
+	</Grid.ColumnDefinitions>
+	<Grid.RowDefinitions>
+		<RowDefinition Height="Auto"/>
+		<RowDefinition Height="Auto"/>
+		<RowDefinition Height="Auto"/>
+		<RowDefinition Height="Auto"/>
+		<RowDefinition Height="Auto"/>
+		<RowDefinition Height="10"/>
+		<RowDefinition Height="Auto"/>
+		<RowDefinition Height="Auto"/>
+	</Grid.RowDefinitions>
+	<TextBlock Margin="0,2,4,2" VerticalAlignment="Center" Grid.Row="1" Text="Target Armor:" HorizontalAlignment="Right"/>
+	<TextBlock HorizontalAlignment="Right" Margin="0,2,4,2" VerticalAlignment="Center" Grid.Row="2" Text="Boss Attack Value:"/>
+	<TextBlock HorizontalAlignment="Right" Margin="0,2,4,2" VerticalAlignment="Center" Grid.Row="3" Text="Boss Attack Speed:"/>
+	<StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="1">
+		<inputToolkit:NumericUpDown HorizontalAlignment="Left" Margin="4,2,4,2" Width="60" Value="{Binding TargetArmor, Mode=TwoWay, UpdateSourceTrigger=Default}" Maximum="20000" Minimum="0" DecimalPlaces="0" Increment="5"/>
+	</StackPanel>
+	<inputToolkit:NumericUpDown HorizontalAlignment="Left" Margin="4,2,4,2" Width="60" Value="{Binding BossAttackValue, Mode=TwoWay, UpdateSourceTrigger=Default}" Maximum="100000" Minimum="0" DecimalPlaces="0" Increment="50" Grid.Column="1" Grid.Row="2"/>
+	<StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="3">
+		<inputToolkit:NumericUpDown HorizontalAlignment="Left" Margin="4,2,4,2" Width="60" Value="{Binding BossAttackSpeed, Mode=TwoWay, UpdateSourceTrigger=Default}" Maximum="10" Minimum="0.5" DecimalPlaces="1" Increment="0.1"/>
+		<TextBlock HorizontalAlignment="Left" Margin="4,2,4,2" VerticalAlignment="Center" Text="seconds"/>
+	</StackPanel>
+	<CheckBox Margin="0,2,4,2" VerticalAlignment="Center" Content="Vigilance:" Grid.Row="6" IsChecked="{Binding UseVigilance, Mode=TwoWay, UpdateSourceTrigger=Default}" HorizontalAlignment="Right" ToolTipService.ToolTip="Enables the use of Vigilance threat for TPS calculations."/>
+	<StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="6" Margin="0,0,0,1">
+		<inputToolkit:NumericUpDown HorizontalAlignment="Left" Margin="4,2,4,2" Width="60" Value="{Binding VigilanceValue, Mode=TwoWay, UpdateSourceTrigger=Default}" Maximum="20000" Minimum="500" Increment="50" ToolTipService.ToolTip="The raw DPS of the target Vigilance is placed on."/>
+		<TextBlock HorizontalAlignment="Left" Margin="4,2,4,2" VerticalAlignment="Center" Text="DPS"/>
+	</StackPanel>
+	<CheckBox Margin="4,2,0,1" Content="Use Parry Haste" Grid.Row="4" HorizontalAlignment="Left" IsChecked="{Binding UseParryHaste, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Column="1" d:LayoutOverrides="Height"/>
+	<CheckBox Margin="4,2,0,2" VerticalAlignment="Center" Content="3.2 Mode" Grid.Row="12" HorizontalAlignment="Left" IsChecked="{Binding UsePTR, Mode=TwoWay, UpdateSourceTrigger=Default}" Grid.Column="1" d:LayoutOverrides="GridBox"/>
+	<TextBlock Margin="0,5,4,5" TextWrapping="NoWrap" Text="Target Level:" HorizontalAlignment="Right" d:LayoutOverrides="Height"/>
+	<inputToolkit:NumericUpDown HorizontalAlignment="Left" Grid.Column="1" Margin="4,2,0,2" Maximum="83" Minimum="80" Value="{Binding TargetLevel, Mode=TwoWay, UpdateSourceTrigger=Default}" />
+
+</Grid>
+</UserControl>

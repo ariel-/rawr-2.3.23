@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSavedPetTalentSpec xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SavedPetTalentSpec>
+    <Name>Ferocity Utility BM</Name>
+    <Class>Ferocity</Class>
+    <Spec>0010101203100000000000000010020330020</Spec>
+    <Tree>20</Tree>
+  </SavedPetTalentSpec>
+  <SavedPetTalentSpec>
+    <Name>Ferocity Common BM</Name>
+    <Class>Ferocity</Class>
+    <Spec>0200100203100000100010000010000330020</Spec>
+    <Tree>20</Tree>
+  </SavedPetTalentSpec>
+</ArrayOfSavedPetTalentSpec>

@@ -1,0 +1,61 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	xmlns:Rawr="clr-namespace:Rawr;assembly=Rawr.Base"
+	x:Class="Rawr.UI.ItemDisplay" MouseEnter="ShowTooltip" MouseLeave="HideTooltip">
+
+	<Grid>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<Rectangle HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="2" StrokeThickness="0" Fill="#FFFFFFFF"/>
+
+		<Grid x:Name="LayoutRoot" Grid.ColumnSpan="2" Grid.Column="1">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<TextBlock HorizontalAlignment="Left" Margin="2,2,2,2" VerticalAlignment="Top" FontWeight="Bold"
+				Text="{Binding Mode=OneWay, Path=Item.Name}"
+				Foreground="{Binding Converter={StaticResource ItemQualityConverter}, Mode=OneWay, Path=Item}"/>
+			<Border Margin="1,1,1,1" Grid.Row="1" Grid.RowSpan="1" BorderThickness="0"
+				HorizontalAlignment="Left" VerticalAlignment="Center" Padding="1,1,1,1"
+				Background="{Binding Converter={StaticResource GemColorConverter}, ConverterParameter=1, Mode=OneWay}"
+				Visibility="{Binding Converter={StaticResource GemVisibilityConverter}, ConverterParameter=1}">
+				<Image Width="16" Height="16" Source="{Binding Converter={StaticResource IconPathConverter}, Mode=OneWay, Path=Gem1}"/>
+			</Border>
+			<TextBlock Margin="24,2,2,2" Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Left"
+				Text="{Binding Converter={StaticResource GemNameConverter}, ConverterParameter=1}"
+				Visibility="{Binding Converter={StaticResource GemVisibilityConverter}, ConverterParameter=1}"/>
+			<Border HorizontalAlignment="Left" Margin="1,1,1,1" VerticalAlignment="Center" Grid.Row="2" Padding="1,1,1,1" BorderThickness="0"
+				Background="{Binding Converter={StaticResource GemColorConverter}, ConverterParameter=2, Mode=OneWay}"
+				Visibility="{Binding Converter={StaticResource GemVisibilityConverter}, ConverterParameter=2}">
+				<Image Height="16" Width="16" Source="{Binding Converter={StaticResource IconPathConverter}, Mode=OneWay, Path=Gem2}"/>
+			</Border>
+			<TextBlock Margin="24,2,2,2" Grid.Row="2" VerticalAlignment="Center" HorizontalAlignment="Left"
+				Text="{Binding Converter={StaticResource GemNameConverter}, ConverterParameter=2}"
+				Visibility="{Binding Converter={StaticResource GemVisibilityConverter}, ConverterParameter=2}"/>
+			<Border HorizontalAlignment="Left" Margin="1,1,1,1" VerticalAlignment="Center" Grid.Row="3" BorderThickness="0" Padding="1,1,1,1"
+				Background="{Binding Converter={StaticResource GemColorConverter}, ConverterParameter=3, Mode=OneWay}"
+				Visibility="{Binding Converter={StaticResource GemVisibilityConverter}, ConverterParameter=3}">
+				<Image Height="16" Width="16" Source="{Binding Converter={StaticResource IconPathConverter}, Mode=OneWay, Path=Gem3}"/>
+			</Border>
+			<TextBlock Margin="24,2,2,2" Grid.Row="3" VerticalAlignment="Center" HorizontalAlignment="Left"
+				Text="{Binding Converter={StaticResource GemNameConverter}, ConverterParameter=3}"
+				Visibility="{Binding Converter={StaticResource GemVisibilityConverter}, ConverterParameter=3}"/>
+			<TextBlock Margin="2,0,2,2" Grid.Row="4" VerticalAlignment="Top" HorizontalAlignment="Left" Foreground="#FF3A7414"
+				Text="{Binding Converter={StaticResource EnchantNameConverter}, Mode=OneWay}"
+				Visibility="{Binding Converter={StaticResource EnchantVisbilityConverter}, Mode=OneWay}"/>
+		</Grid>
+		<Image HorizontalAlignment="Center" Margin="2,2,2,0" Width="32" VerticalAlignment="Top" Height="32"
+			Source="{Binding Converter={StaticResource IconPathConverter}, Mode=OneWay, Path=Item}" d:LayoutOverrides="VerticalAlignment" />
+	</Grid>
+</UserControl>

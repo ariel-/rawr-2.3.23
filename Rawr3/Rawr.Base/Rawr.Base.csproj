@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{48170BE2-2CF6-4068-B36C-189072D49093}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rawr</RootNamespace>
+    <AssemblyName>Rawr.Base</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>false</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;RAWR3</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;RAWR3</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug - WPF|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug - WPF\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;RAWR3</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <NoConfig>true</NoConfig>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release - WPF|AnyCPU' ">
+    <OutputPath>bin\Release - WPF\</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;RAWR3</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <NoConfig>true</NoConfig>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Linq, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Serialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Rawr.Base\Algorithms\ArrayPool.cs">
+      <Link>Algorithms\ArrayPool.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Algorithms\CalculationCache.cs">
+      <Link>Algorithms\CalculationCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Algorithms\LU.cs">
+      <Link>Algorithms\LU.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Algorithms\MarkovProcess.cs">
+      <Link>Algorithms\MarkovProcess.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Algorithms\StateSpace.cs">
+      <Link>Algorithms\StateSpace.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\AvailableItemGenerator.cs">
+      <Link>AvailableItemGenerator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\BaseStats.cs">
+      <Link>BaseStats.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\BatchCharacter.cs">
+      <Link>BatchCharacter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\BatchOptimizer.cs">
+      <Link>BatchOptimizer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\BatchTools.cs">
+      <Link>BatchTools.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Bosses\BossesT10.cs">
+      <Link>Bosses\BossesT10.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Bosses\BossesT7.cs">
+      <Link>Bosses\BossesT7.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Bosses\BossesT8.cs">
+      <Link>Bosses\BossesT8.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Bosses\BossesT9.cs">
+      <Link>Bosses\BossesT9.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Bosses\BossHandler.cs">
+      <Link>Bosses\BossHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Bosses\BossList.cs">
+      <Link>Bosses\BossList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Buff.cs">
+      <Link>Buff.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Calculations.cs">
+      <Link>Calculations.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Character.cs">
+      <Link>Character.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\CharacterProfilerData.cs">
+      <Link>CharacterProfilerData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\ClassGlyphs.cs">
+      <Link>ClassGlyphs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\ClassTalents.cs">
+      <Link>ClassTalents.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\CustomControls\ErrorBox.cs">
+      <Link>CustomControls\ErrorBox.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Enchant.cs">
+      <Link>Enchant.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\EnumHelper.cs">
+      <Link>EnumHelper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Enums.cs">
+      <Link>Enums.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\GemmingTemplate.cs">
+      <Link>GemmingTemplate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\ICharacterCalculationOptions.cs">
+      <Link>ICharacterCalculationOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Item.cs">
+      <Link>Item.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\ItemCache.cs">
+      <Link>ItemCache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Optimizer.cs">
+      <Link>Optimizer.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\OptimizerBase.cs">
+      <Link>OptimizerBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\OptimizerResults.cs">
+      <Link>OptimizerResults.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Profs.cs">
+      <Link>Profs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SavedBuffSet.cs">
+      <Link>SavedBuffSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SavedTalentSpec.cs">
+      <Link>SavedTalentSpec.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SavedVariablesParser.cs">
+      <Link>SavedVariablesParser.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SerializableDictionary.cs">
+      <Link>SerializableDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SpecialDamageProcs.cs">
+      <Link>SpecialDamageProcs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SpecialEffect.cs">
+      <Link>SpecialEffect.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SpecialEffectCombination.cs">
+      <Link>SpecialEffectCombination.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SpecialEffectInterpolator.cs">
+      <Link>SpecialEffectInterpolator.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SpecialEffects.cs">
+      <Link>SpecialEffects.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\SpecialFunction.cs">
+      <Link>SpecialFunction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\StatConversion.cs">
+      <Link>StatConversion.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Stats.cs">
+      <Link>Stats.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\StatusMessaging.cs">
+      <Link>StatusMessaging.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Base\Utilities.cs">
+      <Link>Utilities.cs</Link>
+    </Compile>
+    <Compile Include="Armory.cs" />
+    <Compile Include="ArrayUtils.cs" />
+    <Compile Include="CustomControls\Graph.xaml.cs">
+      <DependentUpon>Graph.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ElitistArmoryService.cs" />
+    <Compile Include="EventArgsT.cs" />
+    <Compile Include="ItemFilter.cs" />
+    <Compile Include="ItemLocation.cs" />
+    <Compile Include="ListUtils.cs" />
+    <Compile Include="NetworkUtils.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\CacheSettings.cs" />
+    <Compile Include="Settings\GeneralSettings.cs" />
+    <Compile Include="Settings\NetworkSettings.cs" />
+    <Compile Include="Settings\OptimizerSettings.cs" />
+    <Compile Include="Settings\RecentSettings.cs" />
+    <Compile Include="Settings\Settings.cs" />
+    <Compile Include="XMLUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CustomControls\Graph.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

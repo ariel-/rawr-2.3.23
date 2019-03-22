@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Rawr.Properties" GeneratedClassName="CacheSettings">
+  <Profiles />
+  <Settings>
+    <Setting Name="RelativeItemImageCache" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data/images</Value>
+    </Setting>
+    <Setting Name="RelativeTalentImageCache" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data/talent_images</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,19 @@
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             x:Class="Rawr.UI.App"
+			 xmlns:local="clr-namespace:Rawr.UI"
+             mc:Ignorable="d">
+	<Application.Resources>
+		<ResourceDictionary>
+			<local:IconPathConverter x:Key="IconPathConverter"/>
+			<local:GemColorConverter x:Key="GemColorConverter"/>
+            <local:ItemQualityConverter x:Key="ItemQualityConverter"/>
+            <local:PercentConverter x:Key="PercentConverter"/>
+            <local:GemVisibilityConverter x:Key="GemVisibilityConverter"/>
+            <local:GemNameConverter x:Key="GemNameConverter"/>
+            <local:EnchantNameConverter x:Key="EnchantNameConverter"/>
+            <local:EnchantVisbilityConverter x:Key="EnchantVisbilityConverter"/>
+        </ResourceDictionary>
+    </Application.Resources>		 
+</Application>

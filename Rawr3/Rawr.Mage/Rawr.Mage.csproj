@@ -1,0 +1,275 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(MSBuildToolsVersion)' == '3.5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F0F978C4-0F75-4487-B29C-C9C1AE726EC5}</ProjectGuid>
+    <ProjectTypeGuids>{A1591282-1198-4647-A2B1-27E5FF5F6F3B};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Rawr.Mage</RootNamespace>
+    <AssemblyName>Rawr.Mage</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightApplication>false</SilverlightApplication>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;RAWR3</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;RAWR3</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows" />
+    <Reference Include="mscorlib" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Data, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=4.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Browser" />
+    <Reference Include="System.Xml.Serialization, Version=2.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Rawr.Mage\ArrayPool.cs">
+      <Link>ArrayPool.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\CalculationOptionsMage.cs">
+      <Link>CalculationOptionsMage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\CalculationsMage.cs">
+      <Link>CalculationsMage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\CastingState.cs">
+      <Link>CastingState.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\CharacterCalculationsMage.cs">
+      <Link>CharacterCalculationsMage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\ComparisonCalculationMage.cs">
+      <Link>ComparisonCalculationMage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\Encounter.cs">
+      <Link>Encounter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\FSRCalc.cs">
+      <Link>FSRCalc.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\Heap.cs">
+      <Link>Heap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\ListUtils.cs">
+      <Link>ListUtils.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\LP.cs">
+      <Link>LP.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\LU.cs">
+      <Link>LU.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\Sequence.cs">
+      <Link>Sequence.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SequenceGroup.cs">
+      <Link>SequenceGroup.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SequenceItem.cs">
+      <Link>SequenceItem.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\Solver.cs">
+      <Link>Solver.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\Solver.MIP.cs">
+      <Link>Solver.MIP.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SolverLP.cs">
+      <Link>SolverLP.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SparseMatrix.cs">
+      <Link>SparseMatrix.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SpellInfo\Cycle.cs">
+      <Link>SpellInfo\Cycle.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SpellInfo\CycleDataArcane.cs">
+      <Link>SpellInfo\CycleDataArcane.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SpellInfo\CycleDataDeprecated.cs">
+      <Link>SpellInfo\CycleDataDeprecated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SpellInfo\CycleDataFire.cs">
+      <Link>SpellInfo\CycleDataFire.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SpellInfo\CycleDataFrost.cs">
+      <Link>SpellInfo\CycleDataFrost.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SpellInfo\Spell.cs">
+      <Link>SpellInfo\Spell.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SpellInfo\SpellData.cs">
+      <Link>SpellInfo\SpellData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\SpellInfo\SpellTemplate.cs">
+      <Link>SpellInfo\SpellTemplate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\StateDescriptionParser.cs">
+      <Link>StateDescriptionParser.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\StateDescriptionParseTree.cs">
+      <Link>StateDescriptionParseTree.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Rawr.Mage\StateDescriptionScanner.cs">
+      <Link>StateDescriptionScanner.cs</Link>
+    </Compile>
+    <Compile Include="CalculationOptionsPanelMage.xaml.cs">
+      <DependentUpon>CalculationOptionsPanelMage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomSpellMixDialog.xaml.cs">
+      <DependentUpon>CustomSpellMixDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CycleAnalyzerDialog.xaml.cs">
+      <DependentUpon>CycleAnalyzerDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\ChartWithText.cs" />
+    <Compile Include="Graphs\EnumerableFunctions.cs" />
+    <Compile Include="Graphs\ProcUptimeControl.xaml.cs">
+      <DependentUpon>ProcUptimeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\SequenceReconstructionControl.xaml.cs">
+      <DependentUpon>SequenceReconstructionControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Graphs\TimeIntervalDataPoint.cs" />
+    <Compile Include="Graphs\TimeIntervalSeries.cs" />
+    <Compile Include="Graphs\ValueHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rawr.Base\Rawr.Base.csproj">
+      <Project>{48170BE2-2CF6-4068-B36C-189072D49093}</Project>
+      <Name>Rawr.Base</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="CalculationOptionsPanelMage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CustomSpellMixDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="CycleAnalyzerDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\ProcUptimeControl.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Graphs\SequenceReconstructionControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:MarkupCompilePass1</Generator>
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{A1591282-1198-4647-A2B1-27E5FF5F6F3B}">
+        <SilverlightProjectProperties />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
